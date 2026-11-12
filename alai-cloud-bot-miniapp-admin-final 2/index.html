@@ -874,9 +874,12 @@ async function claimPrize(){
 }
 async function loadProfile(){
   readLocalProfile(); renderWheel(); renderProfile();
+  /* В Telegram показываем колесо сразу, пока профиль синхронизируется; серверный ответ ниже закроет его для уже сыгравших. */
+  if(IS_TELEGRAM_RUNTIME&&!profileState.wheelSpun) showWelcomeWheelIfNeeded();
   try{ await profileRequest(); }catch(error){ if(error?.code!=='USER_BLOCKED') console.warn('[profile]',error.message); }
   renderWheel(); renderProfile();
-  showWelcomeWheelIfNeeded();
+  if(profileState.wheelSpun) closeWheel();
+  else showWelcomeWheelIfNeeded();
 }
 function logo3dInner(){ return LOGO_URL?`<img src="${LOGO_URL}" alt="Alai Cloud">`:logoBadge(320); }
 function attachLogo3D(){
