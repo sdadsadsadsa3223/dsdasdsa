@@ -884,7 +884,7 @@ async function claimPrize(){
 async function loadProfile(){
   readLocalProfile(); renderWheel(); renderProfile();
   /* В Telegram показываем колесо сразу, пока профиль синхронизируется; серверный ответ ниже закроет его для уже сыгравших. */
-  if(IS_TELEGRAM_RUNTIME&&!profileState.wheelSpun) showWelcomeWheelIfNeeded();
+  if(!profileState.wheelSpun) showWelcomeWheelIfNeeded();
   try{ await profileRequest(); }catch(error){ if(error?.code!=='USER_BLOCKED') console.warn('[profile]',error.message); }
   renderWheel(); renderProfile();
   if(profileState.wheelSpun) closeWheel();
