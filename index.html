@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
+<script>window.lucide=window.lucide||{createIcons() {}};</script>
 <script src="/assets/telegram-config.js"></script>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
@@ -150,6 +151,13 @@
   .hero-offer-text{ display:block; margin-top:3px; color:#fff; font-size:clamp(14px,1.5vw,17px); line-height:1.2 }
   .hero-actions a{ min-height:50px; border-radius:15px; transition:transform .25s ease,box-shadow .25s ease }
   .hero-actions a:hover{ transform:translateY(-2px) }
+  .hero-wheel-cta{ width:min(100%,510px); min-height:68px; display:flex; align-items:center; gap:12px; margin-top:14px; padding:11px 14px; border:1px solid rgba(233,190,106,.72); border-radius:18px; background:linear-gradient(105deg,#f5d9a0 0%,#d59a32 52%,#a66d20 100%); color:#211606; text-align:left; box-shadow:0 18px 35px -18px rgba(233,190,106,.95),inset 0 1px rgba(255,255,255,.72); transition:transform .25s,box-shadow .25s,filter .25s }
+  .hero-wheel-cta:hover{ transform:translateY(-3px); filter:saturate(1.08); box-shadow:0 22px 42px -18px rgba(233,190,106,1),inset 0 1px rgba(255,255,255,.82) }
+  .hero-wheel-icon{ width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(33,22,6,.25); border-radius:13px; background:rgba(255,248,221,.38); font-size:24px }
+  .hero-wheel-copy{ min-width:0; flex:1 }
+  .hero-wheel-copy strong{ display:block; font-size:15px; font-weight:900; line-height:1.1 }
+  .hero-wheel-copy small{ display:block; margin-top:4px; color:rgba(33,22,6,.68); font-size:11px; font-weight:800; line-height:1.2 }
+  .hero-wheel-arrow{ width:30px; height:30px; display:grid; place-items:center; flex:0 0 auto; border-radius:50%; background:rgba(33,22,6,.14); font-size:21px; font-weight:900 }
   .hero-visual{ position:relative; min-height:290px; display:grid; place-items:center }
   .hero-visual::before{ content:""; position:absolute; width:min(40vw,410px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(233,190,106,.24); box-shadow:0 0 0 20px rgba(233,190,106,.025),0 0 80px rgba(233,190,106,.2) }
   .hero-proof{ position:absolute; z-index:3; min-width:112px; padding:9px 12px; border:1px solid rgba(233,190,106,.3); border-radius:14px; background:rgba(9,10,13,.82); backdrop-filter:blur(12px); box-shadow:0 18px 36px rgba(0,0,0,.35); font-size:16px; font-weight:800; color:var(--gold-hi) }
@@ -219,7 +227,28 @@
   .profile-stat{ min-height:90px; padding:13px; border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(255,255,255,.05) }
   .profile-stat span{ display:block; color:rgba(255,255,255,.5); font-size:11px; font-weight:800 }
   .profile-stat strong{ display:block; margin-top:8px; color:#fff; font-size:17px; line-height:1.2 }
+  .profile-stat small{ display:block; margin-top:6px; color:rgba(255,255,255,.4); font-size:10px; line-height:1.25 }
   .profile-stat.prize strong{ color:var(--gold-hi); font-size:14px }
+  .profile-stat.prize{ grid-column:1/-1; min-height:76px }
+  .profile-club-hero{ display:flex; align-items:center; gap:12px; margin:16px 0 12px; padding:13px; border:1px solid rgba(233,190,106,.24); border-radius:20px; background:linear-gradient(135deg,rgba(233,190,106,.15),rgba(255,255,255,.04) 55%,rgba(42,171,238,.08)); box-shadow:inset 0 1px rgba(255,255,255,.1) }
+  .profile-avatar{ width:52px; height:52px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(245,217,160,.6); border-radius:17px; background:radial-gradient(circle at 35% 20%,#fff5d2,#e9be6a 48%,#94611d); color:#231707; font:900 16px/1 'Unbounded',sans-serif; box-shadow:0 10px 22px rgba(233,190,106,.22),inset 0 1px rgba(255,255,255,.75) }
+  .profile-club-copy{ min-width:0; flex:1 }
+  .profile-club-copy small{ display:block; color:var(--gold-hi); font-size:9px; font-weight:900; letter-spacing:.15em; text-transform:uppercase }
+  .profile-club-copy strong{ display:block; margin-top:4px; color:#fff; font:800 15px/1.15 'Unbounded',sans-serif; letter-spacing:-.045em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .profile-club-copy span{ display:block; margin-top:5px; color:rgba(255,255,255,.55); font-size:11px }
+  .profile-level-mark{ width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(255,255,255,.18); border-radius:14px; background:rgba(8,10,14,.34); color:#fff2c4; font:900 11px/1 'Unbounded',sans-serif }
+  .profile-progress-card{ padding:13px; border:1px solid rgba(255,255,255,.1); border-radius:18px; background:rgba(255,255,255,.045) }
+  .profile-progress-top,.profile-progress-bottom{ display:flex; align-items:center; justify-content:space-between; gap:8px }
+  .profile-progress-top{ color:rgba(255,255,255,.62); font-size:11px; font-weight:800 }
+  .profile-progress-top strong{ color:var(--gold-hi); font-size:13px }
+  .profile-progress-track{ height:9px; margin:10px 0 8px; overflow:hidden; border-radius:999px; background:rgba(255,255,255,.1); box-shadow:inset 0 1px rgba(0,0,0,.3) }
+  .profile-progress-fill{ display:block; width:0; height:100%; border-radius:inherit; background:linear-gradient(90deg,#c08a2e,#f5d9a0,#2aabee); box-shadow:0 0 16px rgba(233,190,106,.52); transition:width .6s cubic-bezier(.16,1,.3,1) }
+  .profile-progress-bottom{ color:rgba(255,255,255,.42); font-size:10px; line-height:1.25 }
+  .profile-mission{ margin-top:12px; padding:14px; border:1px solid rgba(42,171,238,.25); border-radius:18px; background:linear-gradient(135deg,rgba(42,171,238,.12),rgba(255,255,255,.035)); }
+  .profile-mission-kicker{ color:#9adfff; font-size:9px; font-weight:900; letter-spacing:.14em; text-transform:uppercase }
+  .profile-mission strong{ display:block; margin-top:5px; color:#fff; font-size:14px; line-height:1.25 }
+  .profile-mission p{ margin:5px 0 10px; color:rgba(255,255,255,.56); font-size:11px; line-height:1.4 }
+  .profile-mission button{ min-height:34px; padding:0 12px; border:1px solid rgba(42,171,238,.45); border-radius:11px; background:rgba(42,171,238,.14); color:#b9ecff; font-size:11px; font-weight:900 }
   .profile-hint{ margin:2px 0 14px; color:rgba(255,255,255,.48); font-size:12px; line-height:1.45 }
   .profile-wheel-link{ width:100%; min-height:44px; margin-top:9px; border:1px solid rgba(233,190,106,.3); border-radius:13px; background:rgba(233,190,106,.09); color:var(--gold-hi); font-size:13px; font-weight:900 }
   .trust-grid>div{ min-height:78px; padding:16px!important; border-color:rgba(233,190,106,.13); transition:transform .25s,border-color .25s }
@@ -543,14 +572,35 @@
     <button type="button" class="profile-close" onclick="closeProfile()" aria-label="Закрыть">×</button>
     <div class="wheel-kicker">Alai Cloud · личный кабинет</div>
     <h2 id="profileTitle">Твой профиль</h2>
+    <div class="profile-club-hero">
+      <div id="profileAvatar" class="profile-avatar">AC</div>
+      <div class="profile-club-copy">
+        <small>Alai Club</small>
+        <strong id="profileGreeting">Твой прогресс</strong>
+        <span id="profileLevelMeta">Статус растёт с каждым заказом</span>
+      </div>
+      <div id="profileLevelMark" class="profile-level-mark">01</div>
+    </div>
+    <div class="profile-progress-card">
+      <div class="profile-progress-top"><span id="profileLevelName">Старт</span><strong id="profileXp">0 XP</strong></div>
+      <div class="profile-progress-track"><span id="profileProgressFill" class="profile-progress-fill"></span></div>
+      <div class="profile-progress-bottom"><span id="profileProgressLabel">0 / 1 заказ</span><span id="profileNextLevel">Следующий статус рядом</span></div>
+    </div>
     <label class="profile-label" for="profileNameInput">Имя</label>
     <div class="profile-name-row">
       <input id="profileNameInput" maxlength="60" placeholder="Как к тебе обращаться?" autocomplete="name">
       <button id="profileSaveBtn" type="button" class="profile-save" onclick="saveProfileName()">Сохранить</button>
     </div>
     <div class="profile-stats">
-      <div class="profile-stat"><span>Заказов</span><strong id="profileOrders">0</strong></div>
+      <div class="profile-stat"><span>Заказов</span><strong id="profileOrders">0</strong><small id="profileOrdersHint">Первый заказ впереди</small></div>
+      <div class="profile-stat"><span>XP клуба</span><strong id="profileXpStat">0</strong><small>+100 XP за заказ</small></div>
       <div class="profile-stat prize"><span>Твой приз</span><strong id="profilePrize">Колесо ещё не крутили</strong></div>
+    </div>
+    <div class="profile-mission">
+      <div class="profile-mission-kicker">Твоя следующая цель</div>
+      <strong id="profileMissionTitle">Оформи первый заказ</strong>
+      <p id="profileMissionCopy">Начни свой прогресс в Alai Club — выбери устройство и получи готовый заказ в Telegram.</p>
+      <button type="button" onclick="openProfileCatalog()">Открыть каталог →</button>
     </div>
     <p id="profileHint" class="profile-hint">Колесо доступно один раз для новых пользователей.</p>
     <button id="claimPrizeBtn" type="button" class="claim-prize hidden" onclick="claimPrize()">🎁 Забрать приз у менеджера</button>
@@ -631,7 +681,7 @@ function openReferralTelegram(){
   openTelegramUrl(target);
 }
 
-const PROFILE_STORAGE_KEY='alai-cloud-profile-v5';
+const PROFILE_STORAGE_KEY='alai-cloud-profile-v6';
 const DEFAULT_PROFILE_PRIZES=['WAKA 10000','1 банка ZYN','Puffmi','Скидка 300 сом','Скидка 800 сом','Бесплатная доставка','Скидка 500 сом'];
 const PRIZE_VISUALS={
   'WAKA 10000':{image:'/assets/prizes/waka-10000.png',eyebrow:'подарок бренда',title:'WAKA',subtitle:'10000'},
@@ -712,13 +762,42 @@ function renderWheel(prizes=profileState.prizes){
   lights.innerHTML=Array.from({length:28},(_,i)=>{ const p=polarPoint(180,180,169,i*(360/28)-90); return `<circle class="wheel-led" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="3.2"/>`; }).join('');
   center.innerHTML=`<circle cx="180" cy="180" r="55" fill="#080b10" stroke="url(#wheelMetal)" stroke-width="4"/><circle cx="180" cy="180" r="46" fill="url(#wheelCore)" stroke="#fff0bf" stroke-opacity=".4"/><text x="180" y="178" text-anchor="middle" fill="#1a1408" font-family="Unbounded, sans-serif" font-weight="900" font-size="16" letter-spacing="-1.5">ALAI</text><text x="180" y="193" text-anchor="middle" fill="#1a1408" font-family="Manrope, sans-serif" font-weight="900" font-size="8" letter-spacing="3">CLOUD</text>`;
 }
+function orderWord(value){ const n=Math.abs(Number(value)||0)%100; const one=n%10===1&&n!==11; const few=n%10>=2&&n%10<=4&&(n<10||n>=20); return one?'заказ':few?'заказа':'заказов'; }
+function profileLevelData(value){
+  const orders=Math.max(0,Number(value)||0); const levels=[
+    {min:0,name:'Старт',meta:'Первый шаг в Alai Club',badge:'01'},
+    {min:1,name:'Постоянный',meta:'Ты уже в клубе',badge:'02'},
+    {min:3,name:'VIP',meta:'Твой выбор заметен',badge:'03'},
+    {min:5,name:'Alai Legend',meta:'Максимальный статус',badge:'04'}
+  ];
+  let current=levels[0]; for(const level of levels){ if(orders>=level.min) current=level; }
+  const next=levels.find(level=>level.min>orders)||null; const progress=next?Math.min(100,Math.max(0,((orders-current.min)/(next.min-current.min))*100)):100;
+  return {orders,xp:orders*100,current,next,progress,remaining:next?next.min-orders:0};
+}
+function openProfileCatalog(){ closeProfile(); requestAnimationFrame(()=>document.getElementById('catalog')?.scrollIntoView({behavior:'smooth',block:'start'})); }
 function renderProfile(){
+  const level=profileLevelData(profileState.ordersCount); const displayName=String(profileState.displayName||profileState.firstName||'').trim();
+  const avatar=document.getElementById('profileAvatar'); if(avatar){ const parts=(displayName||'Alai Cloud').split(/\s+/).filter(Boolean); avatar.textContent=(parts.length>1?parts[0][0]+parts[1][0]:parts[0].slice(0,2)).toUpperCase(); }
+  const greeting=document.getElementById('profileGreeting'); if(greeting) greeting.textContent=displayName?`Привет, ${displayName}`:'Твой прогресс';
+  const levelMeta=document.getElementById('profileLevelMeta'); if(levelMeta) levelMeta.textContent=`${level.current.meta} · ${level.current.name}`;
+  const levelMark=document.getElementById('profileLevelMark'); if(levelMark) levelMark.textContent=`LV ${level.current.badge}`;
+  const levelName=document.getElementById('profileLevelName'); if(levelName) levelName.textContent=level.current.name;
+  const xp=document.getElementById('profileXp'); if(xp) xp.textContent=`${level.xp} XP`;
+  const xpStat=document.getElementById('profileXpStat'); if(xpStat) xpStat.textContent=String(level.xp);
+  const progress=document.getElementById('profileProgressFill'); if(progress) progress.style.width=`${level.progress}%`;
+  const progressLabel=document.getElementById('profileProgressLabel'); if(progressLabel) progressLabel.textContent=level.next?`${level.orders} / ${level.next.min} ${orderWord(level.next.min)}`:'Максимальный статус';
+  const nextLevel=document.getElementById('profileNextLevel'); if(nextLevel) nextLevel.textContent=level.next?`До ${level.next.name}`:'Ты в топе';
   const name=document.getElementById('profileNameInput'); if(name&&document.activeElement!==name) name.value=profileState.displayName||profileState.firstName||'';
-  const orders=document.getElementById('profileOrders'); if(orders) orders.textContent=String(profileState.ordersCount||0);
+  const orders=document.getElementById('profileOrders'); if(orders) orders.textContent=String(level.orders);
+  const ordersHint=document.getElementById('profileOrdersHint'); if(ordersHint) ordersHint.textContent=level.next?`Ещё ${level.remaining} до ${level.next.name}`:'Максимальный статус';
   const prize=document.getElementById('profilePrize'); if(prize) prize.textContent=profileState.prize||'Колесо ещё не крутили';
+  const missionTitle=document.getElementById('profileMissionTitle'); if(missionTitle) missionTitle.textContent=level.next?(level.orders===0?'Первый заказ — первый уровень':`Ещё ${level.remaining} ${orderWord(level.remaining)} до «${level.next.name}»`):'Ты достиг максимального статуса';
+  const missionCopy=document.getElementById('profileMissionCopy'); if(missionCopy) missionCopy.textContent=level.next?(level.orders===0?'Выбери устройство, оформи заказ и начни собирать свой прогресс в Alai Club.':`Каждый подтверждённый заказ приносит 100 XP. Продолжай — следующий статус уже близко.`):'Спасибо, что выбираешь Alai Cloud. Открой каталог и посмотри новинки для следующего заказа.';
   const hint=document.getElementById('profileHint'); if(hint) hint.textContent=profileState.prizeClaimed?'Запрос отправлен менеджеру — скоро свяжемся с тобой.':(profileState.prize?'Приз сохранён. Нажми кнопку ниже, чтобы забрать его.':'Колесо доступно один раз для новых пользователей.');
   const claim=document.getElementById('claimPrizeBtn'); if(claim){ claim.classList.toggle('hidden',!profileState.prize); claim.disabled=Boolean(profileState.prizeClaimed); claim.textContent=profileState.prizeClaimed?'✅ Запрос отправлен менеджеру':'🎁 Забрать приз у менеджера'; }
   const wheelBtn=document.getElementById('profileWheelBtn'); if(wheelBtn){ wheelBtn.classList.toggle('hidden',Boolean(profileState.wheelSpun)); }
+  const heroWheelTitle=document.getElementById('heroWheelBtnTitle'); if(heroWheelTitle) heroWheelTitle.textContent=profileState.wheelSpun?'Открыть свой приз':'Крутить колесо и забрать приз';
+  const heroWheelMeta=document.getElementById('heroWheelBtnMeta'); if(heroWheelMeta) heroWheelMeta.textContent=profileState.wheelSpun?'Результат уже сохранён в профиле':'Подарок для новых пользователей · один шанс';
   const dot=document.getElementById('profilePrizeDot'); if(dot) dot.classList.toggle('hidden',!profileState.prize);
 }
 function openWheel(){
@@ -735,6 +814,13 @@ function openProfile(){
   closeWheel(); renderProfile();
   const modal=document.getElementById('profileModal'); if(!modal) return;
   modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function showWelcomeWheelIfNeeded(){
+  if(profileState.wheelSpun||!document.getElementById('blockedScreen')?.classList.contains('hidden')) return;
+  const intro=document.getElementById('intro');
+  const introVisible=intro&&getComputedStyle(intro).display!=='none'&&!intro.classList.contains('hide');
+  if(introVisible){ window.setTimeout(showWelcomeWheelIfNeeded,360); return; }
+  openWheel();
 }
 function closeProfile(){
   const modal=document.getElementById('profileModal'); if(!modal) return;
@@ -797,9 +883,12 @@ async function claimPrize(){
 }
 async function loadProfile(){
   readLocalProfile(); renderWheel(); renderProfile();
+  /* В Telegram показываем колесо сразу, пока профиль синхронизируется; серверный ответ ниже закроет его для уже сыгравших. */
+  if(!profileState.wheelSpun) showWelcomeWheelIfNeeded();
   try{ await profileRequest(); }catch(error){ if(error?.code!=='USER_BLOCKED') console.warn('[profile]',error.message); }
   renderWheel(); renderProfile();
-  if(!profileState.wheelSpun&&document.getElementById('blockedScreen')?.classList.contains('hidden')){ setTimeout(()=>{ if(!profileState.wheelSpun&&!document.getElementById('blockedScreen')?.classList.contains('hidden')) openWheel(); },IS_TELEGRAM_RUNTIME?700:3400); }
+  if(profileState.wheelSpun) closeWheel();
+  else showWelcomeWheelIfNeeded();
 }
 function logo3dInner(){ return LOGO_URL?`<img src="${LOGO_URL}" alt="Alai Cloud">`:logoBadge(320); }
 function attachLogo3D(){
@@ -1468,6 +1557,11 @@ function renderHome(){
           <a href="#catalog" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink);box-shadow:0 12px 30px -14px rgba(233,190,106,.6)">${t('ctaCatalog')} <i data-lucide="arrow-down" style="width:16px;height:16px"></i></a>
           <button onclick="openTelegramContact()" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:16px;height:16px"></i> ${t('ctaWa')}</button>
         </div>
+        <button id="heroWheelBtn" type="button" class="hero-wheel-cta" onclick="openWheel()">
+          <span class="hero-wheel-icon">🎡</span>
+          <span class="hero-wheel-copy"><strong id="heroWheelBtnTitle">Крутить колесо и забрать приз</strong><small id="heroWheelBtnMeta">Подарок для новых пользователей · один шанс</small></span>
+          <span class="hero-wheel-arrow">→</span>
+        </button>
       </div>
       <div class="hero-visual rvl">
         <div class="hero-proof hero-proof-one">100%<small>original</small></div>

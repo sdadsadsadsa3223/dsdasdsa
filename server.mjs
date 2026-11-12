@@ -24,10 +24,14 @@ loadDotEnv();
 const PORT = Number(process.env.PORT || 8787);
 const BOT_TOKEN = String(process.env.TELEGRAM_BOT_TOKEN || '').trim();
 const MINI_APP_URL = String(process.env.MINI_APP_URL || `http://127.0.0.1:${PORT}`).trim().replace(/\/$/, '');
+const MINI_APP_VERSION = String(process.env.MINI_APP_VERSION || '20261112-cta').trim();
+const MINI_APP_OPEN_URL = `${MINI_APP_URL}${MINI_APP_URL.includes('?') ? '&' : '?'}v=${encodeURIComponent(MINI_APP_VERSION)}`;
 const MANAGER_CHAT_ID = String(process.env.MANAGER_CHAT_ID || '').trim();
 const MANAGER_CONTACT_URL = String(process.env.MANAGER_CONTACT_URL || 'https://t.me/alairustam').trim();
 const WELCOME_BANNER = path.join(ROOT, 'assets', 'telegram-welcome-banner.png');
 const WELCOME_STICKER_ID = String(process.env.WELCOME_STICKER_ID || '').trim();
+/* Меняйте WHEEL_PERIOD_ID только при запуске новой кампании колеса. */
+const WHEEL_PERIOD_ID = String(process.env.WHEEL_PERIOD_ID || 'campaign-2026-11-12-v2').trim();
 const ADMIN_CHAT_IDS = new Set([
   ...String(process.env.ADMIN_IDS || '').split(','),
   ...String(process.env.ADMIN_CHAT_ID || '').split(',')
@@ -95,7 +99,7 @@ function emptyState() {
     users: {},
     orders: [],
     broadcasts: [],
-    wheelPeriodId: `period-${Date.now().toString(36)}`,
+    wheelPeriodId: WHEEL_PERIOD_ID,
     wheelResets: [],
     adminActions: []
   };
@@ -109,7 +113,7 @@ async function readState() {
       users: parsed?.users && typeof parsed.users === 'object' ? parsed.users : {},
       orders: Array.isArray(parsed?.orders) ? parsed.orders : [],
       broadcasts: Array.isArray(parsed?.broadcasts) ? parsed.broadcasts : [],
-      wheelPeriodId: String(parsed?.wheelPeriodId || `period-${Date.now().toString(36)}`),
+      wheelPeriodId: WHEEL_PERIOD_ID || String(parsed?.wheelPeriodId || `period-${Date.now().toString(36)}`),
       wheelResets: Array.isArray(parsed?.wheelResets) ? parsed.wheelResets : [],
       adminActions: Array.isArray(parsed?.adminActions) ? parsed.adminActions : []
     };
@@ -298,7 +302,7 @@ function welcomeCaption(firstName = '') {
 function catalogKeyboard() {
   return {
     inline_keyboard: [
-      [{text: 'Открыть каталог', web_app: {url: MINI_APP_URL}}],
+      [{text: 'Открыть каталог', web_app: {url: MINI_APP_OPEN_URL}}],
       [{text: 'Написать менеджеру', url: MANAGER_CONTACT_URL}]
     ]
   };
@@ -313,7 +317,7 @@ function adminKeyboard() {
       [{text: '🚫 Заблокировать', callback_data: 'admin:ban'}, {text: '✅ Разблокировать', callback_data: 'admin:unban'}],
       [{text: '⛔ Заблокированные', callback_data: 'admin:blocked'}, {text: '📤 CSV', callback_data: 'admin:export'}],
       [{text: '🔄 Обновить', callback_data: 'admin:refresh'}],
-      [{text: '🛍 Открыть Mini App', web_app: {url: MINI_APP_URL}}]
+      [{text: '🛍 Открыть Mini App', web_app: {url: MINI_APP_OPEN_URL}}]
     ]
   };
 }
@@ -618,7 +622,8 @@ async function serveStatic(req, res, pathname) {
     const info = await stat(filePath);
     if (!info.isFile()) return json(res, 404, {ok: false, error: 'Not found'});
     const data = await readFile(filePath);
-    res.writeHead(200, {'Content-Type': MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream', 'Cache-Control': pathname.includes('/assets/') ? 'public, max-age=3600' : 'no-cache'});
+    const cacheControl=pathname==='/'||pathname==='/index.html'?'no-store':pathname.includes('/assets/')?'public, max-age=3600':'no-cache';
+    res.writeHead(200, {'Content-Type': MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream', 'Cache-Control': cacheControl});
     res.end(data);
   } catch {
     json(res, 404, {ok: false, error: 'Not found'});
@@ -629,7 +634,7 @@ async function handleRequest(req, res) {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
   if (url.pathname === '/healthz') {
     const state = await readState();
-    return json(res, 200, {ok: true, botConfigured: Boolean(BOT_TOKEN), managerConfigured: Boolean(MANAGER_CHAT_ID), adminConfigured: ADMIN_CHAT_IDS.size > 0, miniAppUrl: MINI_APP_URL, wheelPeriodId: state.wheelPeriodId});
+    return json(res, 200, {ok: true, botConfigured: Boolean(BOT_TOKEN), managerConfigured: Boolean(MANAGER_CHAT_ID), adminConfigured: ADMIN_CHAT_IDS.size > 0, miniAppUrl: MINI_APP_URL, miniAppOpenUrl: MINI_APP_OPEN_URL, wheelPeriodId: state.wheelPeriodId});
   }
   if (url.pathname === '/api/profile') return handleProfileApi(req, res);
   if (url.pathname === '/api/orders') return handleOrderApi(req, res);
@@ -780,7 +785,7 @@ async function startBot() {
     {command: 'cancel', description: 'Отменить действие'}
   ]});
   if (isHttpsUrl(MINI_APP_URL)) {
-    await telegramCall('setChatMenuButton', {menu_button: {type: 'web_app', text: 'Каталог', web_app: {url: MINI_APP_URL}}});
+    await telegramCall('setChatMenuButton', {menu_button: {type: 'web_app', text: 'Каталог', web_app: {url: MINI_APP_OPEN_URL}}});
   } else {
     console.warn('[telegram] MINI_APP_URL must be HTTPS before Telegram menu button can be enabled');
   }
