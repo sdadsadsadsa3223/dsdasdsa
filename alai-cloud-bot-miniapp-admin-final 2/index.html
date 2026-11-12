@@ -151,6 +151,13 @@
   .hero-offer-text{ display:block; margin-top:3px; color:#fff; font-size:clamp(14px,1.5vw,17px); line-height:1.2 }
   .hero-actions a{ min-height:50px; border-radius:15px; transition:transform .25s ease,box-shadow .25s ease }
   .hero-actions a:hover{ transform:translateY(-2px) }
+  .hero-wheel-cta{ width:min(100%,510px); min-height:68px; display:flex; align-items:center; gap:12px; margin-top:14px; padding:11px 14px; border:1px solid rgba(233,190,106,.72); border-radius:18px; background:linear-gradient(105deg,#f5d9a0 0%,#d59a32 52%,#a66d20 100%); color:#211606; text-align:left; box-shadow:0 18px 35px -18px rgba(233,190,106,.95),inset 0 1px rgba(255,255,255,.72); transition:transform .25s,box-shadow .25s,filter .25s }
+  .hero-wheel-cta:hover{ transform:translateY(-3px); filter:saturate(1.08); box-shadow:0 22px 42px -18px rgba(233,190,106,1),inset 0 1px rgba(255,255,255,.82) }
+  .hero-wheel-icon{ width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(33,22,6,.25); border-radius:13px; background:rgba(255,248,221,.38); font-size:24px }
+  .hero-wheel-copy{ min-width:0; flex:1 }
+  .hero-wheel-copy strong{ display:block; font-size:15px; font-weight:900; line-height:1.1 }
+  .hero-wheel-copy small{ display:block; margin-top:4px; color:rgba(33,22,6,.68); font-size:11px; font-weight:800; line-height:1.2 }
+  .hero-wheel-arrow{ width:30px; height:30px; display:grid; place-items:center; flex:0 0 auto; border-radius:50%; background:rgba(33,22,6,.14); font-size:21px; font-weight:900 }
   .hero-visual{ position:relative; min-height:290px; display:grid; place-items:center }
   .hero-visual::before{ content:""; position:absolute; width:min(40vw,410px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(233,190,106,.24); box-shadow:0 0 0 20px rgba(233,190,106,.025),0 0 80px rgba(233,190,106,.2) }
   .hero-proof{ position:absolute; z-index:3; min-width:112px; padding:9px 12px; border:1px solid rgba(233,190,106,.3); border-radius:14px; background:rgba(9,10,13,.82); backdrop-filter:blur(12px); box-shadow:0 18px 36px rgba(0,0,0,.35); font-size:16px; font-weight:800; color:var(--gold-hi) }
@@ -789,6 +796,8 @@ function renderProfile(){
   const hint=document.getElementById('profileHint'); if(hint) hint.textContent=profileState.prizeClaimed?'Запрос отправлен менеджеру — скоро свяжемся с тобой.':(profileState.prize?'Приз сохранён. Нажми кнопку ниже, чтобы забрать его.':'Колесо доступно один раз для новых пользователей.');
   const claim=document.getElementById('claimPrizeBtn'); if(claim){ claim.classList.toggle('hidden',!profileState.prize); claim.disabled=Boolean(profileState.prizeClaimed); claim.textContent=profileState.prizeClaimed?'✅ Запрос отправлен менеджеру':'🎁 Забрать приз у менеджера'; }
   const wheelBtn=document.getElementById('profileWheelBtn'); if(wheelBtn){ wheelBtn.classList.toggle('hidden',Boolean(profileState.wheelSpun)); }
+  const heroWheelTitle=document.getElementById('heroWheelBtnTitle'); if(heroWheelTitle) heroWheelTitle.textContent=profileState.wheelSpun?'Открыть свой приз':'Крутить колесо и забрать приз';
+  const heroWheelMeta=document.getElementById('heroWheelBtnMeta'); if(heroWheelMeta) heroWheelMeta.textContent=profileState.wheelSpun?'Результат уже сохранён в профиле':'Подарок для новых пользователей · один шанс';
   const dot=document.getElementById('profilePrizeDot'); if(dot) dot.classList.toggle('hidden',!profileState.prize);
 }
 function openWheel(){
@@ -1548,6 +1557,11 @@ function renderHome(){
           <a href="#catalog" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink);box-shadow:0 12px 30px -14px rgba(233,190,106,.6)">${t('ctaCatalog')} <i data-lucide="arrow-down" style="width:16px;height:16px"></i></a>
           <button onclick="openTelegramContact()" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:16px;height:16px"></i> ${t('ctaWa')}</button>
         </div>
+        <button id="heroWheelBtn" type="button" class="hero-wheel-cta" onclick="openWheel()">
+          <span class="hero-wheel-icon">🎡</span>
+          <span class="hero-wheel-copy"><strong id="heroWheelBtnTitle">Крутить колесо и забрать приз</strong><small id="heroWheelBtnMeta">Подарок для новых пользователей · один шанс</small></span>
+          <span class="hero-wheel-arrow">→</span>
+        </button>
       </div>
       <div class="hero-visual rvl">
         <div class="hero-proof hero-proof-one">100%<small>original</small></div>
