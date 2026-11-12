@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: alai-cloud-telegram
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: MINI_APP_URL
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: ADMIN_CHAT_ID
+        sync: false
+      - key: MANAGER_CHAT_ID
+        sync: false
+      - key: MANAGER_CONTACT_URL
+        value: https://t.me/alairustam
+      - key: DATA_DIR
+        value: data
+      - key: WELCOME_STICKER_ID
+        sync: false
+      - key: WHEEL_PRIZES
+        value: WAKA 10000|1 банка ZYN|Puffmi|Скидка 300 сом|Скидка 800 сом|Бесплатная доставка|Скидка 500 сом

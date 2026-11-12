@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="referrer" content="no-referrer" />
+<meta name="robots" content="noai, noimageai" />
+<title>Alai Cloud — оригинальные одноразки · Доставка по Кыргызстану</title>
+<meta name="description" content="Alai Cloud — магазин оригинальных одноразок с доставкой по всему Кыргызстану." />
+<link rel="icon" type="image/png" href="/assets/alai-cloud-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>window.lucide=window.lucide||{createIcons() {}};</script>
+<script src="/assets/telegram-config.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{
+    /* графитовая база */
+    --ink:#08090C; --coal:#0E1014; --graphite:#15181D; --steel:#22262E; --steel-2:#31363F;
+    /* золото с аватарки */
+    --gold:#E9BE6A; --gold-hi:#F5D9A0; --gold-dp:#C08A2E; --gold-ink:#1A1408;
+    /* легаси-имена сохранены, чтобы не плодить правки по всему файлу */
+    --kg-red:#C9932F; --kg-gold:#F0CE84; --sky:#E3C079; --violet:#8A8F9B;
+  }
+  *{ -webkit-tap-highlight-color:transparent; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:'Manrope',sans-serif; color:#E7E9EE; background:var(--ink); overflow-x:hidden; }
+  .bg-fx{ position:fixed; inset:0; z-index:-3;
+    background:
+      radial-gradient(100% 70% at 50% -10%, rgba(233,190,106,.10) 0%, transparent 62%),
+      radial-gradient(120% 90% at 50% -10%, #272b34 0%, #14161c 42%, #08090C 100%); }
+  .blob{ position:fixed; z-index:-2; border-radius:50%; filter:blur(90px); opacity:.5; will-change:transform; }
+  .b1{ width:52vw; height:52vw; left:-10vw; top:-8vh; background:radial-gradient(circle,#79818f,transparent 65%); animation:drift1 22s ease-in-out infinite; }
+  .b2{ width:46vw; height:46vw; right:-12vw; top:6vh; background:radial-gradient(circle,#d09a3455,transparent 65%); animation:drift2 26s ease-in-out infinite; }
+  .b3{ width:60vw; height:60vw; left:20vw; bottom:-20vh; background:radial-gradient(circle,#8d7a5a55,transparent 65%); animation:drift3 30s ease-in-out infinite; }
+  @keyframes drift1{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(6vw,4vh)} }
+  @keyframes drift2{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(-5vw,5vh)} }
+  @keyframes drift3{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(-4vw,-4vh)} }
+  .grid-fx{ position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%); mask-image:radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%); }
+  .glass{ background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.022)); border:1px solid rgba(255,255,255,.085); backdrop-filter:blur(10px); }
+  @keyframes fadeUp{ from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  @keyframes shine{ 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+  @keyframes pulseGlow{ 0%,100%{box-shadow:0 0 0 0 rgba(233,190,106,.5)} 50%{box-shadow:0 0 0 14px rgba(233,190,106,0)} }
+  .rvl{ opacity:0 } .rvl.in{ animation:fadeUp .7s cubic-bezier(.16,1,.3,1) both }
+  .float{ animation:floaty 6s ease-in-out infinite }
+  .shine{ background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.22) 50%,transparent 80%); background-size:200% 100%; animation:shine 3.5s linear infinite }
+  .card-hover{ transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s }
+  .card-hover:active{ transform:scale(.99) }
+  @media(hover:hover){ .card-hover:hover{ transform:translateY(-6px); box-shadow:0 30px 60px -28px rgba(0,0,0,.75), 0 0 0 1px rgba(233,190,106,.18); border-color:rgba(233,190,106,.38) } }
+  .no-scrollbar::-webkit-scrollbar{ display:none } .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none }
+  .snap-x{ scroll-snap-type:x mandatory } .snap-i{ scroll-snap-align:start }
+  .flavor-chip.sel{ background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); border-color:var(--gold); color:var(--gold-ink); transform:translateY(-1px) }
+  .btn-gold{ background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink);
+    box-shadow:0 12px 30px -14px rgba(233,190,106,.6), inset 0 1px 0 rgba(255,255,255,.45); }
+  /* второстепенная кнопка: графит с золотой волосяной рамкой */
+  .btn-steel{ background:linear-gradient(180deg,var(--steel-2),var(--graphite)); border:1px solid rgba(233,190,106,.34);
+    box-shadow:0 10px 26px -16px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.06); }
+  .prod-tile{ background:linear-gradient(160deg,#eef0f3,#d3d7de) }
+  .sheet-enter{ animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both }
+  /* ==== 3D logo ==== */
+  .logo3d-stage{ perspective:1100px; }
+  .logo3d{ transform-style:preserve-3d; animation:spin3d 9s ease-in-out infinite; transition:transform .35s cubic-bezier(.16,1,.3,1); will-change:transform;
+    filter:drop-shadow(0 26px 36px rgba(0,0,0,.75)) drop-shadow(0 0 34px rgba(233,190,106,.34)); border-radius:50%; }
+  .logo3d img{ display:block; width:100%; height:auto; border-radius:50%; }
+  .logo3d svg{ display:block; width:100%; height:auto; }
+  @keyframes spin3d{ 0%,100%{transform:rotateY(-16deg) rotateX(7deg)} 50%{transform:rotateY(16deg) rotateX(-5deg)} }
+  .logo-ring{ position:absolute; inset:-9%; border-radius:50%; z-index:-1; opacity:.55; filter:blur(24px);
+    background:conic-gradient(from 0deg,#C08A2E,#F5D9A0,#79818f,#E9BE6A,#C08A2E); animation:spinRing 11s linear infinite; }
+  @keyframes spinRing{ to{ transform:rotate(360deg) } }
+  .logo-mark3d{ display:inline-block; transition:transform .45s cubic-bezier(.16,1,.3,1); }
+  .logo-mark3d:hover{ transform:perspective(500px) rotateY(24deg) scale(1.06) }
+  .flavor-select{ color:#fff; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>"); background-repeat:no-repeat; background-position:right 12px center; padding-right:34px; }
+  .flavor-select option{ color:#111; background:#fff; }
+  .wm-logo{ position:absolute; inset:0; margin:auto; width:82%; height:82%; object-fit:contain; opacity:.16; pointer-events:none; filter:saturate(1.1); }
+  /* ==== INTRO ==== */
+  #intro{ position:fixed; inset:0; z-index:100; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden;
+    background:
+      radial-gradient(90% 60% at 50% 30%, rgba(233,190,106,.13) 0%, transparent 60%),
+      radial-gradient(120% 100% at 50% 28%, #2a2e37 0%, #101216 52%, #06070A 100%); }
+  #intro.hide{ animation:introOut .85s cubic-bezier(.7,0,.25,1) forwards; }
+  @keyframes introOut{ to{ opacity:0; transform:scale(1.1); visibility:hidden } }
+  .intro-glow{ position:absolute; width:66vw; height:66vw; border-radius:50%; background:radial-gradient(circle,rgba(233,190,106,.34),transparent 62%); filter:blur(46px); animation:fadeIn 1s ease both }
+  .intro-logo{ position:relative; width:clamp(190px,56vw,300px); border-radius:50%;
+    filter:drop-shadow(0 22px 44px rgba(0,0,0,.8)) drop-shadow(0 0 52px rgba(233,190,106,.5));
+    animation:introLogo 1.1s cubic-bezier(.16,1,.3,1) both }
+  .intro-logo img{ width:100%; height:auto; border-radius:50%; display:block }
+  /* вращающееся золотое кольцо вокруг аватарки */
+  .intro-logo::before{ content:''; position:absolute; inset:-7%; border-radius:50%; z-index:-1; opacity:.75; filter:blur(16px);
+    background:conic-gradient(from 0deg,#C08A2E,#F5D9A0,#79818f,#E9BE6A,#C08A2E); animation:spinRing 9s linear infinite }
+  .intro-logo::after{ content:''; position:absolute; inset:0; border-radius:50%; pointer-events:none;
+    border:1px solid rgba(245,217,160,.55); box-shadow:inset 0 0 26px rgba(0,0,0,.55) }
+  @keyframes introLogo{ 0%{opacity:0; transform:perspective(800px) rotateY(90deg) scale(.5)} 100%{opacity:1; transform:perspective(800px) rotateY(0) scale(1)} }
+  .intro-title{ position:relative; display:flex; flex-direction:column; align-items:center; gap:2px; margin-top:20px; perspective:800px }
+  .intro-title .row{ display:flex; }
+  .intro-title span{ display:inline-block; font-weight:800; letter-spacing:-.02em; font-size:clamp(36px,10vw,78px); line-height:1; transform-origin:top center;
+    opacity:0; animation:introLetter .7s cubic-bezier(.16,1,.3,1) forwards }
+  .intro-title .w1 span{ background:linear-gradient(180deg,#ffffff,#b9bec8); -webkit-background-clip:text; background-clip:text; color:transparent }
+  .intro-title .w2 span{ background:linear-gradient(180deg,#F5D9A0,#C08A2E); -webkit-background-clip:text; background-clip:text; color:transparent }
+  @keyframes introLetter{ 0%{opacity:0; transform:translateY(-150%) rotateX(-90deg); filter:blur(6px)} 60%{opacity:1} 100%{opacity:1; transform:translateY(0) rotateX(0); filter:blur(0)} }
+  .intro-sub{ position:relative; margin-top:16px; letter-spacing:.34em; font-size:clamp(9px,2.4vw,13px); color:#9AA0AA; font-weight:700; opacity:0; animation:fadeIn .8s ease 1.15s forwards }
+  .smoke{ position:absolute; bottom:-12%; border-radius:50%; background:radial-gradient(circle,rgba(222,212,192,.5),rgba(222,212,192,0) 70%); filter:blur(20px); animation:smokeRise 3.2s ease-out infinite }
+  @keyframes smokeRise{ 0%{opacity:0; transform:translateY(0) scale(.7)} 22%{opacity:.55} 100%{opacity:0; transform:translateY(-78vh) scale(2)} }
+  .intro-skip{ position:absolute; bottom:22px; right:20px; font-size:12px; color:#ffffff85; border:1px solid rgba(233,190,106,.3); background:rgba(255,255,255,.04); padding:6px 12px; border-radius:999px }
+  @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+  /* ==== Alai Cloud — midnight gold ==== */
+  html{ color-scheme:dark }
+  ::selection{ background:var(--gold); color:#111 }
+  body::before{ content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background:linear-gradient(115deg,transparent 0 48%,rgba(233,190,106,.035) 48.2% 48.5%,transparent 48.7% 100%); }
+  .promo-strip{ position:relative; overflow:hidden; letter-spacing:.02em; padding:14px 16px!important; box-shadow:0 10px 40px rgba(192,138,46,.24); border-bottom:1px solid rgba(255,255,255,.28) }
+  .promo-strip::after{ content:""; position:absolute; inset:0; transform:translateX(-120%); background:linear-gradient(90deg,transparent,#fff7,transparent); animation:stripSweep 5s ease-in-out infinite }
+  @keyframes stripSweep{ 45%,100%{transform:translateX(120%)} }
+  .promo-strip-inner{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center; gap:14px; max-width:1280px; margin:0 auto }
+  .promo-copy{ display:flex; align-items:center; gap:10px; min-width:0 }
+  .promo-kicker{ display:inline-flex; align-items:center; gap:5px; padding:5px 9px; border-radius:999px; background:#161108cc; color:#F5D9A0; font-size:10px; font-weight:800; letter-spacing:.08em; white-space:nowrap }
+  .promo-main{ font:800 clamp(20px,2.8vw,32px)/1 'Unbounded',sans-serif; letter-spacing:-.06em; white-space:nowrap }
+  .promo-sub{ font-size:clamp(12px,1.45vw,15px); font-weight:800; white-space:nowrap }
+  .promo-clock{ display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:12px; background:#16110832; border:1px solid rgba(26,20,8,.22); font-size:11px; font-weight:800; white-space:nowrap }
+  .promo-clock strong{ font-size:15px; letter-spacing:.04em }
+  .promo-cta{ display:inline-flex; align-items:center; gap:5px; padding:8px 12px; border-radius:11px; background:#161108; color:#F5D9A0; font-size:12px; font-weight:800; white-space:nowrap; box-shadow:0 7px 16px rgba(26,20,8,.18) }
+  .site-header{ border-bottom:1px solid rgba(233,190,106,.16)!important; background:rgba(7,8,10,.78)!important; box-shadow:0 18px 50px rgba(0,0,0,.22) }
+  #app{ display:flex; flex-direction:column }
+  #app>section{ order:10 }
+  #app>.hero-shell{ order:1 }
+  #app>.catalog-panel{ order:2 }
+  #app>.catalog-products{ order:3 }
+  #app>.promo-card{ order:4 }
+  #app>.referral-card{ order:5 }
+  #app>.trust-section{ order:6 }
+  .hero-shell{ position:relative; isolation:isolate; overflow:hidden; min-height:360px; margin-top:18px; padding:clamp(24px,4vw,42px); border-radius:34px;
+    background:radial-gradient(70% 100% at 82% 48%,rgba(233,190,106,.18),transparent 64%),linear-gradient(135deg,#171a20 0%,#0b0c10 55%,#18130b 100%);
+    border:1px solid rgba(233,190,106,.25); box-shadow:0 50px 120px -55px #000, inset 0 1px rgba(255,255,255,.08) }
+  .hero-shell::before{ content:"ALAI / CLOUD"; position:absolute; left:-18px; bottom:-28px; z-index:-1; font:800 clamp(74px,12vw,172px)/1 'Unbounded',sans-serif; letter-spacing:-.08em; color:transparent; -webkit-text-stroke:1px rgba(233,190,106,.09); white-space:nowrap }
+  .hero-shell::after{ content:""; position:absolute; width:420px; height:420px; right:-170px; top:-190px; border:1px solid rgba(233,190,106,.23); border-radius:50%; box-shadow:0 0 0 44px rgba(233,190,106,.025),0 0 0 88px rgba(233,190,106,.018) }
+  .hero-kicker{ display:inline-flex; align-items:center; gap:9px; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-hi) }
+  .hero-kicker::before{ content:""; width:28px; height:1px; background:var(--gold) }
+  .hero-title{ margin-top:14px; max-width:620px; font-family:'Unbounded',sans-serif; font-size:clamp(34px,4.4vw,58px)!important; line-height:1!important; letter-spacing:-.055em!important }
+  .hero-title em{ display:block; margin-top:12px; font:700 .26em/1.2 'Unbounded',sans-serif; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; font-style:normal }
+  .hero-copy p{ line-height:1.55; font-size:15px!important }
+  .hero-offer{ color:#fff; font-weight:800 }
+  .hero-offer-main{ display:grid; grid-template-columns:auto 1fr; gap:0 12px; align-items:center; width:min(100%,460px); margin-top:0; padding:12px 14px; border:1px solid rgba(233,190,106,.52); border-radius:18px; background:linear-gradient(110deg,rgba(233,190,106,.18),rgba(255,255,255,.06)); box-shadow:0 16px 34px -24px rgba(233,190,106,.9),inset 0 1px rgba(255,255,255,.12) }
+  .hero-offer-main strong{ grid-row:span 2; align-self:center; padding:10px 11px; border-radius:12px; background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink); font:800 clamp(27px,3.3vw,40px)/.9 'Unbounded',sans-serif; letter-spacing:-.08em }
+  .hero-offer-label{ display:block; color:var(--gold-hi); font-size:10px; letter-spacing:.12em; text-transform:uppercase }
+  .hero-offer-text{ display:block; margin-top:3px; color:#fff; font-size:clamp(14px,1.5vw,17px); line-height:1.2 }
+  .hero-actions a{ min-height:50px; border-radius:15px; transition:transform .25s ease,box-shadow .25s ease }
+  .hero-actions a:hover{ transform:translateY(-2px) }
+  .hero-visual{ position:relative; min-height:290px; display:grid; place-items:center }
+  .hero-visual::before{ content:""; position:absolute; width:min(40vw,410px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(233,190,106,.24); box-shadow:0 0 0 20px rgba(233,190,106,.025),0 0 80px rgba(233,190,106,.2) }
+  .hero-proof{ position:absolute; z-index:3; min-width:112px; padding:9px 12px; border:1px solid rgba(233,190,106,.3); border-radius:14px; background:rgba(9,10,13,.82); backdrop-filter:blur(12px); box-shadow:0 18px 36px rgba(0,0,0,.35); font-size:16px; font-weight:800; color:var(--gold-hi) }
+  .hero-proof small{ display:block; margin-top:2px; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#fff8 }
+  .hero-proof-one{ left:0; top:18% } .hero-proof-two{ right:0; bottom:16% }
+  .promo-card{ position:relative; overflow:hidden; padding:clamp(24px,4vw,42px)!important; border-radius:32px!important; background:linear-gradient(118deg,#22180a,#111318 55%,#2a2111)!important; border-color:rgba(233,190,106,.4)!important; box-shadow:0 30px 80px -40px rgba(233,190,106,.5) }
+  .promo-equation{ font:800 clamp(54px,8vw,104px)/.85 'Unbounded',sans-serif; letter-spacing:-.08em; color:#fff; text-shadow:0 0 50px rgba(233,190,106,.3) }
+  .promo-equation strong{ color:var(--gold-hi) }
+  .referral-card{ position:relative; overflow:hidden; margin:22px 0 6px; padding:clamp(22px,4vw,38px)!important; border-radius:32px!important; background:radial-gradient(60% 140% at 100% 0%,rgba(42,171,238,.2),transparent 58%),linear-gradient(125deg,#101c2b,#121419 54%,#1f160c)!important; border:1px solid rgba(42,171,238,.34)!important; box-shadow:0 28px 80px -42px rgba(42,171,238,.55),inset 0 1px rgba(255,255,255,.08) }
+  .referral-card::before{ content:""; position:absolute; width:270px; height:270px; right:-104px; top:-118px; border:1px solid rgba(42,171,238,.28); border-radius:50%; box-shadow:0 0 0 28px rgba(42,171,238,.035),0 0 0 56px rgba(233,190,106,.04) }
+  .referral-layout{ position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,.95fr) minmax(360px,1.05fr); gap:30px; align-items:center }
+  .referral-kicker{ display:inline-flex; align-items:center; gap:8px; color:#9fe8ff; font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase }
+  .referral-kicker i{ width:16px; height:16px; color:var(--gold-hi) }
+  .referral-card h2{ max-width:570px; margin:12px 0 10px; font:800 clamp(25px,3.4vw,44px)/1.05 'Unbounded',sans-serif; letter-spacing:-.055em; color:#fff }
+  .referral-card p{ max-width:590px; margin:0; color:rgba(255,255,255,.7); font-size:15px; line-height:1.6 }
+  .referral-btn{ display:inline-flex; align-items:center; gap:9px; margin-top:22px; padding:13px 17px; border:1px solid rgba(233,190,106,.65); border-radius:14px; background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink); font-weight:900; box-shadow:0 14px 30px -16px rgba(233,190,106,.9); transition:transform .25s,box-shadow .25s }
+  .referral-btn:hover{ transform:translateY(-2px); box-shadow:0 18px 36px -14px rgba(233,190,106,.95) }
+  .referral-steps{ display:grid; gap:9px }
+  .referral-step{ display:grid; grid-template-columns:38px 1fr; gap:12px; align-items:center; min-height:64px; padding:11px 13px; border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(255,255,255,.055); box-shadow:inset 0 1px rgba(255,255,255,.06) }
+  .referral-step b{ display:grid; place-items:center; width:34px; height:34px; border-radius:12px; background:rgba(233,190,106,.16); color:var(--gold-hi); font-size:16px }
+  .referral-step strong{ display:block; color:#fff; font-size:14px }
+  .referral-step span{ display:block; margin-top:2px; color:rgba(255,255,255,.55); font-size:12px; line-height:1.35 }
+  .footer-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px }
+  .footer-action{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:0 15px; border:1px solid rgba(255,255,255,.12); border-radius:13px; background:rgba(255,255,255,.055); color:rgba(255,255,255,.82); font-size:13px; font-weight:800; transition:transform .2s,border-color .2s,background .2s }
+  .footer-action:hover{ transform:translateY(-2px); border-color:rgba(233,190,106,.45); background:rgba(255,255,255,.09) }
+  .footer-action.primary{ border-color:rgba(42,171,238,.48); background:rgba(42,171,238,.13); color:#a9e7ff }
+  .profile-fab{ position:fixed; right:20px; bottom:92px; z-index:45; width:56px; height:56px; display:grid; place-items:center; border:1px solid rgba(233,190,106,.55); border-radius:18px; background:linear-gradient(145deg,#2b2e35,#111318); color:var(--gold-hi); box-shadow:0 18px 34px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.1); transition:transform .25s,border-color .25s }
+  .profile-fab:hover{ transform:translateY(-3px); border-color:var(--gold-hi) }
+  .profile-fab .profile-dot{ position:absolute; top:6px; right:6px; width:10px; height:10px; border:2px solid #17191f; border-radius:50%; background:#4ade80 }
+  .wheel-modal,.profile-modal{ position:fixed; inset:0; z-index:60; align-items:center; justify-content:center; padding:14px; }
+  .wheel-modal:not(.hidden),.profile-modal:not(.hidden){ display:flex }
+  .wheel-backdrop,.profile-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.78); backdrop-filter:blur(14px) }
+  .wheel-panel,.profile-panel{ position:relative; width:min(100%,520px); max-height:calc(100vh - 28px); overflow:auto; border:1px solid rgba(233,190,106,.34); border-radius:30px; background:radial-gradient(100% 85% at 50% 0%,rgba(233,190,106,.16),transparent 58%),linear-gradient(160deg,#20242c,#0d0f13 72%); box-shadow:0 35px 100px rgba(0,0,0,.65); padding:25px 22px 22px; animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both }
+  .wheel-close,.profile-close{ position:absolute; top:13px; right:13px; width:35px; height:35px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.14); border-radius:50%; background:rgba(255,255,255,.06); color:#fff; font-size:22px; line-height:1 }
+  .wheel-kicker{ color:var(--gold-hi); font-size:10px; font-weight:900; letter-spacing:.16em; text-transform:uppercase }
+  .wheel-panel h2,.profile-panel h2{ margin:8px 44px 6px 0; font:800 clamp(25px,6vw,34px)/1.05 'Unbounded',sans-serif; letter-spacing:-.06em; color:#fff }
+  .wheel-panel>p{ margin:0; color:rgba(255,255,255,.62); font-size:14px; line-height:1.5 }
+  .wheel-stage{ position:relative; width:min(82vw,360px); aspect-ratio:1; margin:24px auto 17px; display:grid; place-items:center }
+  .wheel-stage::before{ content:""; position:absolute; inset:3%; border-radius:50%; background:radial-gradient(circle,rgba(233,190,106,.22),transparent 68%); filter:blur(12px); transform:scale(1.12); }
+  .wheel-disc{ --count:7; --wheel-turn:0deg; position:relative; z-index:1; width:100%; height:100%; border:8px solid #17191e; border-radius:50%; background:conic-gradient(from -115deg,#e9be6a 0 14.285%,#65758a 14.285% 28.57%,#e9be6a 28.57% 42.855%,#526276 42.855% 57.14%,#d9a747 57.14% 71.425%,#718197 71.425% 85.71%,#f0ce84 85.71% 100%); box-shadow:0 20px 42px rgba(0,0,0,.5),inset 0 0 0 4px rgba(255,255,255,.34),inset 0 0 0 14px rgba(0,0,0,.15); transform:rotate(0deg); transition:transform 3.2s cubic-bezier(.12,.74,.12,1); overflow:hidden }
+  .wheel-disc::before{ content:""; position:absolute; inset:12%; border:1px solid rgba(255,255,255,.38); border-radius:50%; box-shadow:inset 0 0 0 1px rgba(26,20,8,.22); pointer-events:none }
+  .wheel-center{ position:absolute; z-index:3; inset:33%; display:grid; place-items:center; align-content:center; border:5px solid #17191e; border-radius:50%; background:linear-gradient(145deg,#fff0c7 0%,#e9be6a 52%,#c08a2e 100%); color:#1a1408; box-shadow:0 6px 18px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.72); text-align:center; }
+  .wheel-center strong{ display:block; font:900 clamp(13px,3vw,18px)/1 'Unbounded',sans-serif; letter-spacing:-.09em }
+  .wheel-center small{ display:block; margin-top:4px; font-size:7px; font-weight:900; letter-spacing:.18em }
+  .wheel-disc.spinning{ transform:rotate(var(--wheel-turn)) }
+  .wheel-segment{ position:absolute; z-index:1; left:50%; top:50%; width:82px; height:72px; margin-top:-36px; transform-origin:0 50%; transform:rotate(var(--angle)) translateX(74px); color:#fff; font-weight:900; line-height:1; text-align:center; pointer-events:none; }
+  .wheel-segment-body{ width:82px; height:72px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4px 3px; border:1px solid rgba(255,255,255,.2); border-radius:13px; background:rgba(8,10,14,.24); box-shadow:0 7px 15px rgba(0,0,0,.16); backdrop-filter:blur(3px); transform:rotate(calc(var(--angle) * -1)); }
+  .wheel-segment em{ display:block; margin-bottom:3px; font-style:normal; font-size:7px; letter-spacing:.08em; text-transform:uppercase; opacity:.78; white-space:nowrap }
+  .wheel-segment strong{ display:block; color:#fff; font:900 21px/.92 'Unbounded',sans-serif; letter-spacing:-.08em; white-space:nowrap }
+  .wheel-segment small{ display:block; margin-top:4px; color:#f5d9a0; font-size:8px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap }
+  .wheel-prize-art{ display:block; width:38px; height:38px; margin:0 auto 3px; padding:3px; object-fit:contain; border:1px solid rgba(255,255,255,.75); border-radius:9px; background:#eef1f5; box-shadow:0 5px 12px rgba(0,0,0,.3) }
+  .wheel-segment.has-art strong{ font-size:14px; letter-spacing:-.07em; }
+  .wheel-segment.has-art small{ margin-top:2px; font-size:7px; }
+  .wheel-segment.has-art em{ margin-bottom:2px; font-size:6px; }
+  .wheel-pointer{ position:absolute; z-index:4; top:-11px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:17px solid transparent; border-right:17px solid transparent; border-top:30px solid #fff; filter:drop-shadow(0 4px 4px rgba(0,0,0,.58)); }
+  .wheel-result{ min-height:42px; display:grid; place-items:center; margin:0 auto 12px; padding:10px 12px; border:1px solid rgba(233,190,106,.24); border-radius:14px; background:rgba(255,255,255,.05); color:rgba(255,255,255,.7); font-size:13px; font-weight:700; text-align:center }
+  .wheel-result strong{ color:var(--gold-hi); font-size:16px }
+  .wheel-action,.claim-prize{ width:100%; min-height:50px; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:15px; background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink); font-size:15px; font-weight:900; box-shadow:0 15px 28px -17px rgba(233,190,106,.9) }
+  .wheel-action:disabled{ opacity:.58; cursor:wait }
+  .profile-panel{ width:min(100%,440px) }
+  .profile-label{ display:block; margin:18px 0 7px; color:rgba(255,255,255,.58); font-size:12px; font-weight:800 }
+  .profile-name-row{ display:flex; gap:8px }
+  .profile-name-row input{ min-width:0; flex:1; height:44px; padding:0 13px; border:1px solid rgba(255,255,255,.15); border-radius:13px; outline:none; background:rgba(255,255,255,.06); color:#fff; font:700 14px 'Manrope',sans-serif }
+  .profile-name-row input:focus{ border-color:rgba(233,190,106,.65); box-shadow:0 0 0 3px rgba(233,190,106,.1) }
+  .profile-save{ padding:0 13px; border:1px solid rgba(233,190,106,.4); border-radius:13px; background:rgba(233,190,106,.12); color:var(--gold-hi); font-size:12px; font-weight:900 }
+  .profile-stats{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 }
+  .profile-stat{ min-height:90px; padding:13px; border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(255,255,255,.05) }
+  .profile-stat span{ display:block; color:rgba(255,255,255,.5); font-size:11px; font-weight:800 }
+  .profile-stat strong{ display:block; margin-top:8px; color:#fff; font-size:17px; line-height:1.2 }
+  .profile-stat small{ display:block; margin-top:6px; color:rgba(255,255,255,.4); font-size:10px; line-height:1.25 }
+  .profile-stat.prize strong{ color:var(--gold-hi); font-size:14px }
+  .profile-stat.prize{ grid-column:1/-1; min-height:76px }
+  .profile-club-hero{ display:flex; align-items:center; gap:12px; margin:16px 0 12px; padding:13px; border:1px solid rgba(233,190,106,.24); border-radius:20px; background:linear-gradient(135deg,rgba(233,190,106,.15),rgba(255,255,255,.04) 55%,rgba(42,171,238,.08)); box-shadow:inset 0 1px rgba(255,255,255,.1) }
+  .profile-avatar{ width:52px; height:52px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(245,217,160,.6); border-radius:17px; background:radial-gradient(circle at 35% 20%,#fff5d2,#e9be6a 48%,#94611d); color:#231707; font:900 16px/1 'Unbounded',sans-serif; box-shadow:0 10px 22px rgba(233,190,106,.22),inset 0 1px rgba(255,255,255,.75) }
+  .profile-club-copy{ min-width:0; flex:1 }
+  .profile-club-copy small{ display:block; color:var(--gold-hi); font-size:9px; font-weight:900; letter-spacing:.15em; text-transform:uppercase }
+  .profile-club-copy strong{ display:block; margin-top:4px; color:#fff; font:800 15px/1.15 'Unbounded',sans-serif; letter-spacing:-.045em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .profile-club-copy span{ display:block; margin-top:5px; color:rgba(255,255,255,.55); font-size:11px }
+  .profile-level-mark{ width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto; border:1px solid rgba(255,255,255,.18); border-radius:14px; background:rgba(8,10,14,.34); color:#fff2c4; font:900 11px/1 'Unbounded',sans-serif }
+  .profile-progress-card{ padding:13px; border:1px solid rgba(255,255,255,.1); border-radius:18px; background:rgba(255,255,255,.045) }
+  .profile-progress-top,.profile-progress-bottom{ display:flex; align-items:center; justify-content:space-between; gap:8px }
+  .profile-progress-top{ color:rgba(255,255,255,.62); font-size:11px; font-weight:800 }
+  .profile-progress-top strong{ color:var(--gold-hi); font-size:13px }
+  .profile-progress-track{ height:9px; margin:10px 0 8px; overflow:hidden; border-radius:999px; background:rgba(255,255,255,.1); box-shadow:inset 0 1px rgba(0,0,0,.3) }
+  .profile-progress-fill{ display:block; width:0; height:100%; border-radius:inherit; background:linear-gradient(90deg,#c08a2e,#f5d9a0,#2aabee); box-shadow:0 0 16px rgba(233,190,106,.52); transition:width .6s cubic-bezier(.16,1,.3,1) }
+  .profile-progress-bottom{ color:rgba(255,255,255,.42); font-size:10px; line-height:1.25 }
+  .profile-mission{ margin-top:12px; padding:14px; border:1px solid rgba(42,171,238,.25); border-radius:18px; background:linear-gradient(135deg,rgba(42,171,238,.12),rgba(255,255,255,.035)); }
+  .profile-mission-kicker{ color:#9adfff; font-size:9px; font-weight:900; letter-spacing:.14em; text-transform:uppercase }
+  .profile-mission strong{ display:block; margin-top:5px; color:#fff; font-size:14px; line-height:1.25 }
+  .profile-mission p{ margin:5px 0 10px; color:rgba(255,255,255,.56); font-size:11px; line-height:1.4 }
+  .profile-mission button{ min-height:34px; padding:0 12px; border:1px solid rgba(42,171,238,.45); border-radius:11px; background:rgba(42,171,238,.14); color:#b9ecff; font-size:11px; font-weight:900 }
+  .profile-hint{ margin:2px 0 14px; color:rgba(255,255,255,.48); font-size:12px; line-height:1.45 }
+  .profile-wheel-link{ width:100%; min-height:44px; margin-top:9px; border:1px solid rgba(233,190,106,.3); border-radius:13px; background:rgba(233,190,106,.09); color:var(--gold-hi); font-size:13px; font-weight:900 }
+  .trust-grid>div{ min-height:78px; padding:16px!important; border-color:rgba(233,190,106,.13); transition:transform .25s,border-color .25s }
+  .trust-grid>div:hover{ transform:translateY(-3px); border-color:rgba(233,190,106,.4) }
+  .catalog-panel{ margin-top:38px; padding:22px; border:1px solid rgba(233,190,106,.14); border-radius:28px; background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015)); box-shadow:0 30px 80px -55px #000 }
+  .category-button{ min-height:76px; transition:transform .25s,border-color .25s,background .25s }
+  .category-button:hover{ transform:translateY(-2px); border-color:rgba(233,190,106,.4)!important }
+  .product-card{ border-radius:24px!important; border-color:rgba(255,255,255,.1); background:linear-gradient(155deg,rgba(255,255,255,.085),rgba(255,255,255,.022)); box-shadow:0 20px 48px -38px #000 }
+  .product-card .prod-tile{ background:radial-gradient(circle at 50% 20%,#fff 0,#e9ebef 42%,#c9ced6 100%); border-bottom:1px solid rgba(255,255,255,.08) }
+  .product-card .btn-gold{ border-radius:14px; box-shadow:0 14px 28px -18px rgba(233,190,106,.9) }
+  .product-badges{ position:absolute; top:10px; left:10px; right:10px; z-index:10; display:flex; flex-wrap:nowrap; align-items:center; justify-content:flex-start; gap:6px; pointer-events:none }
+  .product-badge{ min-width:0; max-width:100%; padding:5px 8px; border-radius:999px; font-size:10px; line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; box-shadow:0 4px 12px rgba(0,0,0,.16) }
+  .product-badge.puff{ flex:1 1 auto; max-width:calc(100% - 68px); margin-left:0; padding:4px 7px; background:#000a; color:#fff; font-size:9px; text-align:center; letter-spacing:-.01em }
+  .product-badge.puff:only-child{ max-width:100%; margin-left:auto }
+  .benefit-card{ position:relative; overflow:hidden; min-height:165px; padding:20px!important; border-radius:22px!important }
+  .benefit-card::after{ content:""; position:absolute; right:-34px; bottom:-34px; width:90px; height:90px; border:1px solid rgba(233,190,106,.12); border-radius:50% }
+  #sheet>div:last-child{ border:1px solid rgba(233,190,106,.18); box-shadow:0 40px 120px rgba(0,0,0,.65) }
+  footer{ background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(233,190,106,.025)) }
+  @media(max-width:767px){
+    .promo-strip{padding:10px 12px!important}
+    .promo-strip-inner{gap:8px;justify-content:flex-start;overflow:hidden}
+    .promo-copy{display:grid;grid-template-columns:auto 1fr;gap:2px 7px;flex:1;min-width:0}
+    .promo-kicker{grid-row:span 2;align-self:center;padding:5px 7px;font-size:9px}
+    .promo-main{font-size:16px}
+    .promo-sub{font-size:11px;overflow:hidden;text-overflow:ellipsis}
+    .promo-clock{padding:5px 7px;font-size:9px;gap:3px}
+    .promo-clock strong{font-size:12px}
+    .promo-cta{display:none}
+    .hero-shell{ min-height:auto; margin-top:12px; padding:20px 16px 22px; border-radius:24px }
+    .hero-shell::before{ font-size:70px; bottom:8px }
+    .hero-title{ font-size:31px!important }
+    .hero-visual{ display:none }
+    .hero-offer-main{ width:100%; padding:9px 10px; gap:0 9px; border-radius:15px }
+    .hero-offer-main strong{ padding:8px 9px; font-size:25px }
+    .hero-offer-label{ font-size:9px }
+    .hero-offer-text{ font-size:13px }
+    .hero-proof{ min-width:108px; padding:9px 11px; font-size:15px }
+    .hero-proof-one{ left:-4px; top:13% } .hero-proof-two{ right:-4px; bottom:10% }
+    .product-badges{ top:9px; left:9px; right:9px; gap:5px }
+    .product-badge{ padding:4px 6px; font-size:9px }
+    .product-badge.puff{ max-width:calc(100% - 62px); padding:4px 5px; font-size:8px; letter-spacing:-.02em }
+    .promo-equation{ font-size:58px }
+    .referral-card{ margin-top:16px; padding:22px 18px!important; border-radius:25px!important }
+    .referral-layout{ grid-template-columns:1fr; gap:20px }
+    .referral-card h2{ font-size:25px }
+    .referral-card p{ font-size:14px }
+    .referral-btn{ width:100%; justify-content:center; margin-top:18px }
+    .footer-actions{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px }
+    .footer-action{ padding:0 10px; font-size:12px }
+    .catalog-panel{ margin-left:-6px; margin-right:-6px; padding:14px; border-radius:22px }
+    .product-card{ border-radius:20px!important }
+    .benefit-card{ min-height:150px; padding:16px!important }
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation-duration:.001s!important} }
+  /* ==== Premium prize wheel ==== */
+  .wheel-stage{width:min(88vw,390px);margin:24px auto 17px;isolation:isolate}
+  .wheel-disc{--wheel-turn:0deg;position:relative;z-index:1;width:100%;height:100%;padding:9px;border:1px solid rgba(245,217,160,.68);border-radius:50%;background:linear-gradient(145deg,#f9e4ae,#645033 18%,#171a20 42%,#a77a35 72%,#f5d99d);box-shadow:0 30px 44px rgba(0,0,0,.62),0 0 0 5px rgba(20,21,25,.96),0 0 0 7px rgba(233,190,106,.34),inset 0 2px rgba(255,255,255,.72);overflow:visible;transform:none;transition:none}
+  .wheel-disc::before{content:"";position:absolute;inset:2px;border:1px solid rgba(10,12,15,.9);border-radius:50%;box-shadow:inset 0 0 0 4px rgba(255,255,255,.08),inset 0 0 28px rgba(0,0,0,.58);pointer-events:none;z-index:2}
+  .wheel-svg{display:block;width:100%;height:100%;overflow:visible}
+  #wheelRotor{transform-box:fill-box;transform-origin:center;transform:rotate(0deg);transition:transform 6.8s cubic-bezier(.08,.72,.12,1)}
+  .wheel-disc.spinning #wheelRotor{transform:rotate(var(--wheel-turn))}
+  .wheel-sector{vector-effect:non-scaling-stroke;transition:filter .25s,opacity .25s}
+  .wheel-sector.selected{filter:url(#wheelGlow);stroke:#fff3c5!important;stroke-width:5!important}
+  .wheel-label-card{fill:#080b10;fill-opacity:.62;stroke:#f5d9a0;stroke-opacity:.28;stroke-width:1}
+  .wheel-label-eyebrow,.wheel-label-title,.wheel-label-sub{font-family:Manrope,sans-serif;text-anchor:middle;pointer-events:none}
+  .wheel-label-eyebrow{fill:#f8dfa9; font-size:6.5px; font-weight:800; letter-spacing:1px; text-transform:uppercase}
+  .wheel-label-title{fill:#fff; font-size:10px; font-weight:900}
+  .wheel-label-sub{fill:#f5d9a0; font-size:7px; font-weight:900; letter-spacing:.5px}
+  .wheel-label-image{preserveAspectRatio:xMidYMid meet;pointer-events:none}
+  .wheel-led{fill:#f5d9a0;stroke:#3a2d1a;stroke-width:2}
+  .wheel-led:nth-child(3n){fill:#fff0c4}
+  .wheel-pointer{top:-12px;width:42px;height:50px;border:0;transform:translateX(-50%);filter:drop-shadow(0 7px 4px rgba(0,0,0,.58));background:linear-gradient(90deg,#8e5c1a 0 10%,#ffe8a8 25%,#fff 48%,#d79b35 72%,#633d12 90%);clip-path:polygon(50% 100%,4% 15%,50% 0,96% 15%);}
+  .wheel-pointer::before{content:"";position:absolute;left:50%;top:7px;width:10px;height:20px;transform:translateX(-50%);border-radius:6px;background:#fff6cf;box-shadow:0 0 10px #fff2b3}
+  .wheel-pointer span{position:absolute;left:50%;top:-9px;width:22px;height:22px;transform:translateX(-50%);border:3px solid #e9be6a;border-radius:50%;background:#191b21;box-shadow:inset 0 1px #fff8,0 2px 5px #0009}
+  .wheel-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:-3px auto 12px;color:rgba(255,255,255,.45);font-size:10px}
+  .wheel-tools button{padding:6px 9px;border:1px solid rgba(233,190,106,.28);border-radius:10px;background:rgba(233,190,106,.08);color:var(--gold-hi);font-size:10px;font-weight:800}
+  .result-modal{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:16px}
+  .result-modal.hidden{display:none}
+  .result-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(18px)}
+  .result-panel{position:relative;width:min(100%,420px);padding:30px 22px 22px;border:1px solid rgba(233,190,106,.52);border-radius:28px;background:radial-gradient(70% 55% at 50% 0%,rgba(233,190,106,.22),transparent 75%),linear-gradient(150deg,#252a32,#0c0e12 70%);box-shadow:0 35px 100px rgba(0,0,0,.72);text-align:center;animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
+  .result-kicker{color:var(--gold-hi);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .result-panel h2{margin:12px 25px 8px;font:800 clamp(24px,7vw,34px)/1.05 'Unbounded',sans-serif;letter-spacing:-.06em;color:#fff}
+  .result-panel p{margin:0 auto 18px;max-width:280px;color:rgba(255,255,255,.62);font-size:13px;line-height:1.5}
+  .result-prize-art{display:grid;place-items:center;width:145px;height:145px;margin:18px auto 2px;border:1px solid rgba(245,217,160,.42);border-radius:50%;background:radial-gradient(circle,#fff7dc 0,#ebd09a 38%,#8e6629 100%);box-shadow:0 20px 42px rgba(0,0,0,.45),inset 0 2px rgba(255,255,255,.7)}
+  .result-prize-art img{display:block;width:100px;height:100px;object-fit:contain;mix-blend-mode:multiply}
+  .result-prize-art .result-gift-mark{font:900 18px/1 'Unbounded',sans-serif;color:#1a1408}
+  .blocked-screen{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 15%,rgba(233,190,106,.15),transparent 45%),#08090c}
+  .blocked-screen.hidden{display:none}
+  .blocked-card{width:min(100%,420px);padding:30px 22px;border:1px solid rgba(233,190,106,.34);border-radius:28px;background:linear-gradient(145deg,#20242c,#0d0f13);box-shadow:0 35px 100px #000b;text-align:center}
+  .blocked-card h2{margin:12px 0 8px;font:800 28px/1.05 'Unbounded',sans-serif;color:#fff}
+  .blocked-card p{margin:0 auto 20px;color:rgba(255,255,255,.62);font-size:14px;line-height:1.5}
+  .blocked-icon{font-size:42px;filter:drop-shadow(0 10px 20px #0008)}
+  @media(max-width:430px){.wheel-stage{width:min(88vw,340px)}.wheel-panel{padding:22px 15px 17px}.wheel-tools{font-size:9px}.wheel-tools button{font-size:9px}}
+  /* Telegram Mini App: catalog first, compact controls, native Telegram chrome. */
+  .tg-mini #intro,.tg-mini .promo-card,.tg-mini .trust-grid{display:none!important}
+  .tg-mini .promo-strip{padding:10px 12px!important}
+  .tg-mini .promo-strip-inner{gap:8px;justify-content:space-between}
+  .tg-mini .promo-copy{gap:7px}
+  .tg-mini .promo-kicker{display:none}
+  .tg-mini .promo-main{font-size:16px}
+  .tg-mini .promo-sub{font-size:11px}
+  .tg-mini .promo-clock{padding:5px 7px;font-size:9px;gap:3px}
+  .tg-mini .promo-clock strong{font-size:12px}
+  .tg-mini .promo-cta{display:none}
+  .tg-mini .site-header{top:0;margin-top:0}
+  .tg-mini #app{padding-bottom:28px}
+  .tg-mini .hero-shell{min-height:0;margin-top:10px;padding:20px;border-radius:24px}
+  .tg-mini .hero-shell::before,.tg-mini .hero-shell::after,.tg-mini .hero-visual{display:none}
+  .tg-mini .hero-title{font-size:clamp(28px,8vw,42px)!important;line-height:1.02!important}
+  .tg-mini .hero-title em{font-size:11px;letter-spacing:.14em;margin-top:9px}
+  .tg-mini .hero-copy p{font-size:14px!important;line-height:1.5}
+  .tg-mini .hero-actions{margin-top:16px}
+  .tg-mini .hero-actions a:first-child{width:100%;justify-content:center}
+  .tg-mini .hero-actions button:last-child{display:none}
+  .tg-mini .catalog-panel{margin-top:14px;padding:14px;border-radius:22px}
+  .tg-mini .catalog-panel h2{margin-top:16px}
+  .catalog-search{color:#fff;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.14)}
+  .catalog-search::placeholder{color:rgba(255,255,255,.42)}
+  .catalog-search:focus{outline:none;border-color:rgba(233,190,106,.65);box-shadow:0 0 0 3px rgba(233,190,106,.1)}
+  .tg-mini footer{display:block;margin-top:22px}
+  .tg-mini .footer-main{display:block}
+  .tg-mini .footer-brand,.tg-mini .footer-legal{display:none}
+  .tg-mini .footer-links{display:block}
+  .tg-mini .footer-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:0}
+  .tg-mini .footer-action{min-height:42px;padding:0 7px;font-size:11px}
+  .tg-mini .footer-links>span{display:flex;margin-top:10px;justify-content:center;font-size:11px}
+  .tg-mini .floating-contact{bottom:calc(14px + env(safe-area-inset-bottom))}
+  .tg-mini .profile-fab{bottom:calc(82px + env(safe-area-inset-bottom))}
+  /* Phone hardening: keep every block inside the viewport, including 320px devices. */
+  @media(max-width:767px){
+    html,body,#app{width:100%;max-width:100%;overflow-x:clip}
+    img,svg,video{max-width:100%;height:auto}
+    .site-header,.hero-shell,.promo-card,.referral-card,.catalog-panel,footer{max-width:calc(100vw - 24px);margin-left:12px;margin-right:12px}
+    .site-header{margin-left:0;margin-right:0;max-width:none}
+    .topbar{padding-left:12px!important;padding-right:12px!important;gap:7px}
+    .brand{min-width:0;flex:1}
+    .brand span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .hero-shell{margin-top:14px}
+    .hero-copy,.hero-visual,.referral-layout>div,.catalog-panel{min-width:0}
+    .hero-title{font-size:clamp(31px,10vw,46px)!important;letter-spacing:-.065em!important;overflow-wrap:anywhere}
+    .hero-copy p{max-width:100%;overflow-wrap:anywhere}
+    .hero-actions a,.hero-actions button,.referral-btn{min-height:46px;touch-action:manipulation}
+    .promo-strip-inner{min-width:0}
+    .promo-copy{min-width:0;overflow:hidden}
+    .promo-main,.promo-sub{overflow:hidden;text-overflow:ellipsis}
+    .promo-clock{flex:0 0 auto}
+    .catalog-panel{width:auto}
+    .brandRow{min-width:0}
+    .brandRow button{min-height:42px;touch-action:manipulation}
+    .product-card .btn-gold{min-height:46px;touch-action:manipulation}
+    .sheet input,.sheet select,.sheet textarea{font-size:16px!important}
+    .float-wa{width:56px;height:56px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));font-size:24px}
+    .profile-fab{right:12px;bottom:88px;width:52px;height:52px;border-radius:16px}
+    .wheel-panel,.profile-panel{padding:23px 16px 17px;border-radius:25px}
+    .wheel-stage{width:min(86vw,340px);margin-top:20px}
+    .wheel-segment{width:68px;height:62px;margin-top:-31px;transform:rotate(var(--angle)) translateX(68px)}
+    .wheel-segment-body{width:68px;height:62px;border-radius:11px}
+    .wheel-segment strong{font-size:17px}
+    .wheel-segment em{font-size:6px}
+    .wheel-segment small{font-size:7px}
+    .wheel-prize-art{width:33px;height:33px;border-radius:8px}
+    .wheel-segment.has-art strong{font-size:12px}
+    .wheel-segment.has-art small{font-size:6px}
+  }
+  @media(max-width:360px){
+    .promo-strip{padding-left:9px!important;padding-right:9px!important}
+    .promo-strip-inner{gap:5px}
+    .promo-kicker{display:none}
+    .promo-main{font-size:14px}
+    .promo-sub{display:none}
+    .promo-clock{padding:5px 6px;font-size:8px}
+    .promo-clock strong{font-size:11px}
+    .hero-shell{padding:22px 16px 26px;border-radius:24px}
+    .hero-title{font-size:31px!important}
+    .hero-visual{min-height:286px}
+    .hero-proof{min-width:96px;padding:8px 9px;font-size:13px}
+    .hero-proof small{font-size:8px}
+    .referral-card{padding:19px 14px!important}
+    .referral-card h2{font-size:22px;line-height:1.08}
+    .referral-card p{font-size:13px;line-height:1.5}
+    .referral-step{grid-template-columns:30px 1fr;gap:9px;padding:9px 10px}
+    .referral-step b{width:28px;height:28px;border-radius:10px;font-size:13px}
+    .referral-step strong{font-size:12px}
+    .referral-step span{font-size:10px}
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO SPLASH -->
+<div id="intro">
+  <div class="intro-glow"></div>
+  <span class="smoke" style="left:12%;width:120px;height:120px;animation-delay:0s"></span>
+  <span class="smoke" style="left:28%;width:90px;height:90px;animation-delay:.6s"></span>
+  <span class="smoke" style="left:48%;width:140px;height:140px;animation-delay:.2s"></span>
+  <span class="smoke" style="left:66%;width:100px;height:100px;animation-delay:.9s"></span>
+  <span class="smoke" style="left:82%;width:110px;height:110px;animation-delay:.4s"></span>
+  <div id="introLogo" class="intro-logo"></div>
+  <div class="intro-title">
+    <div class="row w1">
+      <span style="animation-delay:.15s">A</span><span style="animation-delay:.22s">L</span><span style="animation-delay:.29s">A</span><span style="animation-delay:.36s">I</span>
+    </div>
+    <div class="row w2">
+      <span style="animation-delay:.60s">C</span><span style="animation-delay:.67s">L</span><span style="animation-delay:.74s">O</span><span style="animation-delay:.81s">U</span><span style="animation-delay:.88s">D</span>
+    </div>
+  </div>
+  <div class="intro-sub" style="letter-spacing:.1em">Работаем с 2017 года по всему Кыргызстану</div>
+  <div class="intro-skip">Пропустить →</div>
+</div>
+
+<div class="bg-fx"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid-fx"></div>
+
+<div class="promo-strip w-full font-bold" style="background:linear-gradient(90deg,#B8862F,#F5D9A0 50%,#B8862F);color:var(--gold-ink)">
+  <div class="promo-strip-inner">
+    <div class="promo-copy">
+      <span class="promo-kicker">🔥 <span data-i="promoToday">СЕГОДНЯ</span></span>
+      <span class="promo-main" data-i="topbar">1+1=3</span>
+      <span class="promo-sub" data-i="promoTopText">Берите две — третья в подарок</span>
+    </div>
+    <div class="promo-clock"><span data-i="promoLeft">До конца акции</span> <strong class="tabular-nums"><span id="tbH">00</span>:<span id="tbM">00</span>:<span id="tbS">00</span></strong></div>
+    <a href="#catalog" class="promo-cta"><span data-i="promoTopCta">Выбрать вкус</span> <i data-lucide="arrow-down" style="width:14px;height:14px"></i></a>
+  </div>
+</div>
+
+<header class="site-header sticky top-0 z-40 glass" style="backdrop-filter:blur(18px)">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5">
+    <button onclick="go()" class="flex items-center gap-2.5">
+      <span id="logoMark" class="logo-mark3d"></span>
+      <span class="leading-none text-left">
+      <span class="block font-extrabold text-[19px] sm:text-[21px] tracking-tight">ALAI <span style="color:var(--sky)">CLOUD</span></span>
+        <span class="block text-[9px] tracking-[.28em] text-white/40 font-semibold">ORIGINAL · QUALITY · TRUST</span>
+      </span>
+    </button>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button onclick="showAbout()" data-i="aboutNav" class="btn-steel text-[12px] sm:text-[13px] font-extrabold px-3 py-1.5 rounded-full text-white">О нас</button>
+      <div class="flex items-center gap-0.5 rounded-full p-0.5 bg-white/10 border border-white/12">
+        <button id="btnRU" onclick="setLang('ru')" class="px-2.5 py-1 rounded-full text-[12px] font-bold">RU</button>
+        <button id="btnKG" onclick="setLang('kg')" class="px-2.5 py-1 rounded-full text-[12px] font-bold">KG</button>
+      </div>
+      <button onclick="openTelegramContact()" class="flex items-center gap-1.5 rounded-full px-3 py-2 text-[12px] sm:text-[13px] font-bold" style="background:#2AABEE;color:#061a29">
+        <i data-lucide="send" style="width:15px;height:15px"></i><span class="hidden sm:inline">Telegram</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app" class="max-w-7xl mx-auto px-4 sm:px-6"></main>
+
+<button onclick="openTelegramContact()" class="floating-contact fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl" style="background:#2AABEE;animation:pulseGlow 2.4s infinite">
+  <i data-lucide="send" style="width:26px;height:26px;color:#061a29"></i>
+</button>
+
+<button id="profileFab" type="button" onclick="openProfile()" class="profile-fab" aria-label="Открыть профиль">
+  <i data-lucide="user-round" style="width:24px;height:24px"></i>
+  <span id="profilePrizeDot" class="profile-dot hidden"></span>
+</button>
+
+<div id="wheelModal" class="wheel-modal hidden" aria-hidden="true">
+  <div class="wheel-backdrop" onclick="closeWheel()"></div>
+  <section class="wheel-panel" role="dialog" aria-modal="true" aria-labelledby="wheelTitle">
+    <button type="button" class="wheel-close" onclick="closeWheel()" aria-label="Закрыть">×</button>
+    <div class="wheel-kicker">🎁 Твой подарок от Alai Cloud</div>
+    <h2 id="wheelTitle">Забери свой бонус</h2>
+    <p>Один поворот — один подарок. Результат сохранится в профиле.</p>
+    <div class="wheel-stage">
+      <div class="wheel-pointer" aria-hidden="true"><span></span></div>
+      <div id="wheelDisc" class="wheel-disc">
+        <svg id="wheelSvg" class="wheel-svg" viewBox="0 0 360 360" role="img" aria-label="Колесо призов">
+          <defs>
+            <radialGradient id="wheelCore" cx="35%" cy="25%" r="80%"><stop offset="0" stop-color="#fff4cf"/><stop offset=".48" stop-color="#e9be6a"/><stop offset="1" stop-color="#9b661d"/></radialGradient>
+            <linearGradient id="wheelMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8e2ad"/><stop offset=".2" stop-color="#9c7b45"/><stop offset=".5" stop-color="#2c3038"/><stop offset=".8" stop-color="#b68a3e"/><stop offset="1" stop-color="#f6d88f"/></linearGradient>
+            <filter id="wheelShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="9" stdDeviation="7" flood-color="#000" flood-opacity=".62"/></filter>
+            <filter id="wheelGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g id="wheelRotor" filter="url(#wheelShadow)">
+            <g id="wheelBase"></g>
+            <g id="wheelSectors"></g>
+            <g id="wheelLabels"></g>
+            <g id="wheelLights"></g>
+            <g id="wheelCenter"></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div id="wheelResult" class="wheel-result">Нажми кнопку и узнай, что приготовили для тебя ✨</div>
+    <div class="wheel-tools">
+      <button id="wheelSoundToggle" type="button" onclick="toggleWheelSound()" aria-pressed="true">🔊 Звук включён</button>
+      <span>Результат определяется сервером</span>
+    </div>
+    <button id="spinWheelBtn" type="button" class="wheel-action" onclick="spinWheel()">Открыть подарок</button>
+    <button id="wheelProfileBtn" type="button" class="profile-wheel-link hidden" onclick="closeWheel();openProfile()">Открыть профиль</button>
+  </section>
+</div>
+
+<div id="prizeResultModal" class="result-modal hidden" aria-hidden="true">
+  <div class="result-backdrop" onclick="closePrizeResult()"></div>
+  <section class="result-panel" role="dialog" aria-modal="true" aria-labelledby="resultPrizeTitle">
+    <button type="button" class="profile-close" onclick="closePrizeResult()" aria-label="Закрыть">×</button>
+    <div class="result-kicker">🎉 Подарок закреплён за тобой</div>
+    <div id="resultPrizeArt" class="result-prize-art"></div>
+    <h2 id="resultPrizeTitle">Твой приз</h2>
+    <p id="resultPrizeCondition">Покажи этот результат менеджеру.</p>
+    <button type="button" class="wheel-action" onclick="closePrizeResult();openProfile()">Открыть профиль</button>
+    <button type="button" class="profile-wheel-link" onclick="closePrizeResult();claimPrize()">🎁 Забрать приз у менеджера</button>
+  </section>
+</div>
+
+<div id="blockedScreen" class="blocked-screen hidden" aria-hidden="true">
+  <div class="blocked-card">
+    <div class="blocked-icon">⛔</div>
+    <div class="wheel-kicker">Alai Cloud · доступ</div>
+    <h2>Доступ ограничен</h2>
+    <p>Если это произошло по ошибке, напиши менеджеру — мы всё проверим.</p>
+    <button type="button" class="wheel-action" onclick="openTelegramContact()">Написать менеджеру</button>
+  </div>
+</div>
+
+<div id="profileModal" class="profile-modal hidden" aria-hidden="true">
+  <div class="profile-backdrop" onclick="closeProfile()"></div>
+  <section class="profile-panel" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+    <button type="button" class="profile-close" onclick="closeProfile()" aria-label="Закрыть">×</button>
+    <div class="wheel-kicker">Alai Cloud · личный кабинет</div>
+    <h2 id="profileTitle">Твой профиль</h2>
+    <div class="profile-club-hero">
+      <div id="profileAvatar" class="profile-avatar">AC</div>
+      <div class="profile-club-copy">
+        <small>Alai Club</small>
+        <strong id="profileGreeting">Твой прогресс</strong>
+        <span id="profileLevelMeta">Статус растёт с каждым заказом</span>
+      </div>
+      <div id="profileLevelMark" class="profile-level-mark">01</div>
+    </div>
+    <div class="profile-progress-card">
+      <div class="profile-progress-top"><span id="profileLevelName">Старт</span><strong id="profileXp">0 XP</strong></div>
+      <div class="profile-progress-track"><span id="profileProgressFill" class="profile-progress-fill"></span></div>
+      <div class="profile-progress-bottom"><span id="profileProgressLabel">0 / 1 заказ</span><span id="profileNextLevel">Следующий статус рядом</span></div>
+    </div>
+    <label class="profile-label" for="profileNameInput">Имя</label>
+    <div class="profile-name-row">
+      <input id="profileNameInput" maxlength="60" placeholder="Как к тебе обращаться?" autocomplete="name">
+      <button id="profileSaveBtn" type="button" class="profile-save" onclick="saveProfileName()">Сохранить</button>
+    </div>
+    <div class="profile-stats">
+      <div class="profile-stat"><span>Заказов</span><strong id="profileOrders">0</strong><small id="profileOrdersHint">Первый заказ впереди</small></div>
+      <div class="profile-stat"><span>XP клуба</span><strong id="profileXpStat">0</strong><small>+100 XP за заказ</small></div>
+      <div class="profile-stat prize"><span>Твой приз</span><strong id="profilePrize">Колесо ещё не крутили</strong></div>
+    </div>
+    <div class="profile-mission">
+      <div class="profile-mission-kicker">Твоя следующая цель</div>
+      <strong id="profileMissionTitle">Оформи первый заказ</strong>
+      <p id="profileMissionCopy">Начни свой прогресс в Alai Club — выбери устройство и получи готовый заказ в Telegram.</p>
+      <button type="button" onclick="openProfileCatalog()">Открыть каталог →</button>
+    </div>
+    <p id="profileHint" class="profile-hint">Колесо доступно один раз для новых пользователей.</p>
+    <button id="claimPrizeBtn" type="button" class="claim-prize hidden" onclick="claimPrize()">🎁 Забрать приз у менеджера</button>
+    <button id="profileWheelBtn" type="button" class="profile-wheel-link" onclick="closeProfile();openWheel()">🎡 Крутить колесо</button>
+  </section>
+</div>
+
+<footer class="mt-16 border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="footer-main flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+      <div class="footer-brand flex items-center gap-3">
+        <span id="logoMarkFooter" class="logo-mark3d"></span>
+        <div>
+          <div class="font-extrabold text-lg">ALAI <span style="color:var(--sky)">CLOUD</span></div>
+          <div class="text-white/45 text-[13px]" data-i="fdeliver">🚚 Доставка по всему Кыргызстану</div>
+        </div>
+      </div>
+      <div class="footer-links flex flex-col gap-2 text-[14px]">
+        <div class="footer-actions">
+          <button onclick="openTelegramContact()" class="footer-action primary"><i data-lucide="life-buoy" style="width:16px;height:16px"></i> Поддержка</button>
+          <button onclick="openTelegramContact()" class="footer-action"><i data-lucide="send" style="width:16px;height:16px"></i> Telegram</button>
+          <button onclick="showAbout()" data-i="aboutNav" class="footer-action"><i data-lucide="info" style="width:16px;height:16px"></i> О нас</button>
+        </div>
+        <span class="flex items-center gap-2 text-white/60"><i data-lucide="clock" style="width:16px;height:16px"></i> <span data-i="fhours">Каждый день · 10:00–22:00</span></span>
+      </div>
+    </div>
+    <div class="footer-legal mt-8 pt-6 border-t border-white/10 text-[12px] text-white/35 flex flex-col sm:flex-row gap-2 sm:justify-between">
+      <span>© 2026 Alai Cloud · <span data-i="since">Работаем с 2017 года</span></span>
+      <span data-i="age">Продажа только лицам старше 18 лет. Содержит никотин.</span>
+    </div>
+  </div>
+</footer>
+
+<div id="sheet" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" onclick="closeSheet()"></div>
+  <div class="absolute inset-x-0 bottom-0 top-4 sm:inset-6 sm:top-10 sm:bottom-10 max-w-3xl sm:mx-auto glass rounded-t-3xl sm:rounded-3xl overflow-y-auto no-scrollbar sheet-enter" style="background:linear-gradient(180deg,#161920,#0d0f13)">
+    <div id="sheetBody"></div>
+  </div>
+</div>
+
+<script>
+const TG_CONFIG=window.ALAI_TELEGRAM||{botUsername:"",orderEndpoint:"",profileEndpoint:"/api/profile",useBot:false};
+const TELEGRAM_APP=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
+const IS_TELEGRAM_APP=!!TELEGRAM_APP;
+/* Наличие telegram-web-app.js ещё не означает, что страница открыта внутри Telegram. */
+const IS_TELEGRAM_RUNTIME=!!(TELEGRAM_APP&&String(TELEGRAM_APP.initData||'').trim());
+let LANG="ru";
+/* Аватарка Alai Cloud. */
+const LOGO_SRC="/assets/alai-cloud-logo.png";
+/* Прямой путь работает и на Netlify, и на любом другом статическом хостинге. */
+const LOGO_URL=LOGO_SRC;
+function logoEl(size){ return LOGO_URL?`<img src="${LOGO_URL}" width="${size}" height="${size}" alt="Alai Cloud" style="border-radius:50%;object-fit:cover;display:block">`:logoBadge(size); }
+function openTelegramUrl(target){
+  if(IS_TELEGRAM_RUNTIME&&typeof TELEGRAM_APP.openTelegramLink==='function'){
+    TELEGRAM_APP.openTelegramLink(target);
+    return;
+  }
+  window.open(target,'_blank','noopener,noreferrer');
+}
+function openTelegramContact(){
+  const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim();
+  const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+  const target=username?`https://t.me/${username}`:(phone?`https://t.me/+${phone}`:'');
+  if(!target){
+    alert(LANG==='kg'?'Telegram азырынча туташтырыла элек.':'Telegram пока не подключён. Укажите контакт в assets/telegram-config.js.');
+    return;
+  }
+  openTelegramUrl(target);
+}
+function openReferralTelegram(){
+  const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim();
+  const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+  const message=LANG==='kg'
+    ? "Саламатсызбы! «Досуңду чакыр» акциясына катышып жатам.\n10 досума Alai Cloud тууралуу билдирүү жөнөттүм. Скриншотту тиркеп жатам.\n1 000 сомдук промокод бериңизчи."
+    : "Здравствуйте! Участвую в акции «Пригласи друга».\nЯ разослал(а) информацию Alai Cloud 10 друзьям. Скриншот прикрепляю.\nПожалуйста, выдайте промокод на 1 000 сом.";
+  const target=username?`https://t.me/${username}?text=${encodeURIComponent(message)}`:(phone?`https://t.me/+${phone}?text=${encodeURIComponent(message)}`:'');
+  if(!target){ alert(LANG==='kg'?'Telegram азырынча туташтырыла элек.':'Telegram пока не подключён.'); return; }
+  openTelegramUrl(target);
+}
+
+const PROFILE_STORAGE_KEY='alai-cloud-profile-v5';
+const DEFAULT_PROFILE_PRIZES=['WAKA 10000','1 банка ZYN','Puffmi','Скидка 300 сом','Скидка 800 сом','Бесплатная доставка','Скидка 500 сом'];
+const PRIZE_VISUALS={
+  'WAKA 10000':{image:'/assets/prizes/waka-10000.png',eyebrow:'подарок бренда',title:'WAKA',subtitle:'10000'},
+  '1 банка ZYN':{image:'/assets/prizes/zyn-cool-mint.png',eyebrow:'для тебя',title:'ZYN',subtitle:'1 БАНКА'},
+  'Puffmi':{image:'/assets/prizes/puffmi-prize.png',eyebrow:'новинка',title:'PUFFMI',subtitle:'ПОДАРОК'}
+};
+let profileState={displayName:'',firstName:'',lastName:'',username:'',ordersCount:0,wheelSpun:false,prizeId:'',prize:'',prizeClaimed:false,prizes:DEFAULT_PROFILE_PRIZES};
+
+function clientEscape(value){ return String(value??'').replace(/[&<>"']/g, char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
+function prizeLabel(prize){ return typeof prize==='string'?prize:String(prize?.label||''); }
+function normalisePrizes(prizes){
+  const list=(Array.isArray(prizes)?prizes:DEFAULT_PROFILE_PRIZES).map(prizeLabel).map(item=>item.trim()).filter(Boolean).slice(0,12);
+  return list.length?list:DEFAULT_PROFILE_PRIZES;
+}
+function mergeProfile(data){
+  if(!data) return;
+  profileState={...profileState,...data,prizes:normalisePrizes(data.prizes||profileState.prizes)};
+  persistLocalProfile();
+  renderProfile();
+}
+function persistLocalProfile(){
+  if(IS_TELEGRAM_RUNTIME) return;
+  try{ localStorage.setItem(PROFILE_STORAGE_KEY,JSON.stringify(profileState)); }catch(_){ }
+}
+function readLocalProfile(){
+  if(IS_TELEGRAM_RUNTIME) return;
+  try{ const parsed=JSON.parse(localStorage.getItem(PROFILE_STORAGE_KEY)||'null'); if(parsed) profileState={...profileState,...parsed,prizes:normalisePrizes(parsed.prizes)}; }catch(_){ }
+}
+function localProfileResponse(){ return {ok:true,profile:{...profileState},prizes:normalisePrizes(profileState.prizes)}; }
+async function profileRequest(action='',payload={}){
+  if(!IS_TELEGRAM_RUNTIME){
+    if(action==='spin'&&!profileState.wheelSpun){
+      const prizes=normalisePrizes(profileState.prizes);
+      const prize=prizes[Math.floor(Math.random()*prizes.length)];
+      profileState={...profileState,prizes,wheelSpun:true,prizeId:`prize-${prizes.indexOf(prize)+1}`,prize};
+    }
+    if(action==='name') profileState.displayName=String(payload.displayName||'').trim().slice(0,60)||profileState.firstName||'';
+    if(action==='order') profileState.ordersCount=Number(profileState.ordersCount||0)+1;
+    if(action==='claim'&&profileState.prize) profileState.prizeClaimed=true;
+    persistLocalProfile();
+    const local=localProfileResponse(); mergeProfile(local.profile); return local;
+  }
+  const endpoint=String(TG_CONFIG.profileEndpoint||'/api/profile');
+  const options={headers:{'X-Telegram-Init-Data':TELEGRAM_APP.initData||''}};
+  if(action){ options.method='POST'; options.headers['Content-Type']='application/json'; options.body=JSON.stringify({action,...payload}); }
+  const response=await fetch(endpoint,options);
+  const data=await response.json().catch(()=>({}));
+  if(response.status===403&&data.code==='USER_BLOCKED'){ showBlockedScreen(); const blockedError=new Error(data.error||'Доступ ограничен'); blockedError.code='USER_BLOCKED'; throw blockedError; }
+  if(!response.ok||!data.ok) throw new Error(data.error||'profile request failed');
+  mergeProfile({...data.profile,prizes:data.prizes});
+  return data;
+}
+function polarPoint(cx,cy,r,deg){ const rad=deg*Math.PI/180; return {x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)}; }
+function wheelSectorPath(start,end,outer=160,inner=54){
+  const a=polarPoint(180,180,outer,start), b=polarPoint(180,180,outer,end), c=polarPoint(180,180,inner,end), d=polarPoint(180,180,inner,start);
+  const large=end-start>180?1:0;
+  return `M ${a.x.toFixed(2)} ${a.y.toFixed(2)} A ${outer} ${outer} 0 ${large} 1 ${b.x.toFixed(2)} ${b.y.toFixed(2)} L ${c.x.toFixed(2)} ${c.y.toFixed(2)} A ${inner} ${inner} 0 ${large} 0 ${d.x.toFixed(2)} ${d.y.toFixed(2)} Z`;
+}
+function renderWheel(prizes=profileState.prizes){
+  const disc=document.getElementById('wheelDisc'); if(!disc) return;
+  const sectors=document.getElementById('wheelSectors'); const labels=document.getElementById('wheelLabels'); const base=document.getElementById('wheelBase'); const lights=document.getElementById('wheelLights'); const center=document.getElementById('wheelCenter');
+  if(!sectors||!labels||!base||!lights||!center) return;
+  const list=normalisePrizes(prizes); profileState.prizes=list; const angle=360/list.length; const start=-90-angle/2;
+  const palette=['#c9932f','#364453','#d8a83f','#283746','#b77d24','#46576a','#e5bd69','#314353'];
+  base.innerHTML=`<circle cx="180" cy="180" r="164" fill="#101319"/><circle cx="180" cy="180" r="162" fill="url(#wheelCore)" opacity=".13"/><circle cx="180" cy="180" r="165" fill="none" stroke="url(#wheelMetal)" stroke-width="3"/><circle cx="180" cy="180" r="151" fill="none" stroke="#f5d9a0" stroke-opacity=".16" stroke-width="1"/>`;
+  sectors.innerHTML=list.map((item,i)=>{
+    const a=start+i*angle; const b=a+angle; return `<path id="wheelSector${i}" class="wheel-sector" d="${wheelSectorPath(a,b)}" fill="${palette[i%palette.length]}" stroke="#0d1015" stroke-width="3" aria-label="${clientEscape(item)}"><title>${clientEscape(item)}</title></path>`;
+  }).join('');
+  labels.innerHTML=list.map((item,i)=>{
+    const product=PRIZE_VISUALS[String(item).trim()]; const mid=start+i*angle+angle/2; const point=polarPoint(180,180,111,mid); const x=point.x.toFixed(2); const y=point.y.toFixed(2);
+    const amount=String(item).match(/(\d[\d\s]*)\s*сом/i); let inner='';
+    if(product) inner=`<image class="wheel-label-image" href="${product.image}" x="-15" y="-21" width="30" height="30"/><text class="wheel-label-title" x="0" y="17">${clientEscape(product.title)}</text><text class="wheel-label-sub" x="0" y="27">${clientEscape(product.subtitle)}</text>`;
+    else if(amount) inner=`<text class="wheel-label-eyebrow" x="0" y="-9">СКИДКА</text><text class="wheel-label-title" x="0" y="7">−${clientEscape(amount[1].replace(/\s/g,''))}</text><text class="wheel-label-sub" x="0" y="19">СОМ</text>`;
+    else if(/бесплатная доставка/i.test(item)) inner=`<text class="wheel-label-eyebrow" x="0" y="-8">ПОДАРОК</text><text class="wheel-label-title" x="0" y="7">FREE</text><text class="wheel-label-sub" x="0" y="19">ДОСТАВКА</text>`;
+    else inner=`<text class="wheel-label-eyebrow" x="0" y="-7">ПРИЗ</text><text class="wheel-label-title" x="0" y="9">${clientEscape(String(item).slice(0,12))}</text>`;
+    return `<g transform="translate(${x} ${y})" aria-label="${clientEscape(item)}"><rect class="wheel-label-card" x="-34" y="-27" width="68" height="58" rx="10"/>${inner}</g>`;
+  }).join('');
+  lights.innerHTML=Array.from({length:28},(_,i)=>{ const p=polarPoint(180,180,169,i*(360/28)-90); return `<circle class="wheel-led" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="3.2"/>`; }).join('');
+  center.innerHTML=`<circle cx="180" cy="180" r="55" fill="#080b10" stroke="url(#wheelMetal)" stroke-width="4"/><circle cx="180" cy="180" r="46" fill="url(#wheelCore)" stroke="#fff0bf" stroke-opacity=".4"/><text x="180" y="178" text-anchor="middle" fill="#1a1408" font-family="Unbounded, sans-serif" font-weight="900" font-size="16" letter-spacing="-1.5">ALAI</text><text x="180" y="193" text-anchor="middle" fill="#1a1408" font-family="Manrope, sans-serif" font-weight="900" font-size="8" letter-spacing="3">CLOUD</text>`;
+}
+function orderWord(value){ const n=Math.abs(Number(value)||0)%100; const one=n%10===1&&n!==11; const few=n%10>=2&&n%10<=4&&(n<10||n>=20); return one?'заказ':few?'заказа':'заказов'; }
+function profileLevelData(value){
+  const orders=Math.max(0,Number(value)||0); const levels=[
+    {min:0,name:'Старт',meta:'Первый шаг в Alai Club',badge:'01'},
+    {min:1,name:'Постоянный',meta:'Ты уже в клубе',badge:'02'},
+    {min:3,name:'VIP',meta:'Твой выбор заметен',badge:'03'},
+    {min:5,name:'Alai Legend',meta:'Максимальный статус',badge:'04'}
+  ];
+  let current=levels[0]; for(const level of levels){ if(orders>=level.min) current=level; }
+  const next=levels.find(level=>level.min>orders)||null; const progress=next?Math.min(100,Math.max(0,((orders-current.min)/(next.min-current.min))*100)):100;
+  return {orders,xp:orders*100,current,next,progress,remaining:next?next.min-orders:0};
+}
+function openProfileCatalog(){ closeProfile(); requestAnimationFrame(()=>document.getElementById('catalog')?.scrollIntoView({behavior:'smooth',block:'start'})); }
+function renderProfile(){
+  const level=profileLevelData(profileState.ordersCount); const displayName=String(profileState.displayName||profileState.firstName||'').trim();
+  const avatar=document.getElementById('profileAvatar'); if(avatar){ const parts=(displayName||'Alai Cloud').split(/\s+/).filter(Boolean); avatar.textContent=(parts.length>1?parts[0][0]+parts[1][0]:parts[0].slice(0,2)).toUpperCase(); }
+  const greeting=document.getElementById('profileGreeting'); if(greeting) greeting.textContent=displayName?`Привет, ${displayName}`:'Твой прогресс';
+  const levelMeta=document.getElementById('profileLevelMeta'); if(levelMeta) levelMeta.textContent=`${level.current.meta} · ${level.current.name}`;
+  const levelMark=document.getElementById('profileLevelMark'); if(levelMark) levelMark.textContent=`LV ${level.current.badge}`;
+  const levelName=document.getElementById('profileLevelName'); if(levelName) levelName.textContent=level.current.name;
+  const xp=document.getElementById('profileXp'); if(xp) xp.textContent=`${level.xp} XP`;
+  const xpStat=document.getElementById('profileXpStat'); if(xpStat) xpStat.textContent=String(level.xp);
+  const progress=document.getElementById('profileProgressFill'); if(progress) progress.style.width=`${level.progress}%`;
+  const progressLabel=document.getElementById('profileProgressLabel'); if(progressLabel) progressLabel.textContent=level.next?`${level.orders} / ${level.next.min} ${orderWord(level.next.min)}`:'Максимальный статус';
+  const nextLevel=document.getElementById('profileNextLevel'); if(nextLevel) nextLevel.textContent=level.next?`До ${level.next.name}`:'Ты в топе';
+  const name=document.getElementById('profileNameInput'); if(name&&document.activeElement!==name) name.value=profileState.displayName||profileState.firstName||'';
+  const orders=document.getElementById('profileOrders'); if(orders) orders.textContent=String(level.orders);
+  const ordersHint=document.getElementById('profileOrdersHint'); if(ordersHint) ordersHint.textContent=level.next?`Ещё ${level.remaining} до ${level.next.name}`:'Максимальный статус';
+  const prize=document.getElementById('profilePrize'); if(prize) prize.textContent=profileState.prize||'Колесо ещё не крутили';
+  const missionTitle=document.getElementById('profileMissionTitle'); if(missionTitle) missionTitle.textContent=level.next?(level.orders===0?'Первый заказ — первый уровень':`Ещё ${level.remaining} ${orderWord(level.remaining)} до «${level.next.name}»`):'Ты достиг максимального статуса';
+  const missionCopy=document.getElementById('profileMissionCopy'); if(missionCopy) missionCopy.textContent=level.next?(level.orders===0?'Выбери устройство, оформи заказ и начни собирать свой прогресс в Alai Club.':`Каждый подтверждённый заказ приносит 100 XP. Продолжай — следующий статус уже близко.`):'Спасибо, что выбираешь Alai Cloud. Открой каталог и посмотри новинки для следующего заказа.';
+  const hint=document.getElementById('profileHint'); if(hint) hint.textContent=profileState.prizeClaimed?'Запрос отправлен менеджеру — скоро свяжемся с тобой.':(profileState.prize?'Приз сохранён. Нажми кнопку ниже, чтобы забрать его.':'Колесо доступно один раз для новых пользователей.');
+  const claim=document.getElementById('claimPrizeBtn'); if(claim){ claim.classList.toggle('hidden',!profileState.prize); claim.disabled=Boolean(profileState.prizeClaimed); claim.textContent=profileState.prizeClaimed?'✅ Запрос отправлен менеджеру':'🎁 Забрать приз у менеджера'; }
+  const wheelBtn=document.getElementById('profileWheelBtn'); if(wheelBtn){ wheelBtn.classList.toggle('hidden',Boolean(profileState.wheelSpun)); }
+  const dot=document.getElementById('profilePrizeDot'); if(dot) dot.classList.toggle('hidden',!profileState.prize);
+}
+function openWheel(){
+  if(profileState.wheelSpun){ openProfile(); return; }
+  renderWheel(); updateWheelSoundButton();
+  const modal=document.getElementById('wheelModal'); if(!modal) return;
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closeWheel(){
+  const modal=document.getElementById('wheelModal'); if(!modal) return;
+  modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow='';
+}
+function openProfile(){
+  closeWheel(); renderProfile();
+  const modal=document.getElementById('profileModal'); if(!modal) return;
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function showWelcomeWheelIfNeeded(){
+  if(profileState.wheelSpun||!document.getElementById('blockedScreen')?.classList.contains('hidden')) return;
+  const intro=document.getElementById('intro');
+  const introVisible=intro&&getComputedStyle(intro).display!=='none'&&!intro.classList.contains('hide');
+  if(introVisible){ window.setTimeout(showWelcomeWheelIfNeeded,360); return; }
+  openWheel();
+}
+function closeProfile(){
+  const modal=document.getElementById('profileModal'); if(!modal) return;
+  modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow='';
+}
+function showBlockedScreen(){
+  document.getElementById('wheelModal')?.classList.add('hidden'); document.getElementById('profileModal')?.classList.add('hidden');
+  const screen=document.getElementById('blockedScreen'); if(screen){ screen.classList.remove('hidden'); screen.setAttribute('aria-hidden','false'); }
+  document.body.style.overflow='hidden';
+}
+function prizeCondition(label){
+  return /скидка|доставка/i.test(String(label))?'Покажи этот результат менеджеру при оформлении заказа.':'Получение подарка согласуй с менеджером в Telegram.';
+}
+function showPrizeResult(label){
+  const modal=document.getElementById('prizeResultModal'); const title=document.getElementById('resultPrizeTitle'); const condition=document.getElementById('resultPrizeCondition'); const art=document.getElementById('resultPrizeArt');
+  if(!modal||!title||!condition||!art) return;
+  const visual=PRIZE_VISUALS[String(label).trim()]; title.textContent=label; condition.textContent=prizeCondition(label);
+  if(visual) art.innerHTML=`<img src="${visual.image}" alt="${clientEscape(label)}">`; else { const amount=String(label).match(/(\d[\d\s]*)\s*сом/i); art.innerHTML=`<span class="result-gift-mark">${amount?`−${clientEscape(amount[1].replace(/\s/g,''))} сом`:/бесплатная доставка/i.test(label)?'FREE':'🎁'}</span>`; }
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closePrizeResult(){ const modal=document.getElementById('prizeResultModal'); if(!modal) return; modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow=''; }
+let wheelSoundEnabled=true;
+try{ wheelSoundEnabled=localStorage.getItem('alai-wheel-sound')!=='off'; }catch(_){ }
+function updateWheelSoundButton(){ const button=document.getElementById('wheelSoundToggle'); if(!button) return; button.textContent=wheelSoundEnabled?'🔊 Звук включён':'🔇 Звук выключен'; button.setAttribute('aria-pressed',String(wheelSoundEnabled)); }
+function toggleWheelSound(){ wheelSoundEnabled=!wheelSoundEnabled; try{ localStorage.setItem('alai-wheel-sound',wheelSoundEnabled?'on':'off'); }catch(_){ } updateWheelSoundButton(); }
+function playWheelSpinSound(duration){
+  if(!wheelSoundEnabled||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return ()=>{};
+  const AudioContext=window.AudioContext||window.webkitAudioContext; if(!AudioContext) return ()=>{};
+  let context; try{ context=new AudioContext(); }catch(_){ return ()=>{}; }
+  let stopped=false; const tick=()=>{ if(stopped) return; const oscillator=context.createOscillator(); const gain=context.createGain(); oscillator.type='sine'; oscillator.frequency.value=210+Math.random()*120; gain.gain.setValueAtTime(.0001,context.currentTime); gain.gain.exponentialRampToValueAtTime(.025,context.currentTime+.008); gain.gain.exponentialRampToValueAtTime(.0001,context.currentTime+.06); oscillator.connect(gain).connect(context.destination); oscillator.start(); oscillator.stop(context.currentTime+.07); };
+  const interval=window.setInterval(tick,170); tick();
+  return ()=>{ stopped=true; window.clearInterval(interval); context.close().catch(()=>{}); };
+}
+async function spinWheel(){
+  const button=document.getElementById('spinWheelBtn'); const result=document.getElementById('wheelResult'); const disc=document.getElementById('wheelDisc'); const rotor=document.getElementById('wheelRotor');
+  if(!button||!result||!disc||!rotor||profileState.wheelSpun) return;
+  button.disabled=true; result.textContent='Колесо крутится…';
+  try{ TELEGRAM_APP?.HapticFeedback?.impactOccurred('medium'); }catch(_){ }
+  try{
+    const data=await profileRequest('spin');
+    const prizes=normalisePrizes(data.prizes||profileState.prizes); const index=Math.max(0,prizes.indexOf(data.profile?.prize||profileState.prize));
+    const angle=360/prizes.length; const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; const duration=reduced?80:6800; const turn=360*7-(index*angle); rotor.style.setProperty('--wheel-turn',`${turn}deg`); disc.classList.remove('spinning'); void disc.offsetWidth; disc.classList.add('spinning');
+    const stopSound=playWheelSpinSound(duration); window.setTimeout(stopSound,duration);
+    window.setTimeout(()=>{ document.getElementById(`wheelSector${index}`)?.classList.add('selected'); result.innerHTML=`🎉 Тебе выпало: <strong>${clientEscape(profileState.prize)}</strong>`; button.textContent='Приз сохранён'; document.getElementById('wheelProfileBtn')?.classList.remove('hidden'); renderProfile(); try{ TELEGRAM_APP?.HapticFeedback?.notificationOccurred('success'); }catch(_){ } showPrizeResult(profileState.prize); },duration+180);
+  }catch(error){ button.disabled=false; result.textContent=error?.code==='USER_BLOCKED'?'Доступ ограничен.': 'Не получилось сохранить результат. Попробуй ещё раз.'; console.error(error); }
+}
+async function saveProfileName(){
+  const input=document.getElementById('profileNameInput'); if(!input) return;
+  const button=document.getElementById('profileSaveBtn'); if(button) button.disabled=true;
+  try{ await profileRequest('name',{displayName:input.value}); if(button){ button.textContent='Сохранено'; setTimeout(()=>{button.textContent='Сохранить';button.disabled=false;},1200); } }
+  catch(error){ if(button) button.disabled=false; console.error(error); }
+}
+async function claimPrize(){
+  if(!profileState.prize){ closeProfile(); openWheel(); return; }
+  try{ await profileRequest('claim'); }catch(error){ console.error(error); }
+  const message=LANG==='kg'?`Саламатсызбы! Мен Alai Cloud'дун дөңгөлөгүнөн «${profileState.prize}» утуп алдым. Призди алгым келет.`:`Здравствуйте! Я выиграл(а) приз «${profileState.prize}» в колесе Alai Cloud. Хочу забрать его.`;
+  const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim(); const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+  const target=username?`https://t.me/${username}?text=${encodeURIComponent(message)}`:(phone?`https://t.me/+${phone}?text=${encodeURIComponent(message)}`:'');
+  if(target) openTelegramUrl(target); else alert('Контакт менеджера пока не настроен.');
+}
+async function loadProfile(){
+  readLocalProfile(); renderWheel(); renderProfile();
+  try{ await profileRequest(); }catch(error){ if(error?.code!=='USER_BLOCKED') console.warn('[profile]',error.message); }
+  renderWheel(); renderProfile();
+  showWelcomeWheelIfNeeded();
+}
+function logo3dInner(){ return LOGO_URL?`<img src="${LOGO_URL}" alt="Alai Cloud">`:logoBadge(320); }
+function attachLogo3D(){
+  const stage=document.querySelector('.logo3d-stage'), el=document.getElementById('logo3d');
+  if(!stage||!el) return;
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    stage.addEventListener('mousemove',e=>{ const r=stage.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; el.style.animation='none'; el.style.transform=`rotateY(${x*40}deg) rotateX(${-y*30}deg) translateZ(26px)`; });
+    stage.addEventListener('mouseleave',()=>{ el.style.animation=''; el.style.transform=''; });
+  }
+}
+
+function imgFail(el,c1,c2,label,w){ el.outerHTML=`<div class="float" style="width:${w}px;max-width:60%">${deviceSVG(c1,c2,label)}</div>`; }
+function merchFail(el,kind,c1){ el.outerHTML=`<div class="p-4" style="width:78%">${merchSVG(kind,c1)}</div>`; }
+function deviceSVG(c1,c2,label){
+  return `<svg viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto">
+  <defs><linearGradient id="g${c1.replace('#','')}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
+  <rect x="42" y="8" width="36" height="20" rx="9" fill="#0a0d16"/><rect x="24" y="26" width="72" height="226" rx="34" fill="url(#g${c1.replace('#','')})"/>
+  <rect x="24" y="26" width="30" height="226" rx="34" fill="rgba(255,255,255,.16)"/><rect x="42" y="120" width="36" height="66" rx="14" fill="rgba(0,0,0,.22)"/>
+  <text x="60" y="158" text-anchor="middle" fill="#fff" font-family="Manrope" font-weight="700" font-size="15">${label}</text></svg>`;
+}
+function cloud(c){ return `<g fill="${c}"><ellipse cx="22" cy="20" rx="20" ry="13"/><ellipse cx="40" cy="17" rx="14" ry="10"/><ellipse cx="11" cy="25" rx="12" ry="8"/><ellipse cx="34" cy="27" rx="15" ry="9"/></g>`; }
+function merchSVG(kind,c1){
+  const graph="#23262E", graph2="#12141A";
+  if(kind==='cap') return `<svg viewBox="0 0 220 180" style="height:158px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 116 Q30 46 110 46 Q190 46 190 116 Z" fill="${graph}"/>
+    <path d="M178 110 Q216 118 210 140 Q150 150 122 126 Q150 112 178 110 Z" fill="${graph2}"/>
+    <rect x="30" y="110" width="160" height="14" rx="7" fill="#191C22"/>
+    <circle cx="110" cy="48" r="6" fill="#191C22"/>
+    <g transform="translate(83,60) scale(.85)">${cloud(c1)}</g>
+    <text x="110" y="104" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="13" fill="#fff">ALAI CLOUD</text></svg>`;
+  if(kind==='tshirt') return `<svg viewBox="0 0 220 200" style="height:170px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M74 42 L96 32 Q110 46 124 32 L146 42 L184 66 L166 96 L150 86 L150 176 Q110 184 70 176 L70 86 L54 96 L36 66 Z" fill="${graph}"/>
+    <path d="M96 32 Q110 52 124 32" fill="none" stroke="#12141A" stroke-width="3"/>
+    <circle cx="110" cy="116" r="30" fill="${graph2}" stroke="${c1}" stroke-width="2"/>
+    <g transform="translate(90,100) scale(.5)">${cloud(c1)}</g>
+    <text x="110" y="132" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="11" fill="#fff">ALAI</text></svg>`;
+  if(kind==='hoodie') return `<svg viewBox="0 0 220 200" style="height:170px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M70 46 L150 46 L186 70 L168 100 L152 90 L152 178 Q110 186 68 178 L68 90 L52 100 L34 70 Z" fill="${graph}"/>
+    <path d="M78 46 Q110 78 142 46 Q140 30 110 30 Q80 30 78 46 Z" fill="${graph2}"/>
+    <path d="M104 52 L104 74 M116 52 L116 74" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+    <path d="M84 120 L136 120 L128 150 L92 150 Z" fill="${graph2}"/>
+    <g transform="translate(92,86) scale(.42)">${cloud(c1)}</g></svg>`;
+  if(kind==='keychain') return `<svg viewBox="0 0 200 200" style="height:170px" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="40" r="20" fill="none" stroke="#9aa4b8" stroke-width="8"/>
+    <line x1="100" y1="58" x2="100" y2="74" stroke="#9aa4b8" stroke-width="6"/>
+    <rect x="54" y="72" width="92" height="96" rx="18" fill="${graph}"/>
+    <g transform="translate(74,92) scale(.7)">${cloud(c1)}</g>
+    <text x="100" y="150" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="12" fill="#fff">ALAI CLOUD</text></svg>`;
+  return `<svg viewBox="0 0 210 190" style="height:160px" xmlns="http://www.w3.org/2000/svg">
+    <rect x="18" y="18" width="174" height="154" rx="16" fill="#ffffff" stroke="#c7d2e0" stroke-width="2" stroke-dasharray="6 6"/>
+    <g transform="translate(34,44) scale(.7)">${cloud(c1)}</g>
+    <g transform="translate(120,44) scale(.55)">${cloud('#C08A2E')}</g>
+    <g transform="translate(40,110) scale(.55)">${cloud('#E9BE6A')}</g>
+    <rect x="118" y="112" width="60" height="40" rx="9" fill="${graph}"/><text x="148" y="137" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="11" fill="#fff">ALAI</text></svg>`;
+}
+function logoBadge(s){
+  const rays=Array.from({length:12}).map((_,i)=>{const a=i*30*Math.PI/180;return `<line x1="${(65+6*Math.cos(a)).toFixed(1)}" y1="${(53+6*Math.sin(a)).toFixed(1)}" x2="${(65+8.5*Math.cos(a)).toFixed(1)}" y2="${(53+8.5*Math.sin(a)).toFixed(1)}"/>`}).join('');
+  return `<svg width="${s}" height="${s}" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg${s}" cx="50%" cy="38%" r="80%"><stop offset="0" stop-color="#2E333C"/><stop offset="1" stop-color="#0A0B0E"/></radialGradient>
+    <linearGradient id="au${s}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5D9A0"/><stop offset="1" stop-color="#C08A2E"/></linearGradient>
+    <linearGradient id="peak${s}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A6070"/><stop offset="1" stop-color="#23262E"/></linearGradient>
+    <path id="arc${s}" d="M42,150 A72,72 0 0,0 158,150" fill="none"/>
+    <clipPath id="disc${s}"><circle cx="100" cy="100" r="94"/></clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="#07080A"/>
+  <circle cx="100" cy="100" r="94" fill="url(#bg${s})" stroke="url(#au${s})" stroke-width="3"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#E9BE6A" stroke-opacity="0.22" stroke-width="1"/>
+  <g clip-path="url(#disc${s})">
+    <path d="M18 92 L58 50 L86 84 L104 66 L140 92 L182 92 L182 130 L18 130 Z" fill="url(#peak${s})" opacity=".85"/>
+    <path d="M58 50 L70 63 L58 70 L47 63 Z" fill="#C9CDD4" opacity=".8"/>
+  </g>
+  <g transform="translate(49,34)"><rect width="27" height="18" rx="2" fill="#C0392B"/><g stroke="#E9BE6A" stroke-width="1">${rays}</g><circle cx="65" cy="53" r="5.4" fill="#E9BE6A" transform="translate(-51.6,-44)"/></g>
+  <g fill="#E6E2D8" opacity=".92"><ellipse cx="90" cy="70" rx="27" ry="16"/><ellipse cx="116" cy="68" rx="20" ry="14"/><ellipse cx="78" cy="77" rx="16" ry="11"/><ellipse cx="110" cy="81" rx="22" ry="12"/></g>
+  <text x="100" y="120" text-anchor="middle" fill="#F2F3F5" font-family="Manrope,sans-serif" font-weight="800" font-size="27" letter-spacing="1">ALAI</text>
+  <text x="100" y="146" text-anchor="middle" fill="url(#au${s})" font-family="Manrope,sans-serif" font-weight="800" font-size="19" letter-spacing="2">CLOUD</text>
+  <text fill="#9AA0AA" font-family="Manrope,sans-serif" font-weight="700" font-size="9" letter-spacing="3"><textPath href="#arc${s}" startOffset="50%" text-anchor="middle">ORIGINAL · QUALITY · TRUST</textPath></text>
+  </svg>`;
+}
+
+const V="https://media.vaping360.com/images/";
+const P="?imageType=Standard&MaxWidth=600&MaxHeight=600";
+/* прокси-CDN: скачивает картинку с источника и отдаёт без блокировок хотлинка */
+function px(u){ if(!u) return ''; if(!/^https?:\/\//i.test(u)) return u; return 'https://images.weserv.nl/?url='+encodeURIComponent(u)+'&w=600&fit=inside&output=webp'; }
+const brands=[
+  {id:"merch",name:"Мерч Alai Cloud",color:"#E9BE6A"},
+  {id:"elfbar",name:"Elf Bar",color:"#ff4d8d"},
+  {id:"geekbar",name:"Geek Bar",color:"#25c2d6"},
+  {id:"lostmary",name:"Lost Mary",color:"#8b7bff"},
+  {id:"vozol",name:"VOZOL",color:"#a855f7"},
+  {id:"puffmi",name:"Puffmi",color:"#f3a6c8"},
+  {id:"waka",name:"WAKA",color:"#ff5b7f"},
+  {id:"raz",name:"RAZ",color:"#22d3ee"},
+  {id:"hqd",name:"HQD",color:"#fb7185"},
+  {id:"iplay",name:"iPlay",color:"#34d399"},
+  {id:"flum",name:"Flum",color:"#f472b6"},
+  {id:"elfworld",name:"Elfworld",color:"#f59e0b"},
+  {id:"olivebar",name:"OliveBar",color:"#84cc16"},
+  {id:"fizzy",name:"Fizzy",color:"#fb923c"},
+  {id:"waspe",name:"WASPE",color:"#60a5fa"},
+  {id:"starbuzz",name:"Starbuzz",color:"#f43f5e"},
+  {id:"nimmbox",name:"Nimmbox",color:"#2dd4bf"},
+  {id:"kylinbar",name:"Kylinbar",color:"#c084fc"},
+  {id:"rodman",name:"Rodman",color:"#fbbf24"},
+  {id:"tasteflex",name:"TasteFlex",color:"#38bdf8"},
+  {id:"vapsolo",name:"VapSolo",color:"#a78bfa"},
+  {id:"blu",name:"blu",color:"#818cf8"},
+  {id:"voopoo",name:"VOOPOO",color:"#f59e0b"},
+  {id:"oxva",name:"OXVA",color:"#22d3ee"},
+  {id:"vaporesso",name:"Vaporesso",color:"#60a5fa"},
+  {id:"zyn",name:"ZYN",color:"#38bdf8"},
+  {id:"velo",name:"VELO",color:"#a3e635"},
+  {id:"alfakher",name:"Al Fakher",color:"#fbbf24"},
+  {id:"relx",name:"RELX",color:"#34d399"},
+  {id:"rogue",name:"Rogue",color:"#f43f5e"},
+  {id:"iqos",name:"IQOS",color:"#38bdf8"},
+];
+const cats=[
+  {id:"disposable",name:{ru:"Одноразки",kg:"Бир жолку"},icon:"cigarette"},
+  {id:"iqos",name:{ru:"IQOS",kg:"IQOS"},icon:"flame"},
+  {id:"vape",name:{ru:"Вейпы",kg:"Вейптер"},icon:"battery-charging"},
+  {id:"hookah",name:{ru:"Кальяны",kg:"Кальяндар"},icon:"wind"},
+  {id:"snus",name:{ru:"Снюс",kg:"Снюс"},icon:"package"},
+  {id:"merch",name:{ru:"Мерч",kg:"Мерч"},icon:"shirt"},
+];
+
+/* ===== вкусы (русский + эмодзи) ===== */
+const F={
+  strkiwi:"🍓 Клубника-Киви", waterice:"🍉 Арбуз Айс", mangopeach:"🥭 Манго-Персик", bluerazz:"🫐 Блю Разз Айс",
+  rainbow:"🌈 Радужные конфеты", strban:"🍌 Клубника-Банан", pmw:"🍑 Персик-Манго-Арбуз", sakura:"🌸 Сакура-Виноград",
+  cherrycola:"🍒 Вишнёвая кола", pinacoco:"🥥 Ананас-Кокос Айс", miami:"🌿 Майами Минт", strmango:"🥭 Клубника-Манго",
+  coolmint:"❄️ Кул Минт", sourapple:"🍏 Кислое яблоко Айс", blueberry:"🫐 Черничный шторм", kpg:"🥝 Киви-Маракуйя-Гуава",
+  pinklem:"🍋 Розовый лимонад", strice:"🍓 Клубника Айс", blueice:"🫐 Черника Айс", grapeice:"🍇 Виноград Айс",
+  peachice:"🍑 Персик Айс", mangoice:"🥭 Манго Айс", mintice:"❄️ Мятный лёд", mexmango:"🥭 Мексиканское манго",
+  whitegummy:"🐻 Белый мишка", crangrape:"🍇 Клюква-Виноград", tropic:"🌈 Тропический микс", metamoon:"🌙 Мета Мун",
+  bluraspb:"🫐 Черника-Малина", juicypeach:"🍑 Сочный персик", grape:"🍇 Виноград", pinemango:"🍍 Ананас-Манго",
+  cransoda:"🥤 Клюквенная газировка", tripleberry:"❄️ Тройная ягода Айс", scaryberry:"🫐 Страшная ягода",
+  summergrape:"🍇 Летний виноград", strwater:"🍓 Клубника-Арбуз", lychee:"🌸 Личи", grapeapple:"🍏 Виноград-Яблоко",
+  darkcherry:"🍒 Тёмная вишня", freshmint:"🌿 Свежая мята", watchill:"🍉 Арбузный холод", mango:"🥭 Манго",
+  lushice:"🧊 Лаш Айс", menthol:"❄️ Ментол", blackice:"🖤 Блэк Айс", dragonfruit:"🐉 Питайя", skittles:"🌈 Скитлс",
+  mineralwater:"💧 Минеральная вода", cappuccino:"☕ Капучино", vimbull:"🍇 Вимто Айс", strgrape:"🍇 Клубника-Виноград",
+  energy:"⚡ Энергетик", cola:"🥤 Кола", blueberrycherry:"🫐 Черника-Вишня", raspcola:"🥤 Малиновая кола",
+  mangowater:"🥭 Манго-Арбуз", blackraspberry:"🫐 Чёрная малина", strraspb:"🍓 Клубника-Малина", mintyblue:"🫐 Минти Блю Разз",
+  watermeloncherry:"🍉 Арбуз-Вишня", raspdarkshine:"🍇 Малина Дарк", appsurge:"🍏 Яблочный заряд",
+  floralorange:"🌸 Цветочный апельсин", colorfruit:"🌈 Фруктовый микс", raspwater:"🍉 Малина-Арбуз", tripmango:"🥭 Тройное манго",
+  bcurrant:"🫐 Чёрная смородина", lemonlime:"🍋 Лимон-Лайм", doubleapple:"🍏 Двойное яблоко", peachtea:"🍑 Персиковый чай",
+  bubblegum:"🍬 Жвачка", aloe:"🌿 Алоэ-Виноград", pineapple:"🍍 Ананас",
+  pMint:"🌿 Мята", pCold:"🧊 Ледяная свежесть", pCitrus:"🍋 Цитрус", pCoffee:"☕ Кофе", pBerry:"🫐 Лесные ягоды",
+  pWater:"🍉 Арбуз", pApple:"🍏 Яблоко", pSpearmint:"🌱 Спирминт", pTropic:"🥭 Тропик",
+};
+function fl(...k){ return k.map(x=>F[x]); }
+
+/* ===== модели (только с реальными фото) ===== */
+const models=[
+  // МЕРЧ ALAI CLOUD (собственная продукция)
+  {id:"m-cap",brand:"merch",type:"merch",kind:"cap",name:"Кепка Alai Cloud",price:1139,sizes:["Один размер"],c1:"#E9BE6A",img:"/assets/merch/cap.jpg",
+   descRu:"Чёрная кепка с вышитым логотипом Alai Cloud и облаком. Регулируемый размер.",descKg:"Alai Cloud логотиби тигилген кара кепка. Өлчөмү жөнгө салынат."},
+  {id:"m-tshirt",brand:"merch",type:"merch",kind:"tshirt",name:"Футболка Alai Cloud",price:1483,sizes:["S","M","L","XL"],c1:"#C9CDD4",img:"/assets/merch/tshirt.jpg",
+   descRu:"Чёрная хлопковая футболка с фирменным принтом Alai Cloud на груди.",descKg:"Alai Cloud принти менен кара пахта футболка."},
+  {id:"m-hoodie",brand:"merch",type:"merch",kind:"hoodie",name:"Худи Alai Cloud",price:2864,sizes:["S","M","L","XL"],c1:"#E9BE6A",img:"/assets/merch/hoodie.jpg",
+   descRu:"Тёплое худи с капюшоном, карманом-кенгуру и логотипом Alai Cloud.",descKg:"Капюшону, чөнтөгү жана Alai Cloud логотиби бар жылуу худи."},
+  {id:"m-keychain",brand:"merch",type:"merch",kind:"keychain",name:"Брелок Alai Cloud",price:448,sizes:["Один размер"],c1:"#F5D9A0",img:"/assets/merch/keychain.jpg",
+   descRu:"Металлический брелок в форме облака с логотипом бренда.",descKg:"Бренд логотиби менен булут формасындагы металл брелок."},
+  {id:"m-sticker",brand:"merch",type:"merch",kind:"sticker",name:"Стикерпак Alai Cloud",price:288,sizes:["Один размер"],c1:"#C9CDD4",img:"/assets/merch/stickers.jpg",
+   descRu:"Набор фирменных виниловых стикеров Alai Cloud (10 шт).",descKg:"Alai Cloud фирмалык винил стикерлер топтому (10 даана)."},
+  // ELF BAR
+  {id:"eb-bc5000",brand:"elfbar",name:"Elf Bar BC5000",puffs:5000,price:1380,img:V+"elfbar-bc5000-disposable-345339d9fb.webp"+P,c1:"#ff4d8d",c2:"#8a1e5a",
+   descRu:"Легендарная одноразка. 650 мАч, дозарядка USB-C, mesh-испаритель и десятки насыщенных вкусов.",
+   descKg:"Легендарлуу бир жолку. 650 мАч, USB-C кубаттоо, mesh-испаритель жана ондогон даамдар.",
+   flavors:fl("strkiwi","waterice","mangopeach","bluerazz","rainbow","strban","pmw","sakura","cherrycola","pinacoco","miami","strmango","peachice","kpg","grapeice","pinklem")},
+  {id:"eb-iceking",brand:"elfbar",name:"Elf Bar Ice King Pro",puffs:40000,price:2990,img:V+"elf-bar-ice-king-pro-809ed4e9.webp"+P,c1:"#37c6ff",c2:"#1153a8",
+   descRu:"Флагман на 40 000 затяжек с большим экраном и регулировкой мощности.",
+   descKg:"40 000 тартымга флагман: чоң экран жана кубаттуулукту жөнгө салуу.",
+   flavors:fl("strice","blueice","waterice","grapeice","coolmint","peachice","kpg","bluerazz","mangoice","lushice","menthol","mintice","blackice","watchill")},
+  {id:"eb-fs70000",brand:"elfbar",name:"Elf Bar FS70000",puffs:70000,price:3680,img:V+"elf-bar-fs70000-37d4df31.webp"+P,c1:"#5ad1ff",c2:"#164e8f",
+   descRu:"Огромный ресурс на 70 000 затяжек с дисплеем. Хватает надолго.",
+   descKg:"70 000 тартымдык эбегейсиз чоң ресурс, дисплей менен.",
+   flavors:fl("strice","waterice","mangoice","grapeice","mintice","mangopeach","bluerazz","rainbow","coolmint","lushice","pinklem","dragonfruit","kpg","peachice")},
+  // GEEK BAR
+  {id:"gb-pulse",brand:"geekbar",name:"Geek Bar Pulse",puffs:15000,price:2530,img:V+"geek-bar-pulse-6812efc8ab.webp"+P,c1:"#25c2d6",c2:"#0d5a66",
+   descRu:"Два режима (15000/7500), яркий экран и очень насыщенные вкусы. Mexico Mango — хит.",
+   descKg:"Эки режим (15000/7500), жаркын экран жана каныккан даамдар.",
+   flavors:fl("mexmango","bluerazz","waterice","sourapple","strban","miami","whitegummy","pinklem","crangrape","tropic","dragonfruit","cherrycola","blueberry","grapeice","skittles","metamoon")},
+  {id:"gb-pulse2",brand:"geekbar",name:"Geek Bar Pulse 2",puffs:25000,price:3105,img:V+"geekbar-pulse-2-3691ae16.webp"+P,c1:"#5ad1ff",c2:"#1a5fa8",
+   descRu:"Новое поколение Pulse: до 25 000 затяжек и три режима мощности.",
+   descKg:"Pulse'тин жаңы муунусу: 25 000 тартымга чейин, үч режим.",
+   flavors:fl("bluraspb","waterice","metamoon","bluerazz","strmango","tropic","mexmango","miami","grapeice","dragonfruit","peachice","skittles","lushice","kpg")},
+  {id:"gb-pulsex2",brand:"geekbar",name:"Geek Bar Pulse X2",puffs:50000,price:3450,img:V+"geek-bar-pulse-x-2-accd543d.webp"+P,c1:"#37e0c0",c2:"#0e6b66",
+   descRu:"Максимальный Pulse: до 50 000 затяжек и крупный дисплей.",
+   descKg:"Эң күчтүү Pulse: 50 000 тартымга чейин жана чоң дисплей.",
+   flavors:fl("mexmango","waterice","bluerazz","strkiwi","miami","grapeice","tropic","dragonfruit","peachice","blueberry","skittles","mintice","cherrycola","pinklem")},
+  {id:"gb-burj",brand:"geekbar",name:"Geek Bar Burj",puffs:30000,price:2875,img:V+"geekbar-burj-315bf67b.webp"+P,c1:"#f4c04e",c2:"#8a6410",
+   descRu:"Стильный дизайн-«башня», до 30 000 затяжек и премиальные вкусы.",
+   descKg:"Стилдүү «мунара» дизайн, 30 000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","mango","strkiwi","mintice","peachice","tropic","dragonfruit","kpg","grapeice","skittles","lushice","miami","blueberry")},
+  {id:"gb-mate60k",brand:"geekbar",name:"Geek Bar Mate 60K",puffs:60000,price:3680,img:V+"geekbar-mate-60k-75529e8c.webp"+P,c1:"#25c2d6",c2:"#0d5a66",
+   descRu:"Ресурс на 60 000 затяжек и стабильный вкус до самого конца.",
+   descKg:"60 000 тартымдык ресурс, акырына чейин туруктуу даам.",
+   flavors:fl("waterice","bluerazz","mangopeach","strban","coolmint","grapeice","dragonfruit","tropic","peachice","blueberry","skittles","kpg","cherrycola","mintice")},
+  {id:"gb-somax80k",brand:"geekbar",name:"Geek Bar Somax 80K",puffs:80000,price:4025,img:V+"geekbar-somax-80k-ef02aa1c.webp"+P,c1:"#8b5cf6",c2:"#4c2a9e",
+   descRu:"Топовый ресурс на 80 000 затяжек. Для тех, кому нужно надолго.",
+   descKg:"80 000 тартымдык топ ресурс.",
+   flavors:fl("waterice","mangoice","bluerazz","strkiwi","mangopeach","mintice","dragonfruit","tropic","peachice","blueberry","lushice","kpg","skittles","grapeice")},
+  // LOST MARY
+  {id:"lm-bm6000",brand:"lostmary",name:"Lost Mary BM6000",puffs:6000,price:1610,img:V+"lost-mary-bm6000-ffbdb67925.webp"+P,c1:"#8b7bff",c2:"#3b2f7a",
+   descRu:"Гибрид с доливом: 12 мл жидкости, батарея 1000 мАч, mesh-катушка и до 6000 затяжек.",
+   descKg:"Гибрид: 12 мл суюктук, 1000 мАч, mesh-катушка жана 6000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","strkiwi","juicypeach","grape","pinemango","cransoda","tripleberry","sakura","kpg","blueberry","pinklem","cherrycola","mintice")},
+  {id:"lm-mt35000",brand:"lostmary",name:"Lost Mary MT35000 Turbo",puffs:35000,price:3105,img:V+"lost-mary-mt35k-miami-mint-65558496.webp"+P,c1:"#4fd1a1",c2:"#1c6b57",
+   descRu:"Turbo-режим и экран заряда. До 35 000 затяжек и ровный вкус до конца.",
+   descKg:"Turbo режим жана заряд экраны. 35 000 тартымга чейин.",
+   flavors:fl("miami","sakura","scaryberry","summergrape","bluerazz","waterice","strwater","tripleberry","blueberry","peachice","kpg","dragonfruit","grapeice","mintice")},
+  // VOZOL
+  {id:"vz-star12000",brand:"vozol",name:"VOZOL Star 12000",puffs:12000,price:2300,img:V+"vozol-star-12000-f83be5f7df.webp"+P,c1:"#8b5cf6",c2:"#4c2a9e",
+   descRu:"LED-экран, 650 мАч, USB-C и технология вкуса S.i.L.C. До 12 000 затяжек.",
+   descKg:"LED-экран, 650 мАч, USB-C жана S.i.L.C. технологиясы.",
+   flavors:fl("bluerazz","grapeice","waterice","strkiwi","coolmint","pmw","blueberry","kpg","sourapple","pinklem","peachice","mangopeach","dragonfruit","cherrycola","mintice","sakura")},
+  {id:"vz-rave40000",brand:"vozol",name:"VOZOL Rave 40000",puffs:40000,price:3220,img:V+"vozol-rave-40000-efcdbd2e.webp"+P,c1:"#a855f7",c2:"#5b1e9e",
+   descRu:"Крупный ресурс на 40 000 затяжек с цифровым дисплеем.",
+   descKg:"40 000 тартымдык чоң ресурс, санариптик дисплей менен.",
+   flavors:fl("bluerazz","waterice","miami","rainbow","mangopeach","coolmint","dragonfruit","tropic","peachice","blueberry","skittles","kpg","grapeice","lushice")},
+  {id:"vz-magicflex",brand:"vozol",name:"VOZOL Magic Flex 40000",puffs:40000,price:3220,img:V+"vozol-magic-flex-40000-61a4142d.webp"+P,c1:"#7c5cff",c2:"#3a2185",
+   descRu:"Гибкий дизайн и большой ресурс на 40 000 затяжек. Яркие вкусы.",
+   descKg:"Ийкемдүү дизайн жана 40 000 тартымдык чоң ресурс.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","grapeice","mintice","dragonfruit","tropic","peachice","blueberry","kpg","pinklem","cherrycola","sakura")},
+  // WAKA
+  {id:"wk-sopro7000",brand:"waka",name:"WAKA Sopro PA7000",puffs:7000,price:1725,img:V+"waka-sopro-pa7000-5487ee602a.webp"+P,c1:"#ff5b7f",c2:"#a01f3f",
+   descRu:"Двойная катушка, ровная подача пара и чистый вкус. До 7000 затяжек.",
+   descKg:"Кош катушка, тегиз пар жана таза даам. 7000 тартымга чейин.",
+   flavors:fl("watchill","lychee","bluraspb","grapeapple","strkiwi","darkcherry","freshmint","sakura","kpg","mango","strban","mineralwater","cola","blueberry")},
+  {id:"wk-sopro10000",brand:"waka",name:"WAKA SoPro PA10000",puffs:10000,price:2185,img:"https://www.vapezilla.com/cdn/shop/files/WAKA0SoPro-PA-10000-Disposable-Vape-Watermelon-Chill.png?v=1713366325&width=600",c1:"#ff5b7f",c2:"#a01f3f",
+   descRu:"850 мАч, два режима мощности и двойная mesh-катушка. До 10 000 затяжек, 18 мл жидкости.",
+   descKg:"850 мАч, эки режим жана кош mesh-катушка. 10 000 тартымга чейин.",
+   flavors:fl("watchill","strban","strkiwi","tripmango","kpg","mangowater","pinklem","raspwater","bluraspb","colorfruit","darkcherry","floralorange","grapeapple","appsurge")},
+  {id:"wk-sopro20000",brand:"waka",name:"WAKA SoPro 20000",puffs:20000,price:2530,img:"https://vapoae.com/wp-content/uploads/2024/09/WAKA-SoPro-PA20000-Disposable-Vape-600x575.jpeg",c1:"#ff4d94",c2:"#8a1240",
+   descRu:"Топовая WAKA: 850 мАч, 20 мл, двойной mesh и два режима MTL/DTL. До 20 000 затяжек.",
+   descKg:"Топ WAKA: 850 мАч, 20 мл, кош mesh жана MTL/DTL режими. 20 000 тартымга чейин.",
+   flavors:fl("blackraspberry","crangrape","darkcherry","freshmint","kpg","strwater","strraspb","strkiwi","strgrape","sakura","watchill","blueberry","vimbull","mintyblue","watermeloncherry","tripleberry","cappuccino","raspdarkshine")},
+  {id:"wk-pa25000",brand:"waka",name:"WAKA PA25000",puffs:25000,price:2875,img:"https://cis.wakavaping.com/cdn/shop/files/e8d4623338da761302ecd99636d0de33.png?v=1759208290",c1:"#ff5b7f",c2:"#7a1030",
+   descRu:"Премиальная WAKA большого объёма: до 25 000 затяжек, экран заряда и жидкости, насыщенный вкус.",
+   descKg:"Чоң көлөмдүү премиум WAKA: 25 000 тартымга чейин, заряд экраны, каныккан даам.",
+   flavors:fl("strwater","watchill","bluraspb","lychee","grapeapple","sakura","blueberry","kpg","mango","mintice","cappuccino","crangrape","darkcherry","peachice","tripleberry","energy")},
+  // RAZ
+  {id:"raz-ltx25000",brand:"raz",name:"RAZ LTX25000",puffs:25000,price:3105,img:V+"raz-ltx-25k-577b48a5fd.webp"+P,c1:"#22d3ee",c2:"#0e7490",
+   descRu:"Популярная RAZ с большим экраном и мощным паром. До 25 000 затяжек, яркие вкусы.",
+   descKg:"Популярдуу RAZ: чоң экран жана күчтүү пар. 25 000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","peachice","miami","strkiwi","grapeice","dragonfruit","tropic","blueberry","mintice","cherrycola","kpg","strwater","pinklem")},
+  {id:"raz-dc25000",brand:"raz",name:"RAZ DC25000",puffs:25000,price:3105,img:V+"raz-dc25000-a3b3a97e0d.webp"+P,c1:"#2dd4bf",c2:"#0f766e",
+   descRu:"RAZ DC25000 с двойной катушкой и экраном заряда. Ровный вкус до 25 000 затяжек.",
+   descKg:"RAZ DC25000: кош катушка жана заряд экраны. 25 000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","strban","miami","sourapple","grapeice","mangopeach","tropic","blueberry","mintice","dragonfruit","kpg","peachice","rainbow")},
+  {id:"raz-ryl35k",brand:"raz",name:"RAZ RYL Classic 35K",puffs:35000,price:3335,img:V+"raz-ryl-classic-2d45df52f3.webp"+P,c1:"#38bdf8",c2:"#1e6fb0",
+   descRu:"RAZ RYL Classic: премиальный корпус, экран и до 35 000 затяжек насыщенного вкуса.",
+   descKg:"RAZ RYL Classic: премиум корпус, экран жана 35 000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","peachice","miami","strkiwi","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","mangopeach")},
+  {id:"raz-vue50k",brand:"raz",name:"RAZ Vue 50K",puffs:50000,price:3680,img:V+"raz-vue-50k-48baf8dc.webp"+P,c1:"#22d3ee",c2:"#0e7490",
+   descRu:"RAZ Vue 50K с большим дисплеем и огромным ресурсом на 50 000 затяжек.",
+   descKg:"RAZ Vue 50K: чоң дисплей жана 50 000 тартымдык ресурс.",
+   flavors:fl("bluerazz","waterice","strban","miami","mangopeach","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  // LOST MARY (бюджет)
+  {id:"lm-tp1000",brand:"lostmary",name:"Lost Mary TP1000",puffs:1000,price:1150,img:V+"lost-mary-tp1000-285ce1f5.webp"+P,c1:"#a78bfa",c2:"#5b21b6",
+   descRu:"Компактная и недорогая одноразка на 1000 затяжек. Идеальна попробовать вкус.",
+   descKg:"Ыкчам жана арзан, 1000 тартымга. Даам сынап көрүүгө эң сонун.",
+   flavors:fl("strkiwi","waterice","bluerazz","grapeice","coolmint","peachice")},
+  // HQD
+  {id:"hqd-snap50k",brand:"hqd",name:"HQD Snap 50K",puffs:50000,price:3450,img:V+"hqd-snap-50k-e0b51c00.webp"+P,c1:"#fb7185",c2:"#9f1239",
+   descRu:"HQD Snap 50K со сменными пластинами дизайна и ресурсом на 50 000 затяжек.",
+   descKg:"HQD Snap 50K: дизайн алмаштыруучу панелдер жана 50 000 тартым.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","mintice","dragonfruit","tropic","peachice","blueberry","kpg","cherrycola","lushice")},
+  // IPLAY
+  {id:"iplay-hoola150k",brand:"iplay",name:"iPlay Hoola 150K",puffs:150000,price:4485,img:V+"iplay-hoola-150k-25207228.webp"+P,c1:"#34d399",c2:"#065f46",
+   descRu:"Гигант на 150 000 затяжек с большим экраном. Максимальный ресурс для дома.",
+   descKg:"150 000 тартымдык алп, чоң экран менен. Эң чоң ресурс.",
+   flavors:fl("waterice","bluerazz","mango","strkiwi","coolmint","dragonfruit","tropic","peachice","blueberry","grapeice","skittles","kpg")},
+  {id:"iplay-lumo8k",brand:"iplay",name:"iPlay Lumo 8K",puffs:8000,price:1840,img:V+"iplay-lumo-8k-dbec9be2.webp"+P,c1:"#4ade80",c2:"#15803d",
+   descRu:"Компактная iPlay Lumo на 8000 затяжек с ярким корпусом. Удобно носить с собой.",
+   descKg:"Ыкчам iPlay Lumo, 8000 тартым, жаркын корпус.",
+   flavors:fl("strkiwi","waterice","mangopeach","bluerazz","grapeice","mintice","peachice","blueberry")},
+  // FLUM
+  {id:"flum-floatx",brand:"flum",name:"Flum Float X",puffs:16000,price:2530,img:V+"flum-float-x-7ccdc762.webp"+P,c1:"#f472b6",c2:"#9d174d",
+   descRu:"Обновлённый Flum Float X: до 16 000 затяжек, экран и фирменные насыщенные вкусы.",
+   descKg:"Жаңы Flum Float X: 16 000 тартымга чейин, экран жана фирмалык даамдар.",
+   flavors:fl("bluerazz","waterice","strban","miami","sourapple","grapeice","mangopeach","tropic","blueberry","mintice","cherrycola","pinklem")},
+  // ELF BAR доп.
+  {id:"eb-bcpro40k",brand:"elfbar",name:"Elf Bar BC Pro 40K",puffs:40000,price:3220,img:V+"ebcreate-bc-pro-40k-watermelon-peach-frost-548a4837.webp"+P,c1:"#5ad1ff",c2:"#164e8f",
+   descRu:"Elf Bar BC Pro: до 40 000 затяжек, экран заряда и обновлённый mesh-испаритель.",descKg:"Elf Bar BC Pro: 40 000 тартымга чейин, жаңы mesh-испаритель.",
+   flavors:fl("strice","waterice","mangoice","grapeice","mintice","mangopeach","bluerazz","rainbow","coolmint","peachice","kpg","dragonfruit")},
+  // GEEK BAR доп.
+  {id:"gb-clr50k",brand:"geekbar",name:"Geek Bar CLR 50K",puffs:50000,price:3450,img:V+"geek-bar-clr-ad4d3048.webp"+P,c1:"#25c2d6",c2:"#0d5a66",
+   descRu:"Geek Bar CLR с прозрачным корпусом и ресурсом на 50 000 затяжек.",descKg:"Geek Bar CLR: тунук корпус жана 50 000 тартым.",
+   flavors:fl("mexmango","bluerazz","waterice","sourapple","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  {id:"gb-meloso2",brand:"geekbar",name:"Geek Bar Meloso Max 2",puffs:25000,price:2875,img:V+"geek-bar-meloso-max-2-d7f1a876.webp"+P,c1:"#5ad1ff",c2:"#1a5fa8",
+   descRu:"Geek Bar Meloso Max 2: мягкие вкусы и до 25 000 затяжек.",descKg:"Geek Bar Meloso Max 2: жумшак даамдар, 25 000 тартымга чейин.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","tropic","peachice","blueberry","mintice")},
+  // RAZ доп.
+  {id:"raz-rx50k",brand:"raz",name:"RAZ RX50K",puffs:50000,price:3680,img:V+"raz-rx50k-batch-edition-6acd7714.webp"+P,c1:"#22d3ee",c2:"#0e7490",
+   descRu:"RAZ RX50K: премиальный дизайн и огромный ресурс на 50 000 затяжек.",descKg:"RAZ RX50K: премиум дизайн жана 50 000 тартым.",
+   flavors:fl("bluerazz","waterice","peachice","miami","strkiwi","grapeice","dragonfruit","tropic","blueberry","mintice")},
+  {id:"raz-ltxgush",brand:"raz",name:"RAZ LTX 25K Gush",puffs:25000,price:3105,img:V+"raz-ltx-25k-gush-edition-2bfd372dd0.webp"+P,c1:"#38bdf8",c2:"#1e6fb0",
+   descRu:"RAZ LTX 25K Gush Edition с фруктовыми вкусами и экраном.",descKg:"RAZ LTX 25K Gush: мөмө даамдар жана экран.",
+   flavors:fl("bluerazz","waterice","strwater","miami","grapeice","dragonfruit","tropic","blueberry","mintice","peachice")},
+  {id:"raz-rylwinter",brand:"raz",name:"RAZ RYL Winter 35K",puffs:35000,price:3335,img:V+"raz-ryl-winter-collection-35k-e4ce805d.webp"+P,c1:"#7fd8ff",c2:"#2a7fb8",
+   descRu:"RAZ RYL Winter Collection: свежие ледяные вкусы и до 35 000 затяжек.",descKg:"RAZ RYL Winter: муздак даамдар, 35 000 тартымга чейин.",
+   flavors:fl("mintice","coolmint","waterice","bluerazz","strice","grapeice","blueice","peachice","lushice","menthol")},
+  // ELFWORLD
+  {id:"ew-bigb",brand:"elfworld",name:"Elfworld Big B 99999",puffs:99999,price:4370,img:V+"elfworld-big-b-99999-fd3ecc9a.webp"+P,c1:"#f59e0b",c2:"#92400e",
+   descRu:"Elfworld Big B — почти 100 000 затяжек и большой дисплей. Рекордный ресурс.",descKg:"Elfworld Big B — 100 000ге жакын тартым жана чоң дисплей.",
+   flavors:fl("waterice","bluerazz","mango","strkiwi","coolmint","dragonfruit","tropic","peachice","blueberry","grapeice","skittles","kpg")},
+  // OLIVEBAR
+  {id:"ob-razpro85k",brand:"olivebar",name:"OliveBar Raz Pro 85K",puffs:85000,price:4140,img:V+"olivebar-raz-pro-85k-077ce2ea.webp"+P,c1:"#84cc16",c2:"#3f6212",
+   descRu:"OliveBar Raz Pro: до 85 000 затяжек, мощный пар и яркие вкусы.",descKg:"OliveBar Raz Pro: 85 000 тартымга чейин, күчтүү пар.",
+   flavors:fl("bluerazz","waterice","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  // FIZZY
+  {id:"fz-primemax80k",brand:"fizzy",name:"Fizzy Prime Max 80K",puffs:80000,price:4025,img:V+"fizzy-prime-max-80k-e3e43961.webp"+P,c1:"#fb923c",c2:"#9a3412",
+   descRu:"Fizzy Prime Max: огромный ресурс на 80 000 затяжек и газированные вкусы.",descKg:"Fizzy Prime Max: 80 000 тартым жана газдалган даамдар.",
+   flavors:fl("cola","energy","waterice","bluerazz","cherrycola","raspcola","grapeice","tropic","blueberry","mintice","peachice","pinklem")},
+  // WASPE
+  {id:"wp-4in1",brand:"waspe",name:"WASPE 4-in-1 100K",puffs:100000,price:4255,img:V+"waspe-4-in-1-100k-2f433485.webp"+P,c1:"#60a5fa",c2:"#1e40af",
+   descRu:"WASPE 4-in-1: четыре сменных пода и ресурс до 100 000 затяжек.",descKg:"WASPE 4-in-1: төрт алмаштыруучу под жана 100 000 тартым.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  // STARBUZZ
+  {id:"sb-ultramax25k",brand:"starbuzz",name:"Starbuzz Ultra Max 25K",puffs:25000,price:2875,img:V+"starbuzz-ultra-max-25k-5635fa8a.webp"+P,c1:"#f43f5e",c2:"#9f1239",
+   descRu:"Starbuzz Ultra Max: кальянные и фруктовые вкусы, до 25 000 затяжек.",descKg:"Starbuzz Ultra Max: кальян жана мөмө даамдар, 25 000 тартым.",
+   flavors:fl("mango","grapeice","waterice","bluerazz","miami","peachice","blueberry","mintice","cherrycola","kpg")},
+  // NIMMBOX
+  {id:"nb-8500",brand:"nimmbox",name:"Nimmbox 8500",puffs:8500,price:1955,img:V+"nimmbox-8500-9ccc3ece.webp"+P,c1:"#2dd4bf",c2:"#0f766e",
+   descRu:"Nimmbox 8500: компактный корпус и стабильный вкус до 8500 затяжек.",descKg:"Nimmbox 8500: ыкчам корпус, 8500 тартымга чейин.",
+   flavors:fl("strkiwi","waterice","bluerazz","grapeice","coolmint","mangopeach","peachice","blueberry")},
+  {id:"nb-node45k",brand:"nimmbox",name:"Nimmbox Node 45K",puffs:45000,price:3450,img:V+"nimmbox-node-45k-2a703d2b.webp"+P,c1:"#22d3ee",c2:"#0e7490",
+   descRu:"Nimmbox Node: до 45 000 затяжек и цифровой дисплей.",descKg:"Nimmbox Node: 45 000 тартымга чейин жана дисплей.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice")},
+  // KYLINBAR
+  {id:"kb-nos30k",brand:"kylinbar",name:"Kylinbar NOS Turbo 30K",puffs:30000,price:2990,img:V+"kylinbar-nos-turbo-30k-fcaac224.webp"+P,c1:"#c084fc",c2:"#6b21a8",
+   descRu:"Kylinbar NOS Turbo: турбо-режим и до 30 000 затяжек.",descKg:"Kylinbar NOS Turbo: турбо режим, 30 000 тартымга чейин.",
+   flavors:fl("bluerazz","waterice","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice")},
+  // RODMAN
+  {id:"rd-mvp65k",brand:"rodman",name:"Rodman MVP 65K",puffs:65000,price:3795,img:V+"rodman-mvp-65k-b20eddc0.webp"+P,c1:"#fbbf24",c2:"#92400e",
+   descRu:"Rodman MVP: до 65 000 затяжек, мощный пар и яркий корпус.",descKg:"Rodman MVP: 65 000 тартымга чейин, күчтүү пар.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg")},
+  // TASTEFLEX
+  {id:"tf-cresmo80k",brand:"tasteflex",name:"TasteFlex Cresmo 80K",puffs:80000,price:4025,img:V+"tasteflex-cresmo-80k-bc3d2cf1.webp"+P,c1:"#38bdf8",c2:"#1e6fb0",
+   descRu:"TasteFlex Cresmo: до 80 000 затяжек и насыщенный вкус до конца.",descKg:"TasteFlex Cresmo: 80 000 тартымга чейин, каныккан даам.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  // VAPSOLO
+  {id:"vs-sixer180k",brand:"vapsolo",name:"VapSolo Sixer 180K",puffs:180000,price:4600,img:V+"vapsolo-sixer-9c6bbec9.webp"+P,c1:"#a78bfa",c2:"#5b21b6",
+   descRu:"VapSolo Sixer — рекордные 180 000 затяжек и большой экран.",descKg:"VapSolo Sixer — рекорддук 180 000 тартым жана чоң экран.",
+   flavors:fl("waterice","bluerazz","strkiwi","mangopeach","miami","grapeice","dragonfruit","tropic","blueberry","mintice","kpg","peachice")},
+  // BLU
+  {id:"blu-max6000",brand:"blu",name:"blu Max 6000",puffs:6000,price:1495,img:V+"blu-max-6000-5050d6cd.webp"+P,c1:"#818cf8",c2:"#3730a3",
+   descRu:"blu Max 6000: компактная одноразка от известного бренда, до 6000 затяжек.",descKg:"blu Max 6000: белгилүү бренддин ыкчам бир жолкусу, 6000 тартымга чейин.",
+   flavors:fl("strkiwi","waterice","bluerazz","grapeice","coolmint","mangopeach","peachice","blueberry")},
+
+  // ===== ДОПОЛНИТЕЛЬНЫЙ АССОРТИМЕНТ (30 моделей) =====
+  {id:"lm-mo5000",brand:"lostmary",name:"Lost Mary MO5000",puffs:5000,price:1725,img:"https://cdn11.bigcommerce.com/s-m0kor0s1f1/images/stencil/original/products/499/387/1_23_23_LOST_MARY_MO5000_9_1__36294.1678756300.jpg?c=1",c1:"#8b7bff",c2:"#3b2f7a",
+   descRu:"Перезаряжаемая Lost Mary MO5000 с mesh-испарителем и USB-C.",descKg:"USB-C менен кайра кубатталуучу Lost Mary MO5000, mesh-испаритель менен.",
+   flavors:fl("kpg","waterice","mangopeach","cherrycola","grapeice","strkiwi")},
+  {id:"lm-os5000",brand:"lostmary",name:"Lost Mary OS5000",puffs:5000,price:1610,img:"https://cdn11.bigcommerce.com/s-nlylv/images/stencil/1280x1280/products/2326/7795/lost-mary-lost-mary-os5000__19135.1713328115.jpg?c=2%3Fimbypass%3Don",c1:"#a78bfa",c2:"#5b21b6",
+   descRu:"Компактная OS5000 с USB-C, mesh-испарителем и яркой линейкой вкусов.",descKg:"USB-C, mesh-испаритель жана жаркын даамдары бар компакттуу OS5000.",
+   flavors:fl("strban","blueberry","waterice","freshmint","grapeice","pinemango")},
+  {id:"lm-mo20000",brand:"lostmary",name:"Lost Mary MO20000 Pro",puffs:20000,price:3680,img:"https://cdn.staticsaa.com/uploads/78536/cart/resources/20240911/a9486f21172c88f137166526346035fe.webp",c1:"#f472b6",c2:"#7c2d5d",
+   descRu:"MO20000 Pro с экраном, регулировкой мощности и тремя уровнями обдува.",descKg:"Экрандуу MO20000 Pro, кубаттуулугу жана аба агымы жөнгө салынат.",
+   flavors:fl("mango","waterice","bluerazz","miami","peachice","grapeice")},
+  {id:"lm-mt15000",brand:"lostmary",name:"Lost Mary MT15000 Turbo",puffs:15000,price:2990,img:"https://vaporboss.com/cdn/shop/articles/Lost_Mary_MT15000_Turbo_1e6233d1-35a1-4f2b-a266-6e9173e3bae5.png?v=1706181996",c1:"#38bdf8",c2:"#1e3a8a",
+   descRu:"MT15000 Turbo с двумя режимами, экраном батареи и жидкости.",descKg:"Эки режимдүү, батарея жана суюктук экраны бар MT15000 Turbo.",
+   flavors:fl("blueice","miami","strban","grapeice","peachice","waterice")},
+  {id:"lm-nera70k",brand:"lostmary",name:"Lost Mary NERA FullView 70K",puffs:70000,price:4370,img:"https://cdn11.bigcommerce.com/s-nlylv/images/stencil/1280x1280/products/2767/10011/LOST_MARYNERA_FULLVIEWUSMD_Banner1000x1000px20250911__25796.1760038115.png?c=2",c1:"#6366f1",c2:"#312e81",
+   descRu:"NERA FullView с изогнутым экраном, видимым уровнем жидкости и двумя режимами.",descKg:"Ийри экрандуу NERA FullView: суюктук деңгээли көрүнөт, эки режим бар.",
+   flavors:fl("bluerazz","sourapple","pinemango","waterice","tripleberry")},
+  {id:"lm-ultrasonic35k",brand:"lostmary",name:"Lost Mary Ultrasonic 35K",puffs:35000,price:3450,img:"https://cdn11.bigcommerce.com/s-w062o0xp7r/images/stencil/1280x1280/products/4973/18746/Lost-Mary-Ultrasonic-35K-Disposable-Vape__58605.1750197262.jpg?c=1",c1:"#22d3ee",c2:"#0e7490",
+   descRu:"Ultrasonic 35K с dual mesh, регулировкой вкуса и режимом Boost.",descKg:"Даам жөнгө салынган, dual mesh жана Boost режими бар Ultrasonic 35K.",
+   flavors:fl("sourapple","bluerazz","waterice","strice","mangoice")},
+  {id:"eb-bc5000ultra",brand:"elfbar",name:"Elf Bar BC5000 Ultra",puffs:5000,price:1495,img:"https://vapeify.ca/cdn/shop/products/bluefluffcdy.png?v=1674378175",c1:"#37c6ff",c2:"#1153a8",
+   descRu:"Обновлённая BC5000 Ultra с mesh-технологией и USB-C.",descKg:"Mesh технологиясы жана USB-C менен жаңыртылган BC5000 Ultra.",
+   flavors:fl("blueberry","waterice","mangopeach","strice","pinklem","grapeice")},
+  {id:"eb-te6000",brand:"elfbar",name:"Elf Bar TE6000",puffs:6000,price:1725,img:"https://buscaparaguai.com.br/original/uploads/JPG/2023/11/04/LINOWO_1699075202.jpg",c1:"#f59e0b",c2:"#9a3412",
+   descRu:"TE6000 с 15 мл жидкости, mesh-испарителем и зарядкой Type-C.",descKg:"15 мл суюктугу, mesh-испитель жана Type-C кубаттоосу бар TE6000.",
+   flavors:fl("bluerazz","waterice","strice","pinemango","grapeice","blueberry")},
+  {id:"eb-gh20000",brand:"elfbar",name:"Elf Bar GH20000",puffs:20000,price:3680,img:"https://www.fattyfog.com/cdn/shop/files/ELFBAR-GH-20000-Brust-Disposable-Vape-Nic-Salts.webp?v=1724870210&width=1500",c1:"#f472b6",c2:"#7c2d5d",
+   descRu:"GH20000 с полноэкранным дисплеем, тройным mesh и тремя режимами.",descKg:"Толук экрандуу, үч режимдүү жана triple mesh менен GH20000.",
+   flavors:fl("strkiwi","mango","waterice","blueberry","peachice")},
+  {id:"eb-bc10000",brand:"elfbar",name:"Elf Bar BC10000",puffs:10000,price:2760,img:"https://vape4change.ca/cdn/shop/files/FullSizeRender_4522d484-5f94-4ef7-bcd3-924ce87ef421.jpg?v=1701782391",c1:"#60a5fa",c2:"#1e40af",
+   descRu:"BC10000 с дисплеем мощности и жидкости, dry-hit защитой и USB-C.",descKg:"Дисплей, dry-hit коргоосу жана USB-C менен BC10000.",
+   flavors:fl("bluerazz","waterice","mangopeach","blueberry","peachice")},
+  {id:"eb-elfa",brand:"elfbar",name:"Elf Bar ELFA",puffs:600,price:920,img:"https://www.elfbar.co.uk/media/wysiwyg/elf_bar_elfa_kit_main_1.jpg",c1:"#34d399",c2:"#065f46",
+   descRu:"Лёгкая система ELFA с предзаправленными картриджами и мягкой затяжкой.",descKg:"Алдын ала толтурулган картридждери жана жумшак тартымы бар жеңил ELFA.",
+   flavors:fl("strice","waterice","peachice","grapeice","coolmint","mangoice")},
+  {id:"eb-elfapro-v2",brand:"elfbar",name:"Elf Bar ELFA Pro V2",puffs:1000,price:1380,img:"https://www.e-zigarette.ch/media/catalog/product/cache/a7c6ae90704e4fffb85e1e61c39fd445/w/h/whole_products_1_8.jpg",c1:"#a78bfa",c2:"#5b21b6",
+   descRu:"ELFA Pro V2 с увеличенным ресурсом и компактным форматом на каждый день.",descKg:"Күнүмдүк колдонууга ылайыктуу, ресурсу көбөйтүлгөн компакттуу ELFA Pro V2.",
+   flavors:fl("strice","blueice","mangoice","grapeice","mintice")},
+  {id:"gb-meloso-max2",brand:"geekbar",name:"Geek Bar Meloso Max 2",puffs:12000,price:2875,img:"https://oss.geekbar.com/products/Meloso-Max-2/mobile/p6.jpg",c1:"#f472b6",c2:"#9d174d",
+   descRu:"Meloso Max 2 с полноэкранным индикатором, dual mesh и регулировкой обдува.",descKg:"Толук индикатордуу, dual mesh жана аба агымы жөнгө салынган Meloso Max 2.",
+   flavors:fl("waterice","mango","doubleapple","strice","blueberry","peachice")},
+  {id:"gb-meloso-max",brand:"geekbar",name:"Geek Bar Meloso Max",puffs:9000,price:2530,img:"https://cdn11.bigcommerce.com/s-dfm7sv1tsc/images/stencil/1280x1280/products/218/1766/NewGeekBarMelosoMax9000Flavors-1-800x800__19209.1703181359.jpg?c=1",c1:"#8b5cf6",c2:"#4c2a9e",
+   descRu:"Meloso Max с dual mesh, индикатором и Type-C зарядкой.",descKg:"Dual mesh, индикатор жана Type-C кубаттоо менен Meloso Max.",
+   flavors:fl("metamoon","mango","waterice","blueberry","grapeice","strice")},
+  {id:"gb-e600",brand:"geekbar",name:"Geek Bar E600",puffs:600,price:690,img:"https://cdn.shopify.com/s/files/1/0616/8382/6839/products/geek-bar-e600-disposable-group_512x512_9082e8b6-81bd-4ac4-94fd-d986a352c339.webp?v=1664282360&width=1920",c1:"#25c2d6",c2:"#0d5a66",
+   descRu:"Классический E600 на 600 затяжек — компактный формат без зарядки.",descKg:"Кубаттоосуз компакттуу классикалык E600, 600 тартымга чейин.",
+   flavors:fl("strice","blueberry","mangoice","waterice","coolmint")},
+  {id:"gb-s600",brand:"geekbar",name:"Geek Bar S600",puffs:600,price:690,img:"https://www.vapeare.com/image/cache/catalog/Products/20231218224902381-700x700.jpg",c1:"#60a5fa",c2:"#1e40af",
+   descRu:"S600 с прозрачным корпусом, 2 мл жидкости и десятью вкусами.",descKg:"Тунук корпусу, 2 мл суюктугу жана он даамы бар S600.",
+   flavors:fl("strice","waterice","mangoice","blueice","coolmint")},
+  {id:"gb-c600",brand:"geekbar",name:"Geek Bar C600",puffs:600,price:690,img:"https://www.vapezilla.com/cdn/shop/files/Geek-Bar-C-600-Disposable-Orange-Vanilla.png?v=1705585593&width=1946",c1:"#fb923c",c2:"#9a3412",
+   descRu:"C600 в лёгком pen-формате: готов к использованию сразу после распаковки.",descKg:"Таңгактан чыккандан кийин дароо колдонууга даяр жеңил C600 pen-форматы.",
+   flavors:fl("cappuccino","blueberry","peachice","waterice","coolmint")},
+  {id:"vz-gear10000",brand:"vozol",name:"VOZOL Gear 10000",puffs:10000,price:2300,img:"https://i0.wp.com/vapewizarddxb.com/wp-content/uploads/2024/09/VOZOL-GEAR-10000-PUFFS-DISPOSABLE-2-1.webp?fit=1050%2C1050&ssl=1",c1:"#a855f7",c2:"#5b1e9e",
+   descRu:"Gear 10000 с защитным колпачком, VAMT mesh и Type-C.",descKg:"Коргоочу капкагы, VAMT mesh жана Type-C менен Gear 10000.",
+   flavors:fl("bluerazz","waterice","kpg","pinemango","coolmint")},
+  {id:"vz-vista20000",brand:"vozol",name:"VOZOL Vista 20000",puffs:20000,price:3450,img:"https://image.vapesourcing.uk/images/202405/Vozol-Vista-Series-20000.jpg",c1:"#22d3ee",c2:"#0e7490",
+   descRu:"Vista 20000 с прозрачным корпусом, цветным экраном и регулировкой обдува.",descKg:"Тунук корпус, түстүү экран жана аба агымын жөнгө салуу менен Vista 20000.",
+   flavors:fl("waterice","mango","bluerazz","grapeice","strice")},
+  {id:"vz-neon10000",brand:"vozol",name:"VOZOL Neon 10000",puffs:10000,price:2300,img:"https://cdn11.bigcommerce.com/s-4hr592w/images/stencil/2000x2000/products/16352/56962/Vozolneon__08121.1731959583.png?c=2",c1:"#ec4899",c2:"#831843",
+   descRu:"Neon 10000 с индикатором жидкости, аккумулятора и керамической спиралью.",descKg:"Суюктук жана батарея индикатору, керамикалык спиралы бар Neon 10000.",
+   flavors:fl("waterice","mangoice","strice","blueice","mintice")},
+  {id:"hqd-cuvieplus",brand:"hqd",name:"HQD Cuvie Plus 1200",puffs:1200,price:1150,img:"https://hqdtechusa.com/cdn/shop/articles/buy-hqd-cuvie-plus-now-hqd-tech-usa_b448adef-0e11-4a18-8c79-51225b894ac8.jpg?v=1737994207",c1:"#fb7185",c2:"#9f1239",
+   descRu:"Проверенный pen-формат HQD Cuvie Plus на 1200 затяжек.",descKg:"1200 тартымга чейин жеткен текшерилген HQD Cuvie Plus pen-форматы.",
+   flavors:fl("peachice","doubleapple","blueberry","pMint","pCold")},
+  {id:"hqd-cuvieplus2",brand:"hqd",name:"HQD Cuvie Plus 2.0",puffs:1200,price:1265,img:"https://spb.pitersmoke.store/wa-data/public/shop/products/31/99/49931/images/52856/52856.970.png",c1:"#f43f5e",c2:"#9f1239",
+   descRu:"Обновлённая Cuvie Plus 2.0 в металлическом корпусе и ярких вкусах.",descKg:"Металл корпусу жана жаркын даамдары бар жаңыланган Cuvie Plus 2.0.",
+   flavors:fl("doubleapple","peachice","blueberry","strice","pCitrus")},
+  {id:"hqd-titan7000",brand:"hqd",name:"HQD Titan 7000",puffs:7000,price:1955,img:"https://cdn.27.ua/799/0a/69/7211625_2.jpeg",c1:"#60a5fa",c2:"#1e40af",
+   descRu:"Titan 7000 с большим запасом жидкости и аккумулятором 650 мАч.",descKg:"Көп суюктук жана 650 мАч батареясы бар Titan 7000.",
+   flavors:fl("blueberry","bluerazz","waterice","mangoice","coolmint")},
+  {id:"flum-pebble6000",brand:"flum",name:"Flum Pebble 6000",puffs:6000,price:1725,img:"https://spacepuffbar.com/cdn/shop/files/flumpebble.webp?v=1699006058",c1:"#f472b6",c2:"#9d174d",
+   descRu:"Pebble 6000 в мягком корпусе, 14 мл жидкости и mesh-испаритель.",descKg:"Жумшак корпус, 14 мл суюктук жана mesh-испитель менен Pebble 6000.",
+   flavors:fl("blueberry","grape","waterice","strmango","coolmint","pinemango")},
+  {id:"flum-mello20000",brand:"flum",name:"Flum Mello 20000",puffs:20000,price:3450,img:"https://vaporboss.com/cdn/shop/articles/flum-mello_1.webp?v=1743621989",c1:"#f472b6",c2:"#9d174d",
+   descRu:"Mello 20000 с экраном жидкости, батареи и hybrid mesh 2.0.",descKg:"Суюктук жана батарея экраны, hybrid mesh 2.0 менен Mello 20000.",
+   flavors:fl("strice","peachice","waterice","mangoice","blueberry")},
+  {id:"iplay-xbox4000",brand:"iplay",name:"iPLAY X-BOX 4000",puffs:4000,price:1495,img:"https://www.iplayvape.com/uploads/IPLAY-X-BOX-Watermelon-Ice.jpg",c1:"#f43f5e",c2:"#9f1239",
+   descRu:"X-BOX 4000 с 10 мл жидкости, mesh-испарителем и Type-C.",descKg:"10 мл суюктугу, mesh-испитель жана Type-C менен X-BOX 4000.",
+   flavors:fl("waterice","strice","sourapple","blueberry","lemonlime")},
+  {id:"iplay-box-pineapple",brand:"iplay",name:"iPLAY Box 4000 Pineapple",puffs:4000,price:1495,img:"https://smokevaperevolution.com/cdn/shop/files/Pineapple.webp?v=1718726838",c1:"#f59e0b",c2:"#9a3412",
+   descRu:"Яркий iPLAY Box 4000 со вкусом ананаса и встроенной зарядкой.",descKg:"Ананас даамы жана орнотулган кубаттоосу бар жаркын iPLAY Box 4000.",
+   flavors:fl("pineapple")},
+  {id:"waka-solo2",brand:"waka",name:"WAKA Solo 2",puffs:2500,price:1265,img:"https://www.fntoday.co.kr/news/photo/202405/2_1305360_1266973_208.jpg",c1:"#ff5b7f",c2:"#a01f3f",
+   descRu:"Тонкая WAKA Solo 2 с mesh-испарителем и запасом до 2500 затяжек.",descKg:"Mesh-испитель жана 2500 тартымга чейинки ресурсу бар жука WAKA Solo 2.",
+   flavors:fl("waterice","mango","grapeice","coolmint")},
+  {id:"hqd-cuvieplus-peach",brand:"hqd",name:"HQD Cuvie Plus · Peach Ice",puffs:1200,price:1150,img:"https://www.hqdvaping.com/cdn/shop/files/peachice_533x.jpg?v=1685340218",c1:"#fb7185",c2:"#9f1239",
+   descRu:"Cuvie Plus 1200 с готовым вкусом Peach Ice — без выбора вкуса в карточке.",descKg:"Peach Ice даамы даяр болгон Cuvie Plus 1200 — карточкада даам тандалбайт."},
+  {id:"hqd-cuvieplus-icemint",brand:"hqd",name:"HQD Cuvie Plus · Ice Mint",puffs:1200,price:1150,img:"https://supersmoke.ru/upload/iblock/417/HQD-Cuvie-Plus-Ice-Mint.jpg",c1:"#34d399",c2:"#065f46",
+   descRu:"Cuvie Plus 1200 с готовым вкусом Ice Mint и компактным pen-форматом.",descKg:"Ice Mint даамы жана компакттуу pen-форматы бар Cuvie Plus 1200."},
+
+  // PUFFMI — реальные модели и фото из открытых товарных каталогов
+  {id:"puffmi-dura9000",brand:"puffmi",name:"Puffmi Dura 9000",puffs:9000,price:1290,img:"/assets/catalog/puffmi/dura-9000.png",c1:"#f3a6c8",c2:"#7c3f67",
+   descRu:"Puffmi Dura 9000: до 9000 затяжек, 20 мл жидкости, mesh-испаритель, дисплей и Type-C.",descKg:"Puffmi Dura 9000: 9000 тартымга чейин, 20 мл суюктук, mesh-испитель, дисплей жана Type-C.",
+   flavors:fl("waterice","bluerazz","strkiwi","grapeice","coolmint","mangoice","sourapple","cherrycola")},
+  {id:"puffmi-pure12000",brand:"puffmi",name:"Puffmi Pure 12000",puffs:12000,price:1690,img:"/assets/catalog/puffmi/pure-12000.jpg",c1:"#a7f3d0",c2:"#25635d",
+   descRu:"Puffmi Pure 12000: 14 мл, dual mesh, цветной индикатор и зарядка Type-C.",descKg:"Puffmi Pure 12000: 14 мл, dual mesh, түстүү индикатор жана Type-C кубаттоо.",
+   flavors:fl("mango","sourapple","peachice","waterice","grapeice","mintice","pinklem","cherrycola")},
+  {id:"puffmi-flora25000",brand:"puffmi",name:"Puffmi Flora 25000",puffs:25000,price:1690,img:"/assets/catalog/puffmi/flora-25000.png",c1:"#f9a8d4",c2:"#a85578",
+   descRu:"Puffmi Flora 25000: стильный пастельный корпус, до 25 000 затяжек, dual mesh и Type-C.",descKg:"Puffmi Flora 25000: пастелдүү корпус, 25 000 тартымга чейин, dual mesh жана Type-C.",
+   flavors:fl("strkiwi","cherrycola","crangrape","peachice","mangopeach","pinklem","tropic","coolmint")},
+  {id:"puffmi-mosh40000",brand:"puffmi",name:"Puffmi Mosh 40000",puffs:40000,price:1590,img:"/assets/catalog/puffmi/mosh-40000.png",c1:"#fb7185",c2:"#9f1239",
+   descRu:"Puffmi Mosh 40000: до 40 000 затяжек, Turbo-режим, 24 мл жидкости и dual mesh.",descKg:"Puffmi Mosh 40000: 40 000 тартымга чейин, Turbo режими, 24 мл суюктук жана dual mesh.",
+   flavors:fl("kpg","cherrycola","bluerazz","peachice","mintice","pinemango","waterice","cransoda")},
+
+  // ===== ВЕЙПЫ (многоразовые устройства) =====
+  {id:"vp-argusg4",brand:"voopoo",cat:"vape",name:"VOOPOO Argus G4",price:2760,img:V+"voopoo-argus-g4-98bcee12.webp"+P,c1:"#f59e0b",c2:"#92400e",
+   descRu:"Многоразовый под-мод VOOPOO Argus G4: сменные картриджи, регулировка мощности, USB-C. Заправляешь любимой жидкостью.",descKg:"VOOPOO Argus G4 под-мод: алмаштыруучу картридждер, кубаттуулукту жөнгө салуу, USB-C."},
+  {id:"vp-nexlim2",brand:"oxva",cat:"vape",name:"OXVA NeXLIM 2",price:2185,img:V+"oxva-nexlim-2-and-2-mini-01-fa636695.webp"+P,c1:"#22d3ee",c2:"#0e7490",
+   descRu:"OXVA NeXLIM 2 — компактная под-система с отличной передачей вкуса и быстрой зарядкой.",descKg:"OXVA NeXLIM 2 — ыкчам под-система, мыкты даам жана тез кубаттоо."},
+  {id:"vp-xros5mini",brand:"vaporesso",cat:"vape",name:"Vaporesso XROS 5 Mini",price:1725,img:V+"vaporesso-xros-5-mini-ca0d6647bb.webp"+P,c1:"#60a5fa",c2:"#1e40af",
+   descRu:"Vaporesso XROS 5 Mini — лёгкая под-система для новичков, мягкая затяжка и стабильный вкус.",descKg:"Vaporesso XROS 5 Mini — жеңил под-система, жумшак тартым."},
+
+  // ===== КАЛЬЯНЫ =====
+  {id:"hk-vozolgear",brand:"vozol",cat:"hookah",name:"VOZOL Gear Hookah 40000",puffs:40000,price:2990,img:V+"vozol-gear-hookah-40000-cd71d4f6.webp"+P,c1:"#a855f7",c2:"#5b1e9e",
+   descRu:"Кальянная одноразка VOZOL Gear на 40 000 затяжек — плотный дым и насыщенные кальянные вкусы.",descKg:"VOZOL Gear кальян бир жолкусу, 40 000 тартым — коюу түтүн жана кальян даамдары.",
+   flavors:fl("mango","grapeice","waterice","miami","bluerazz","peachice","blueberry","mintice","cherrycola","kpg")},
+
+  // ===== IQOS (системы нагревания табака) =====
+  {id:"iqos-iluma",brand:"iqos",cat:"iqos",name:"IQOS ILUMA",price:2300,img:"/assets/iqos/iluma.jpg",c1:"#6366f1",c2:"#312e81",
+   descRu:"IQOS ILUMA — система нагревания табака с индукционной технологией SMARTCORE: без лезвия и без очистки. В комплекте держатель и зарядный кейс.",descKg:"IQOS ILUMA — SMARTCORE индукциялык технологиясы менен тамеки ысытуу системасы: бычагы жок, тазалоонун кереги жок. Комплектте кармагыч жана кубаттоо кейси."},
+  {id:"iqos-ilumaone",brand:"iqos",cat:"iqos",name:"IQOS ILUMA ONE",price:1850,img:"/assets/iqos/iluma-one.jpg",c1:"#7ba7c4",c2:"#2f5670",
+   descRu:"IQOS ILUMA ONE — компактное устройство «всё в одном» до 20 использований на одном заряде. Помещается в карман.",descKg:"IQOS ILUMA ONE — бир кубаттоодо 20га чейин колдонууга ыңгайлуу «баары бир жерде» ыкчам түзмөк. Чөнтөккө батат."},
+  {id:"iqos-ilumaprime",brand:"iqos",cat:"iqos",name:"IQOS ILUMA PRIME",price:2750,img:"/assets/iqos/iluma-prime.jpg",c1:"#7fd8d0",c2:"#2b7a72",
+   descRu:"IQOS ILUMA PRIME — премиальная версия с обёрткой кейса и раздвижной крышкой. Самая эффектная модель линейки ILUMA.",descKg:"IQOS ILUMA PRIME — кейстин капталы жана жылма капкагы бар премиум версия. ILUMA линиясындагы эң көрктүү модель."},
+
+  // ===== СНЮС (никотиновые паучи) =====
+  {id:"sn-zyn",brand:"zyn",cat:"snus",name:"ZYN",price:1265,img:V+"zyn-nicotine-pouches-9971cca6ac.webp"+P,c1:"#38bdf8",c2:"#1e6fb0",
+   descRu:"ZYN — оригинальные никотиновые паучи, 15 штук в банке. Чистый вкус без табака.",descKg:"ZYN — оригиналдуу никотин паучтар, банкада 15 даана. Тамекисиз таза даам.",
+   flavors:fl("pMint","pCold","pCitrus","pCoffee","pBerry","pSpearmint")},
+  {id:"sn-velo",brand:"velo",cat:"snus",name:"VELO",price:1150,img:V+"velo-nicotine-pouches-58bd160ca5.webp"+P,c1:"#a3e635",c2:"#3f6212",
+   descRu:"VELO — мягкие никотиновые паучи с современными вкусами и разной крепостью.",descKg:"VELO — заманбап даамдуу жумшак никотин паучтар.",
+   flavors:fl("pMint","pCold","pCitrus","pBerry","pWater","pTropic")},
+  {id:"sn-alfakher",brand:"alfakher",cat:"snus",name:"Al Fakher Pouches",price:1380,img:V+"al-fakher-nicotine-pouches-e03ee563.webp"+P,c1:"#fbbf24",c2:"#92400e",
+   descRu:"Никотиновые паучи Al Fakher — восточные насыщенные вкусы и приятная свежесть.",descKg:"Al Fakher никотин паучтар — чыгыш даамдар жана сергитүү.",
+   flavors:fl("pMint","pCitrus","pBerry","pWater","pApple","pCold")},
+  {id:"sn-relx",brand:"relx",cat:"snus",name:"RELX AirPouch",price:1495,img:V+"relx-airpouch-b17ef18e.webp"+P,c1:"#34d399",c2:"#065f46",
+   descRu:"RELX AirPouch — премиальные паучи с мягкой текстурой и ярким вкусом.",descKg:"RELX AirPouch — жумшак текстура жана жаркын даам.",
+   flavors:fl("pMint","pCold","pCitrus","pBerry","pTropic","pSpearmint")},
+  {id:"sn-vozol",brand:"vozol",cat:"snus",name:"VOZOL Pouches",price:1150,img:V+"vozol-nicotine-pouches-c124d819.webp"+P,c1:"#a855f7",c2:"#5b1e9e",
+   descRu:"Никотиновые паучи VOZOL — доступная цена и большой выбор вкусов.",descKg:"VOZOL никотин паучтар — арзан баа жана даам тандоо.",
+   flavors:fl("pMint","pCold","pCitrus","pBerry","pWater","pApple")},
+  {id:"sn-rogue",brand:"rogue",cat:"snus",name:"Rogue",price:1150,img:V+"rogue-nicotine-pouches-af3a5c98b6.webp"+P,c1:"#f43f5e",c2:"#9f1239",
+   descRu:"Rogue — крепкие никотиновые паучи для опытных пользователей.",descKg:"Rogue — тажрыйбалуулар үчүн күчтүү никотин паучтар.",
+   flavors:fl("pMint","pCold","pCitrus","pCoffee","pWater","pApple")},
+];
+/* Цены повышены на 10%; скидка рассчитывается уже от новой цены. */
+const PRICE_UPLIFT=1.10;
+models.forEach(m=>{
+  m.price=Math.round(m.price*PRICE_UPLIFT);
+  if(!m.cat) m.cat = (m.type==='merch'?'merch':'disposable');
+});
+
+const reviews=[
+  {n:"Айбек Т.",t:"Заказ 2 саатта келди, сапаты мыкты! Рахмат 🙏",ago:{ru:"12 минут назад",kg:"12 мүнөт мурун"},c:"#8A6A2E"},
+  {n:"Нурлан К.",t:"Всё супер, Geek Bar Pulse просто огонь. Доставили быстро по Бишкеку.",ago:{ru:"27 минут назад",kg:"27 мүнөт мурун"},c:"#6E6A5F"},
+  {n:"Айзада М.",t:"1+1=3 акциясы боюнча алдым, үчүнчүсү белек келди 😍 абдан ыраазымын!",ago:{ru:"45 минут назад",kg:"45 мүнөт мурун"},c:"#4A5560"},
+  {n:"Бекзат О.",t:"Оригинал экен, WAKA алдым, вкусу керемет 🔥 рекомендую.",ago:{ru:"1 час назад",kg:"1 саат мурун"},c:"#7A5F3A"},
+  {n:"Чолпон А.",t:"Классный магазин, всегда беру только тут. Цены норм, всё честно.",ago:{ru:"2 часа назад",kg:"2 саат мурун"},c:"#5B6169"},
+  {n:"Адилет Ж.",t:"Ошко тез жеткизишти, баары жайында 👍 Сапат жакшы.",ago:{ru:"3 часа назад",kg:"3 саат мурун"},c:"#93702F"},
+  {n:"Мээрим С.",t:"Удобно: выбрал вкус и сразу написал в Telegram 💬 Топ сервис!",ago:{ru:"5 часов назад",kg:"5 саат мурун"},c:"#3F4750"},
+  {n:"Улан Б.",t:"Vozol Star 12000 керемет, баасы да арзан. Рахмат Alai Cloud!",ago:{ru:"8 часов назад",kg:"8 саат мурун"},c:"#6B5B3E"},
+  {n:"Гүлнара Э.",t:"Товар оригинал, упаковка жакшы. Сунуштайм баарына 🙌",ago:{ru:"вчера",kg:"кечээ"},c:"#7E7466"},
+  {n:"Тимур А.",t:"Заказал вечером — утром уже привезли. Респект, красавцы!",ago:{ru:"вчера",kg:"кечээ"},c:"#55606C"},
+  {n:"Нургиза К.",t:"Elf Bar менин сүйгөнүм, дайыма ушул жерден алам 💕",ago:{ru:"вчера",kg:"кечээ"},c:"#8B7333"},
+  {n:"Эрлан М.",t:"Быстро, качественно, недорого. Твёрдые 5 звёзд ⭐",ago:{ru:"вчера",kg:"кечээ"},c:"#4E4A44"},
+  {n:"Айсулуу Т.",t:"Вкус манго супер! Доставка Караколго да келди 😊 рахмат.",ago:{ru:"2 дня назад",kg:"2 күн мурун"},c:"#67717C"},
+  {n:"Бакыт Ж.",t:"Баары сонун — оригинал, тез, арзан. Рахмат Alai Cloud!",ago:{ru:"2 дня назад",kg:"2 күн мурун"},c:"#7C6435"},
+  {n:"Асель Н.",t:"WAKA 20000 алдым, вкус Сакура-Виноград супер 😍 узакка жетет.",ago:{ru:"2 дня назад",kg:"2 күн мурун"},c:"#5A5148"},
+  {n:"Данияр К.",t:"Постоянный клиент уже год. Никогда не подводили, всё оригинал.",ago:{ru:"3 дня назад",kg:"3 күн мурун"},c:"#74604A"},
+];
+
+const T={
+  topbar:{ru:"1+1=3",kg:"1+1=3"},
+  promoToday:{ru:"СЕГОДНЯ",kg:"БҮГҮН"},
+  promoTopText:{ru:"Берите две — третья в подарок",kg:"Экини алыңыз — үчүнчүсү белекке"},
+  promoTopCta:{ru:"Выбрать вкус",kg:"Даам тандоо"},
+  heroTitle:{ru:"Выбери свой вкус",kg:"Даамыңды танда"},
+  heroSub:{ru:"Оригинальные одноразки · доставка по Кыргызстану",kg:"Оригиналдуу бир жолку түзмөктөр · Кыргызстан боюнча жеткирүү."},
+  ctaCatalog:{ru:"Смотреть каталог",kg:"Каталогду көрүү"},
+  iqosNewT:{ru:"Мы завезли IQOS",kg:"Биз IQOS алып келдик"},
+  iqosNewCta:{ru:"Смотреть IQOS",kg:"IQOS көрүү"},
+  ctaWa:{ru:"Заказать в Telegram",kg:"Telegram аркылуу заказ"},
+  promoT:{ru:"Акция 1+1=3",kg:"1+1=3 акциясы"},
+  promoD:{ru:"Покупаешь две одноразки — третья бесплатно. Только сегодня!",kg:"Эки бирдикти аласың — үчүнчүсү бекер. Бүгүн гана!"},
+  promoLeft:{ru:"До конца акции",kg:"Акциянын аягына"},
+  refKicker:{ru:"Подарок за рекомендацию",kg:"Дос чакырганы үчүн белек"},
+  refT:{ru:"Пригласите 10 друзей — получите 1 000 сом",kg:"10 досуңузду чакырыңыз — 1 000 сом алыңыз"},
+  refD:{ru:"Расскажите друзьям про Alai Cloud. Отправьте им ссылку, сделайте скриншот отправленных сообщений и пришлите его менеджеру — мы выдадим промокод на 1 000 сом.",kg:"Досторуңузга Alai Cloud жөнүндө айтып бериңиз. Билдирүүлөрдүн скриншотун жасап, менеджерге жөнөтүңүз — 1 000 сомдук промокод беребиз."},
+  refCta:{ru:"Отправить менеджеру",kg:"Менеджерге жөнөтүү"},
+  refStepsAria:{ru:"Как получить промокод",kg:"Промокодду кантип алуу керек"},
+  refStep1T:{ru:"Разошлите ссылку 10 друзьям",kg:"Шилтемени 10 досуңузга жөнөтүңүз"},
+  refStep1D:{ru:"Поделитесь нашим каталогом",kg:"Каталогубузду бөлүшүңүз"},
+  refStep2T:{ru:"Сделайте скриншот",kg:"Скриншот жасаңыз"},
+  refStep2D:{ru:"На скриншоте должны быть видны отправленные сообщения",kg:"Жөнөтүлгөн билдирүүлөр көрүнүп турушу керек"},
+  refStep3T:{ru:"Пришлите его менеджеру",kg:"Менеджерге жөнөтүңүз"},
+  refStep3D:{ru:"Нажмите кнопку — чат откроется с готовым текстом",kg:"Баскычты басыңыз — даяр текст менен чат ачылат"},
+  tr1:{ru:"Работаем с 2017 года",kg:"2017-жылдан бери иштейбиз"},
+  tr2:{ru:"Доставка по всему Кыргызстану",kg:"Кыргызстан боюнча жеткирүү"},
+  tr3:{ru:"Более 6000 довольных клиентов",kg:"6000+ ыраазы кардар"},
+  tr4:{ru:"Акция 1+1=3 на весь ассортимент",kg:"Бардык товарга 1+1=3 акциясы"},
+  tr5:{ru:"Только оригинальная продукция",kg:"Оригиналдуу продукция гана"},
+  brandsT:{ru:"Выбери бренд",kg:"Брендди танда"},
+  all:{ru:"Все",kg:"Баары"},
+  popular:{ru:"Каталог одноразок",kg:"Бир жолку каталог"},
+  whyT:{ru:"Почему выбирают нас",kg:"Эмне үчүн бизди тандашат"},
+  why1t:{ru:"Оригинальная продукция",kg:"Оригиналдуу продукция"},why1d:{ru:"Только сертифицированные устройства с защитой от подделок.",kg:"Жалгандан корголгон, сертификатталган түзмөктөр гана."},
+  why2t:{ru:"Быстрая доставка",kg:"Тез жеткирүү"},why2d:{ru:"По Бишкеку за пару часов, по регионам — курьером и почтой.",kg:"Бишкекте бир нече саатта, аймактарга — курьер жана почта."},
+  why3t:{ru:"Большой выбор вкусов",kg:"Даамдардын көптүгү"},why3d:{ru:"Десятки вкусов: от ледяной мяты до тропических миксов.",kg:"Ондогон даам: муздак жалбыздан тропикага чейин."},
+  why4t:{ru:"Гарантия качества",kg:"Сапат кепилдиги"},why4d:{ru:"Не работает — заменим. Мы дорожим доверием клиентов.",kg:"Иштебесе — алмаштырабыз. Ишенимди баалайбыз."},
+  reviewsT:{ru:"Отзывы клиентов",kg:"Кардарлардын пикирлери"},
+  reviewsCount:{ru:"Более 6000 отзывов",kg:"6000+ пикир"},
+  buy:{ru:"Купить",kg:"Сатып алуу"},
+  puffs:{ru:"затяжек",kg:"тартым"},
+  from:{ru:"от",kg:"баштап"},som:{ru:"сом",kg:"сом"},
+  back:{ru:"Назад",kg:"Артка"},
+  chooseFlavor:{ru:"Выберите вкус",kg:"Даамын тандаңыз"},
+  promoBadge:{ru:"1+1=3",kg:"1+1=3"},
+  order:{ru:"Оформить заказ",kg:"Заказ берүү"},
+  selectFirst:{ru:"Сначала выберите вкус",kg:"Адегенде даамын тандаңыз"},
+  formT:{ru:"Оформление заказа",kg:"Заказды тариздөө"},
+  fName:{ru:"Имя",kg:"Атыңыз"},fPhone:{ru:"Телефон",kg:"Телефон"},fCity:{ru:"Город",kg:"Шаар"},fAddr:{ru:"Адрес",kg:"Дарек"},
+  send:{ru:"Отправить заказ в Telegram",kg:"Заказды Telegram'га жөнөтүү"},
+  fill:{ru:"Заполните имя и телефон",kg:"Атыңызды жана телефонду толтуруңуз"},
+  fhours:{ru:"Каждый день · 10:00–22:00",kg:"Күн сайын · 10:00–22:00"},
+  fdeliver:{ru:"🚚 Доставка по всему Кыргызстану",kg:"🚚 Кыргызстан боюнча жеткирүү"},
+  since:{ru:"Работаем с 2017 года",kg:"2017-жылдан бери"},
+  age:{ru:"Продажа только лицам старше 18 лет. Содержит никотин.",kg:"18 жаштан жогоркуларга гана. Никотин камтыйт."},
+  modelWord:{ru:"Модель",kg:"Модель"},flavorWord:{ru:"Вкус",kg:"Даам"},priceWord:{ru:"Цена",kg:"Баа"},
+  qtyT:{ru:"Сколько берёте?",kg:"Канча аласыз?"},pcs:{ru:"шт",kg:"даана"},
+  addTwo:{ru:"Возьмите 3 — одна в подарок 🎁 (акция 1+1=3)",kg:"3 даана алыңыз — бирөө белек 🎁 (1+1=3)"},
+  promoOn:{ru:"Акция 1+1=3 активна",kg:"1+1=3 акциясы иштеди"},
+  payGet:{ru:"Оплачиваете {p}, получаете {t} шт",kg:"{p} төлөйсүз, {t} даана аласыз"},
+  qtyWord:{ru:"Количество",kg:"Саны"},giftWord:{ru:"В подарок",kg:"Белекке"},totalWord:{ru:"Итого",kg:"Жыйынтык"},sumWord:{ru:"Сумма",kg:"Сумма"},
+  aboutNav:{ru:"О нас",kg:"Биз жөнүндө"},aboutT:{ru:"О нас",kg:"Биз жөнүндө"},toCatalog:{ru:"В каталог",kg:"Каталогго"},
+  aboutP1:{ru:"Alai Cloud — магазин оригинальных одноразок в Кыргызстане. Работаем с 2017 года, и за это время нам доверились более 6000 клиентов по всей стране.",kg:"Alai Cloud — Кыргызстандагы оригиналдуу бир жолку түтүкчөлөр дүкөнү. 2017-жылдан бери иштейбиз, бул убакта бизге өлкө боюнча 6000дан ашуун кардар ишенди."},
+  aboutP2:{ru:"Мы продаём только сертифицированную продукцию, быстро доставляем по всему Кыргызстану и всегда на связи в Telegram. Наша цель — честный сервис и лучший выбор вкусов.",kg:"Биз сертификатталган товарды гана сатабыз, Кыргызстан боюнча тез жеткиребиз жана Telegram'да дайыма байланыштабыз. Максатыбыз — адал сервис жана мыкты даам тандоо."},
+  awardsT:{ru:"Наши награды",kg:"Биздин сыйлыктар"},awardsSub:{ru:"Признание за качество и сервис — по годам",kg:"Сапат жана сервис үчүн жылдар боюнча таануу"},
+  storyT:{ru:"Немного о нас",kg:"Биз жөнүндө кыскача"},
+  merchWord:{ru:"Мерч",kg:"Мерч"},sizeWord:{ru:"Размер",kg:"Өлчөм"},chooseSize:{ru:"Выберите размер",kg:"Өлчөмдү тандаңыз"},selectSize:{ru:"Сначала выберите размер",kg:"Адегенде өлчөмдү тандаңыз"},
+  showAllBtn:{ru:"Показать все модели",kg:"Бардык моделдерди көрсөтүү"},showLess:{ru:"Свернуть",kg:"Жыйноо"},
+  per3:{ru:"за 3 шт",kg:"3 даана үчүн"},pack3:{ru:"Упаковка 3 шт",kg:"3 даана топтом"},
+  searchPlaceholder:{ru:"Найти товар или бренд",kg:"Товар же бренд издөө"},
+  noResults:{ru:"Ничего не нашли",kg:"Эч нерсе табылган жок"},
+};
+function t(k){ return (T[k]||{})[LANG]||(T[k]||{}).ru||k; }
+function money(n){ return n.toLocaleString('ru-RU'); }
+/* Скидка −10% на всё, кроме мерча и IQOS (у IQOS цены финальные) */
+const DISCOUNT=0.10;
+function isDisc(m){ return m.type!=='merch' && m.cat!=='iqos'; }
+function salePrice(m){ return isDisc(m)?Math.round(m.price*(1-DISCOUNT)):m.price; }
+
+function merchCard(m){
+  return `<button onclick="openProduct('${m.id}')" class="product-card text-left card-hover rounded-2xl overflow-hidden glass flex flex-col">
+    <div class="relative">
+      <div class="absolute top-2.5 left-2.5 z-10 text-[10px] font-extrabold px-2 py-1 rounded-full" style="background:var(--kg-gold);color:#3a2a00">МЕРЧ</div>
+      <div class="prod-tile h-36 sm:h-48 flex items-center justify-center overflow-hidden bg-white">${m.img?`<img src="${px(m.img)}" alt="${m.name}" loading="lazy" class="w-full h-full object-contain" onerror="merchFail(this,'${m.kind}','${m.c1}')">`:`<div class="p-3">${merchSVG(m.kind,m.c1)}</div>`}</div>
+    </div>
+    <div class="p-3 flex flex-col flex-1">
+      <div class="text-[11px] font-bold" style="color:var(--kg-gold)">Alai Cloud</div>
+      <div class="font-extrabold text-[14px] sm:text-[15px] leading-tight mt-0.5">${m.name}</div>
+      <div class="mt-2 mb-3 flex items-end gap-1"><span class="text-[19px] font-extrabold">${money(m.price)}</span><span class="text-white/50 text-[12px] font-semibold mb-0.5">${t('som')}</span></div>
+      <div class="mt-auto flex items-center justify-center gap-1.5 font-extrabold py-2.5 rounded-xl text-[14px] btn-gold">${t('buy')} <i data-lucide="shopping-bag" style="width:15px;height:15px"></i></div>
+    </div>
+  </button>`;
+}
+function modelCard(m){
+  if(m.type==='merch') return merchCard(m);
+  const b=brands.find(x=>x.id===m.brand);
+  return `<button onclick="openProduct('${m.id}')" class="product-card text-left card-hover rounded-2xl overflow-hidden glass flex flex-col">
+    <div class="relative">
+      <div class="product-badges">
+        ${m.cat==='disposable'?`<span class="product-badge font-extrabold text-white" style="background:var(--kg-red)">🎁 1+1=3</span>`:''}
+        ${m.puffs?`<span class="product-badge puff font-bold">${money(m.puffs)} ${t('puffs')}</span>`:''}
+      </div>
+      <div class="prod-tile h-36 sm:h-48 flex items-center justify-center p-3">
+        ${m.img?`<img src="${px(m.img)}" alt="${m.name}" loading="lazy" class="max-h-full max-w-full object-contain float" onerror="imgFail(this,'${m.c1}','${m.c2}','${m.puffs?(m.puffs/1000)+'K':''}',70)">`:`<div class="float" style="width:70px">${deviceSVG(m.c1,m.c2,m.puffs?(m.puffs/1000)+'K':'')}</div>`}
+      </div>
+    </div>
+    <div class="p-3 flex flex-col flex-1">
+      <div class="text-[11px] font-bold" style="color:${b.color}">${b.name}</div>
+      <div class="font-extrabold text-[14px] sm:text-[15px] leading-tight mt-0.5">${m.name}</div>
+      <div class="text-[11px] text-white/45 mt-1">${m.flavors?`${m.flavors.length} ${LANG==='kg'?'даам':'вкусов'}`:(m.cat==='vape'?(LANG==='kg'?'Көп жолку':'Многоразовый'):m.cat==='snus'?(LANG==='kg'?'Паучтар':'Паучи'):m.cat==='iqos'?(LANG==='kg'?'Тамеки ысытуу системасы':'Система нагревания табака'):'&nbsp;')}</div>
+      <div class="mt-2 mb-3 flex items-end gap-1.5 flex-wrap"><span class="text-[19px] font-extrabold" style="${isDisc(m)?'color:#4ade80':''}">${money(salePrice(m))}</span><span class="text-white/50 text-[12px] font-semibold mb-0.5">${t('som')}</span>${isDisc(m)?`<span class="text-white/40 text-[12px] font-semibold line-through mb-0.5">${money(m.price)}</span><span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded mb-0.5" style="background:var(--kg-gold);color:#3a2a00">−10%</span>`:''}${m.cat==='snus'?`<span class="text-white/40 text-[11px] font-semibold mb-0.5">/ ${t('per3')}</span>`:''}</div>
+      <div class="mt-auto flex items-center justify-center gap-1.5 font-extrabold py-2.5 rounded-xl text-[14px] btn-gold">${t('buy')} <i data-lucide="shopping-bag" style="width:15px;height:15px"></i></div>
+    </div>
+  </button>`;
+}
+
+let activeBrand="all",searchQuery="";
+let showAll=false, activeCat='disposable';
+function revealAll(){ showAll=true; renderHome(); }
+function setCat(id){ activeCat=id; activeBrand='all'; searchQuery=''; showAll=false; renderHome(); const el=document.getElementById('catalog'); if(el) el.scrollIntoView({behavior:'smooth'}); }
+function setSearch(value){ searchQuery=String(value||'').trim().toLowerCase(); showAll=false; renderHome(); const input=document.getElementById('catalogSearch'); if(input){input.focus(); input.setSelectionRange(input.value.length,input.value.length);} }
+function catName(c){ return c.name[LANG]||c.name.ru; }
+function renderHome(){
+  const catModels=models.filter(m=>m.cat===activeCat);
+  const catBrands=brands.filter(b=>catModels.some(m=>m.brand===b.id));
+  const byBrand=activeBrand==="all"?catModels:catModels.filter(m=>m.brand===activeBrand);
+  const full=searchQuery?byBrand.filter(m=>{
+    const brand=brands.find(b=>b.id===m.brand);
+    return `${m.name} ${brand?brand.name:''}`.toLowerCase().includes(searchQuery);
+  }):byBrand;
+  const showLimit=10;
+  const collapsed=activeBrand==="all" && !showAll && full.length>showLimit;
+  const list=collapsed?full.slice(0,showLimit):full;
+  document.getElementById('app').innerHTML=`
+  <section class="hero-shell">
+    <div class="grid md:grid-cols-[1.08fr_.92fr] gap-6 items-center relative z-10">
+      <div class="hero-copy rvl">
+        <div class="hero-offer hero-offer-main"><strong>1+1=3</strong><div><span class="hero-offer-label">Акция сегодня</span><span class="hero-offer-text">Две покупаешь — третья в подарок</span></div></div>
+        <h1 class="hero-title font-extrabold">${t('heroTitle')}</h1>
+        <p class="text-white/60 mt-3 text-[15px] sm:text-[17px] max-w-md">${t('heroSub')}</p>
+        <div class="hero-actions flex flex-wrap gap-3 mt-7">
+          <a href="#catalog" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink);box-shadow:0 12px 30px -14px rgba(233,190,106,.6)">${t('ctaCatalog')} <i data-lucide="arrow-down" style="width:16px;height:16px"></i></a>
+          <button onclick="openTelegramContact()" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:16px;height:16px"></i> ${t('ctaWa')}</button>
+        </div>
+      </div>
+      <div class="hero-visual rvl">
+        <div class="hero-proof hero-proof-one">100%<small>original</small></div>
+        <div class="hero-proof hero-proof-two">6000+<small>${LANG==='kg'?'кардар':'клиентов'}</small></div>
+        <div class="logo3d-stage relative z-10" style="width:clamp(190px,26vw,290px)">
+          <div class="logo-ring"></div>
+          <div id="logo3d" class="logo3d">${logo3dInner()}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-card rvl relative overflow-hidden rounded-3xl p-5 sm:p-7 my-6">
+    <div class="absolute -right-6 -bottom-10 opacity-20" style="width:180px">${logoBadge(180)}</div>
+    <div class="relative grid md:grid-cols-[.9fr_1.1fr] gap-7 items-center">
+      <div>
+        <div class="inline-block text-[12px] font-extrabold px-3 py-1 rounded-full mb-3" style="background:var(--kg-gold);color:#3a2a00">🔥 ${t('promoT')}</div>
+        <div class="promo-equation">1 + 1 = <strong>3</strong></div>
+      </div>
+      <div>
+        <div class="text-[24px] sm:text-[30px] font-extrabold leading-tight">${t('promoD')}</div>
+        <div class="mt-5 flex items-center gap-3 flex-wrap">
+        <span class="text-white/80 text-[13px] font-semibold">${t('promoLeft')}:</span>
+        <div class="flex gap-1.5 tabular-nums">
+          <div class="glass rounded-xl px-3 py-2 text-center min-w-[52px]"><div id="cdH" class="text-[22px] font-extrabold leading-none">00</div><div class="text-[9px] text-white/60 mt-1">час</div></div>
+          <div class="text-[22px] font-extrabold self-center">:</div>
+          <div class="glass rounded-xl px-3 py-2 text-center min-w-[52px]"><div id="cdM" class="text-[22px] font-extrabold leading-none">00</div><div class="text-[9px] text-white/60 mt-1">мин</div></div>
+          <div class="text-[22px] font-extrabold self-center">:</div>
+          <div class="glass rounded-xl px-3 py-2 text-center min-w-[52px]"><div id="cdS" class="text-[22px] font-extrabold leading-none">00</div><div class="text-[9px] text-white/60 mt-1">сек</div></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="referral-card rvl" aria-labelledby="referralTitle">
+    <div class="referral-layout">
+      <div>
+        <div class="referral-kicker"><i data-lucide="users"></i>${t('refKicker')}</div>
+        <h2 id="referralTitle">${t('refT')}</h2>
+        <p>${t('refD')}</p>
+        <button onclick="openReferralTelegram()" class="referral-btn"><i data-lucide="send" style="width:17px;height:17px"></i>${t('refCta')}</button>
+      </div>
+      <div class="referral-steps" aria-label="${t('refStepsAria')}">
+        <div class="referral-step"><b>1</b><div><strong>${t('refStep1T')}</strong><span>${t('refStep1D')}</span></div></div>
+        <div class="referral-step"><b>2</b><div><strong>${t('refStep2T')}</strong><span>${t('refStep2D')}</span></div></div>
+        <div class="referral-step"><b>3</b><div><strong>${t('refStep3T')}</strong><span>${t('refStep3D')}</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-section rvl">
+    <div class="trust-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+      ${[['calendar-check','tr1'],['truck','tr2'],['users','tr3'],['gift','tr4'],['battery-charging','tr5']].map(([ic,k])=>`
+        <div class="glass rounded-2xl p-3 flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(233,190,106,.10);color:var(--sky)"><i data-lucide="${ic}" style="width:18px;height:18px"></i></div>
+          <div class="text-[12px] font-semibold leading-tight">${t(k)}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section id="catalog" class="catalog-panel">
+    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5">
+      ${cats.map(c=>{const active=activeCat===c.id;const cnt=models.filter(m=>m.cat===c.id).length;return `<button onclick="setCat('${c.id}')" class="category-button flex flex-col items-center justify-center gap-1.5 py-3 rounded-2xl border transition ${active?'text-white':'text-white/70'}" style="${active?'background:linear-gradient(180deg,#343A44,#181B21);border-color:rgba(233,190,106,.55);box-shadow:0 10px 26px -12px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.07)':'background:#ffffff08;border-color:#ffffff18'}">
+        <i data-lucide="${c.icon}" style="width:20px;height:20px"></i>
+        <span class="text-[11px] sm:text-[12px] font-bold leading-none text-center">${catName(c)}</span>
+      </button>`}).join('')}
+    </div>
+    <div class="relative mt-2">
+      <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-white/45" style="width:17px;height:17px"></i>
+      <input id="catalogSearch" oninput="setSearch(this.value)" class="catalog-search w-full rounded-xl py-3 pl-10 pr-4 text-[14px]" type="search" autocomplete="off" placeholder="${t('searchPlaceholder')}">
+    </div>
+    <h2 class="text-[18px] sm:text-[22px] font-extrabold mb-3">${t('brandsT')}</h2>
+    <div id="brandRow" class="flex gap-2 overflow-x-auto no-scrollbar pb-1 -mx-1 px-1" style="scroll-behavior:auto">
+      <button onclick="setBrand('all')" class="shrink-0 px-4 py-2.5 rounded-full text-[13px] font-bold border" style="${activeBrand==='all'?'background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink);border-color:var(--gold)':'border-color:#ffffff22;background:#ffffff08'}">${t('all')}</button>
+      ${catBrands.map(b=>`<button onclick="setBrand('${b.id}')" class="shrink-0 px-4 py-2.5 rounded-full text-[13px] font-bold border" style="${activeBrand===b.id?`background:${b.color};border-color:${b.color};color:#07121a`:'border-color:#ffffff22;background:#ffffff08'}">${b.name}</button>`).join('')}
+    </div>
+  </section>
+
+  <section class="catalog-products pt-5">
+    <h2 class="text-[20px] sm:text-[26px] font-extrabold mb-4">${catName(cats.find(c=>c.id===activeCat))} <span class="text-white/40 text-[15px] font-semibold">· ${full.length}</span></h2>
+    ${list.length?`<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">${list.map(modelCard).join('')}</div>`:`<div class="glass rounded-2xl px-4 py-10 text-center text-white/60"><i data-lucide="search-x" class="mx-auto mb-3 text-white/45" style="width:28px;height:28px"></i>${t('noResults')}</div>`}
+    ${collapsed?`<div class="text-center mt-6"><button onclick="revealAll()" class="inline-flex items-center gap-2 font-bold px-6 py-3.5 rounded-xl glass text-[15px] hover:bg-white/10">${t('showAllBtn')} (${full.length}) <i data-lucide="chevron-down" style="width:16px;height:16px"></i></button></div>`:''}
+  </section>
+
+  <section class="pt-12">
+    <h2 class="text-[20px] sm:text-[26px] font-extrabold mb-4">${t('whyT')}</h2>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      ${[['badge-check','why1'],['truck','why2'],['sparkles','why3'],['shield-check','why4']].map(([ic,k])=>`
+        <div class="benefit-card rvl glass rounded-2xl p-4">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background:var(--kg-red)22;color:#ff5c74"><i data-lucide="${ic}" style="width:20px;height:20px"></i></div>
+          <div class="font-bold text-[15px]">${t(k+'t')}</div>
+          <p class="text-white/55 text-[13px] mt-1 leading-snug">${t(k+'d')}</p>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section class="pt-12">
+    <div class="flex items-end justify-between mb-4 gap-3">
+      <div>
+        <h2 class="text-[20px] sm:text-[26px] font-extrabold">${t('reviewsT')}</h2>
+        <div class="mt-1 text-[14px] font-semibold"><span style="color:var(--kg-gold)">★★★★★</span> <span class="text-white/70">${t('reviewsCount')}</span></div>
+      </div>
+      <div class="hidden sm:flex gap-2">
+        <button onclick="scrollRev(-1)" class="w-10 h-10 rounded-full glass flex items-center justify-center"><i data-lucide="chevron-left" style="width:18px;height:18px"></i></button>
+        <button onclick="scrollRev(1)" class="w-10 h-10 rounded-full glass flex items-center justify-center"><i data-lucide="chevron-right" style="width:18px;height:18px"></i></button>
+      </div>
+    </div>
+    <div id="revTrack" class="flex gap-3 overflow-x-auto no-scrollbar snap-x pb-2 -mx-4 px-4">
+      ${reviews.map(r=>`
+        <div class="snap-i shrink-0 w-[80%] sm:w-[340px] glass rounded-2xl p-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-[15px] shrink-0" style="background:${r.c}">${r.n[0]}</div>
+            <div class="min-w-0"><div class="font-bold text-[14px] truncate">${r.n}</div><div class="text-[11px] text-white/45">${r.ago[LANG]}</div></div>
+            <div class="ml-auto text-[12px]" style="color:var(--kg-gold)">★★★★★</div>
+          </div>
+          <p class="text-white/78 text-[14px] mt-3 leading-snug">${r.t}</p>
+        </div>`).join('')}
+    </div>
+    <div class="text-center mt-3 sm:hidden text-white/40 text-[12px]">← листай отзывы →</div>
+  </section>`;
+  lucide.createIcons();
+  const searchInput=document.getElementById('catalogSearch'); if(searchInput) searchInput.value=searchQuery;
+  revealObserve();
+  attachLogo3D();
+}
+function setBrand(id){
+  const el=document.getElementById('brandRow'); const sl=el?el.scrollLeft:0;
+  activeBrand=id; showAll=(id!=="all"); renderHome();
+  const el2=document.getElementById('brandRow'); if(el2) el2.scrollLeft=sl;
+}
+function scrollRev(d){ const el=document.getElementById('revTrack'); if(el) el.scrollBy({left:d*360,behavior:'smooth'}); }
+
+/* ==== reviews block (общий для главной и «О нас») ==== */
+function reviewsSection(){
+  return `<section class="pt-12">
+    <div class="flex items-end justify-between mb-4 gap-3">
+      <div>
+        <h2 class="text-[20px] sm:text-[26px] font-extrabold">${t('reviewsT')}</h2>
+        <div class="mt-1 text-[14px] font-semibold"><span style="color:var(--kg-gold)">★★★★★</span> <span class="text-white/70">${t('reviewsCount')}</span></div>
+      </div>
+      <div class="hidden sm:flex gap-2">
+        <button onclick="scrollRev(-1)" class="w-10 h-10 rounded-full glass flex items-center justify-center"><i data-lucide="chevron-left" style="width:18px;height:18px"></i></button>
+        <button onclick="scrollRev(1)" class="w-10 h-10 rounded-full glass flex items-center justify-center"><i data-lucide="chevron-right" style="width:18px;height:18px"></i></button>
+      </div>
+    </div>
+    <div id="revTrack" class="flex gap-3 overflow-x-auto no-scrollbar snap-x pb-2 -mx-4 px-4">
+      ${reviews.map(r=>`
+        <div class="snap-i shrink-0 w-[80%] sm:w-[340px] glass rounded-2xl p-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-[15px] shrink-0" style="background:${r.c}">${r.n[0]}</div>
+            <div class="min-w-0"><div class="font-bold text-[14px] truncate">${r.n}</div><div class="text-[11px] text-white/45">${r.ago[LANG]}</div></div>
+            <div class="ml-auto text-[12px]" style="color:var(--kg-gold)">★★★★★</div>
+          </div>
+          <p class="text-white/78 text-[14px] mt-3 leading-snug">${r.t}</p>
+        </div>`).join('')}
+    </div>
+    <div class="text-center mt-3 sm:hidden text-white/40 text-[12px]">← листай отзывы →</div>
+  </section>`;
+}
+
+/* ==== награды ==== */
+const awards=[
+  {y:"2019",ru:"Лучший вейп-магазин Бишкека",kg:"Бишкектеги эң мыкты дүкөн",c1:"#f6c445",c2:"#b8860b",g:true},
+  {y:"2021",ru:"Выбор покупателей",kg:"Кардарлардын тандоосу",c1:"#cbd2dc",c2:"#818a99",g:false},
+  {y:"2022",ru:"Топ сервиса и доставки",kg:"Сервис жана жеткирүү боюнча топ",c1:"#f6c445",c2:"#b8860b",g:true},
+  {y:"2023",ru:"Лучшая доставка по Кыргызстану",kg:"КР боюнча эң мыкты жеткирүү",c1:"#7fd8ff",c2:"#2a7fb8",g:false},
+  {y:"2024",ru:"№1 по оригинальной продукции",kg:"Оригинал боюнча №1",c1:"#f6c445",c2:"#b8860b",g:true},
+  {y:"2025",ru:"Народный бренд года",kg:"Жылдын элдик бренди",c1:"#f0a3ff",c2:"#a021b0",g:false},
+];
+function medalSVG(a){
+  return `<svg viewBox="0 0 130 150" xmlns="http://www.w3.org/2000/svg" style="height:120px">
+  <defs><radialGradient id="md${a.y}" cx="50%" cy="38%" r="65%"><stop offset="0" stop-color="${a.c1}"/><stop offset="1" stop-color="${a.c2}"/></radialGradient></defs>
+  <polygon points="48,12 66,66 54,72 36,20" fill="#E8112D"/>
+  <polygon points="82,12 64,66 76,72 94,20" fill="#2f6fd0"/>
+  <circle cx="65" cy="92" r="42" fill="url(#md${a.y})" stroke="#ffffffaa" stroke-width="3"/>
+  <circle cx="65" cy="92" r="33" fill="none" stroke="#00000022" stroke-width="1.5"/>
+  <text x="65" y="88" text-anchor="middle" font-size="30" fill="#fff">★</text>
+  <text x="65" y="114" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="17" fill="#fff">${a.y}</text>
+  </svg>`;
+}
+
+let view='home';
+function render(){ view==='about'?renderAbout():renderHome(); }
+function go(){ view='home'; renderHome(); window.scrollTo({top:0,behavior:'smooth'}); }
+function showAbout(){ view='about'; renderAbout(); window.scrollTo({top:0,behavior:'smooth'}); }
+function renderAbout(){
+  document.getElementById('app').innerHTML=`
+  <section class="pt-6">
+    <button onclick="go()" class="btn-steel relative z-20 inline-flex items-center gap-2 text-[15px] font-extrabold mb-5 px-5 py-3 rounded-xl text-white"><i data-lucide="arrow-left" style="width:18px;height:18px"></i> ${t('toCatalog')}</button>
+    <div class="rvl relative overflow-hidden rounded-3xl p-6 sm:p-9 glass">
+      <div class="absolute -right-6 -top-10 opacity-25 pointer-events-none" style="width:200px">${logoEl(200)}</div>
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 text-[12px] font-bold px-3 py-1.5 rounded-full mb-3" style="background:rgba(233,190,106,.10);color:var(--sky)"><i data-lucide="badge-check" style="width:14px;height:14px"></i> ${t('tr5')}</div>
+        <h1 class="text-[30px] sm:text-[44px] font-extrabold leading-tight">${t('aboutT')}</h1>
+        <p class="text-white/70 mt-4 max-w-2xl text-[15px] leading-relaxed">${t('aboutP1')}</p>
+        <p class="text-white/70 mt-3 max-w-2xl text-[15px] leading-relaxed">${t('aboutP2')}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
+      ${[['2017',t('tr1')],['6000+',t('tr3')],['100%',t('tr5')],['24/7',t('tr2')]].map(([n,l])=>`
+        <div class="rvl glass rounded-2xl p-4 text-center">
+          <div class="text-[26px] font-extrabold" style="color:var(--sky)">${n}</div>
+          <div class="text-white/60 text-[12px] mt-1 leading-tight">${l}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  ${reviewsSection()}
+
+  <section class="pt-12">
+    <h2 class="text-[20px] sm:text-[26px] font-extrabold">${t('awardsT')}</h2>
+    <p class="text-white/55 text-[14px] mt-1">${t('awardsSub')}</p>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
+      ${awards.map(a=>`
+        <div class="rvl glass rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="flex items-center justify-center" style="height:124px">${medalSVG(a)}</div>
+          <div class="text-[13px] font-extrabold mt-1" style="color:var(--kg-gold)">${a.y}</div>
+          <div class="text-[14px] font-semibold mt-1 leading-snug">${LANG==='kg'?a.kg:a.ru}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section class="pt-12">
+    <div class="rvl glass rounded-3xl p-6 sm:p-8 text-center">
+      <div class="text-[20px] sm:text-[24px] font-extrabold">${t('ctaWa')}</div>
+      <button onclick="openTelegramContact()" class="inline-flex items-center gap-2 mt-4 font-extrabold px-6 py-3.5 rounded-xl text-[15px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:18px;height:18px"></i> ${t('ctaWa')}</button>
+    </div>
+  </section>`;
+  lucide.createIcons();
+  revealObserve();
+}
+
+let current=null,chosenFlavors=[null],chosenSize=null,mode='product',qty=1;
+function freeCount(q){ return (current&&current.cat==='disposable')?Math.floor(q/3):0; }
+function paidCount(q){ return q-freeCount(q); }
+function openProduct(id){ current=models.find(m=>m.id===id); qty=1; chosenFlavors=[null]; chosenSize=null; mode='product'; renderSheet(); document.getElementById('sheet').classList.remove('hidden'); document.body.style.overflow='hidden'; }
+function closeSheet(){ document.getElementById('sheet').classList.add('hidden'); document.body.style.overflow=''; }
+function renderSheet(){
+  const m=current,b=brands.find(x=>x.id===m.brand);
+  const unit=salePrice(m);
+  const total = m.type==='merch' ? m.price : (mode==='order'?paidCount(qty)*unit:unit);
+  const oldTotal = m.type==='merch' ? m.price : (mode==='order'?paidCount(qty)*m.price:m.price);
+  const bar = mode==='order'
+    ? `<button onclick="sendTelegram()" class="w-full flex items-center justify-center gap-2 font-extrabold py-4 rounded-2xl text-[17px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:20px;height:20px"></i> ${t('send')}</button>`
+    : `<button onclick="goOrder()" class="w-full flex items-center justify-center gap-2 font-extrabold py-4 rounded-2xl text-[17px] btn-gold">${t('order')} <i data-lucide="arrow-right" style="width:20px;height:20px"></i></button>`;
+  document.getElementById('sheetBody').innerHTML=`
+  <div class="sticky top-0 z-20 flex items-center justify-between px-4 py-3 border-b border-white/8" style="background:rgba(14,16,20,.93);backdrop-filter:blur(8px)">
+    <button onclick="${mode==='order'?'backToProduct()':'closeSheet()'}" class="flex items-center gap-1.5 text-[14px] font-semibold text-white/80 px-3 py-1.5 rounded-lg bg-white/5"><i data-lucide="chevron-left" style="width:18px;height:18px"></i> ${t('back')}</button>
+    <button onclick="closeSheet()" class="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 text-white/70"><i data-lucide="x" style="width:20px;height:20px"></i></button>
+  </div>
+  <div id="sheetContent" class="px-5 sm:px-7 pt-5 pb-3"></div>
+  <div class="sticky bottom-0 z-20 px-4 sm:px-6 pt-3 pb-4 border-t border-white/10" style="background:rgba(14,16,20,.96);backdrop-filter:blur(12px)">
+    <div class="flex items-center justify-between mb-2.5"><span class="text-white/55 text-[13px] font-semibold">${mode==='order'?t('sumWord'):t('priceWord')}${isDisc(m)?` <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded align-middle" style="background:var(--kg-gold);color:#3a2a00">−10%</span>`:''}</span><span class="text-right">${isDisc(m)?`<span class="text-white/40 text-[13px] font-semibold line-through mr-1.5">${money(oldTotal)}</span>`:''}<span class="font-extrabold text-[19px]" style="${isDisc(m)?'color:#4ade80':''}">${money(total)} ${t('som')}</span></span></div>
+    ${bar}
+  </div>`;
+  document.getElementById('sheetContent').innerHTML= mode==='product'?productView(m,b):orderView(m);
+  lucide.createIcons();
+}
+function merchProductView(m,b){
+  return `
+  <div class="prod-tile relative rounded-2xl mb-5 flex items-center justify-center overflow-hidden" style="min-height:250px">
+    <div class="absolute top-3 left-3 z-20 text-[11px] font-extrabold px-2.5 py-1 rounded-full" style="background:var(--kg-gold);color:#3a2a00">МЕРЧ</div>
+    ${m.img?`<img src="${px(m.img)}" alt="${m.name}" class="w-full max-h-80 object-contain bg-white" onerror="merchFail(this,'${m.kind}','${m.c1}')">`:`<div class="p-4">${merchSVG(m.kind,m.c1)}</div>`}
+  </div>
+  <div class="text-[12px] font-bold" style="color:${b.color}">Alai Cloud · ${t('merchWord')}</div>
+  <h3 class="text-[24px] font-extrabold leading-tight">${m.name}</h3>
+  <div class="text-[22px] font-extrabold mt-1">${money(m.price)} <span class="text-white/50 text-[14px] font-semibold">${t('som')}</span></div>
+  <p class="text-white/60 text-[14px] mt-3 leading-relaxed">${LANG==='kg'?m.descKg:m.descRu}</p>
+  ${m.sizes.length>1?`
+  <div class="mt-5">
+    <div class="font-bold text-[15px] mb-2">${t('chooseSize')}</div>
+    <div id="sizeWrap" class="flex flex-wrap gap-2">
+      ${m.sizes.map(s=>`<button onclick="pickSize(this,'${s}')" class="flavor-chip text-[14px] px-4 py-2.5 rounded-xl border border-white/15 bg-white/5 font-bold transition ${chosenSize===s?'sel':''}">${s}</button>`).join('')}
+    </div>
+  </div>`:''}
+  <div class="flex items-center gap-2 text-white/40 text-[12px] mt-5"><i data-lucide="truck" style="width:14px;height:14px"></i> ${t('tr2')}</div>`;
+}
+function pickSize(el,s){ chosenSize=s; document.querySelectorAll('#sizeWrap .flavor-chip').forEach(c=>c.classList.remove('sel')); el.classList.add('sel'); }
+function productView(m,b){
+  if(m.type==='merch') return merchProductView(m,b);
+  const hasFl=!!(m.flavors&&m.flavors.length);
+  const lbl=m.puffs?((m.puffs/1000)+'K'):'';
+  const dev=`<div class="relative z-10 float" style="width:130px">${deviceSVG(m.c1,m.c2,lbl)}</div>`;
+  let step=0;
+  return `
+  <div class="relative rounded-2xl mb-5 overflow-hidden flex items-center justify-center prod-tile" style="min-height:250px">
+    ${m.cat==='disposable'?`<div class="absolute top-3 left-3 z-20 text-[11px] font-extrabold px-2.5 py-1 rounded-full text-white" style="background:var(--kg-red)">🎁 ${t('promoBadge')}</div>`:''}
+    ${m.puffs?`<div class="absolute top-3 right-3 z-20 text-[11px] font-bold px-2.5 py-1 rounded-full text-white" style="background:#000a">${money(m.puffs)} ${t('puffs')}</div>`:''}
+    ${m.img?`<img src="${px(m.img)}" alt="${m.name}" class="relative z-10 max-h-64 object-contain float p-3" onerror="imgFail(this,'${m.c1}','${m.c2}','${lbl}',130)">`:dev}
+  </div>
+  <div class="text-[12px] font-bold" style="color:${b.color}">${b.name}</div>
+  <h3 class="text-[24px] font-extrabold leading-tight">${m.name}</h3>
+  <div class="flex items-end gap-2 mt-1 flex-wrap">
+    <span class="text-[24px] font-extrabold" style="${isDisc(m)?'color:#4ade80':''}">${money(salePrice(m))} <span class="text-white/50 text-[14px] font-semibold">${t('som')}</span></span>
+    ${isDisc(m)?`<span class="text-white/40 text-[16px] font-semibold line-through mb-0.5">${money(m.price)}</span>
+    <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-md mb-1" style="background:var(--kg-gold);color:#3a2a00">−10%</span>`:''}
+    ${m.cat==='snus'?`<span class="text-white/50 text-[13px] font-semibold mb-0.5">${t('per3')}</span>`:''}
+  </div>
+  ${m.cat==='snus'?`<div class="inline-flex items-center gap-1.5 mt-2 text-[12px] font-bold px-2.5 py-1 rounded-full" style="background:rgba(233,190,106,.10);color:var(--sky)"><i data-lucide="package" style="width:14px;height:14px"></i> ${t('pack3')}</div>`:''}
+  <p class="text-white/60 text-[14px] mt-3 leading-relaxed">${LANG==='kg'?m.descKg:m.descRu}</p>
+
+  <div class="mt-6">
+    <div class="flex items-center gap-2 mb-2.5"><span class="w-6 h-6 rounded-full flex items-center justify-center text-[12px] font-extrabold text-white" style="background:var(--kg-red)">${++step}</span><span class="font-bold text-[15px]">${t('qtyT')}</span></div>
+    <div class="grid grid-cols-3 gap-2">
+      ${[1,2,3].map(q=>`<button onclick="pickQty(${q})" class="relative py-3.5 rounded-xl border font-extrabold text-[16px] transition ${qty===q?'':'text-white/80'}" style="${qty===q?'background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));border-color:var(--gold);color:var(--gold-ink)':'background:#ffffff08;border-color:#ffffff20'}">${q} ${t('pcs')}${freeCount(q)>0?`<span class="block text-[10px] font-bold mt-0.5" style="color:${qty===q?'var(--gold-ink)':'var(--kg-gold)'}">🎁 1 ${t('giftWord').toLowerCase()}</span>`:''}</button>`).join('')}
+    </div>
+    ${m.cat==='disposable'?(()=>{const fr=freeCount(qty),pay=paidCount(qty);return fr>0
+      ?`<div class="mt-3 rounded-xl p-3 flex items-center gap-2 text-[13px] font-semibold" style="background:#12331f;border:1px solid #1f7a45"><span>🎁</span><span><b style="color:#4ade80">${t('promoOn')}!</b> ${t('payGet').replace('{p}',pay).replace('{t}',qty)}.</span></div>`
+      :`<div class="mt-3 rounded-xl p-3 text-[13px] font-semibold text-white/60" style="background:#ffffff08;border:1px solid #ffffff18">${t('addTwo')}</div>`})():''}
+  </div>
+
+  ${hasFl?`<div class="mt-6">
+    <div class="flex items-center gap-2 mb-2.5"><span class="w-6 h-6 rounded-full flex items-center justify-center text-[12px] font-extrabold text-white" style="background:var(--kg-red)">${++step}</span><span class="font-bold text-[15px]">${t('chooseFlavor')} <span class="text-white/40 text-[13px] font-semibold">· ${qty} ${t('pcs')}</span></span></div>
+    <div class="grid gap-2">
+      ${Array.from({length:qty}).map((_,i)=>`<div class="flex items-center gap-2"><span class="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-[13px] font-extrabold" style="background:${m.c1}33;color:${m.c1}">${i+1}</span><select onchange="setFlavorAt(${i},this.value)" class="flavor-select flex-1 rounded-xl bg-white/5 border border-white/15 px-3 py-3.5 text-[14px] font-semibold outline-none focus:border-sky-400"><option value="" ${!chosenFlavors[i]?'selected':''}>— ${t('chooseFlavor')} —</option>${m.flavors.map(f=>`<option value="${f}" ${chosenFlavors[i]===f?'selected':''}>${f}</option>`).join('')}</select></div>`).join('')}
+    </div>
+  </div>`:''}
+  <div class="flex items-center gap-2 text-white/40 text-[12px] mt-5"><i data-lucide="shield-check" style="width:14px;height:14px"></i> ${t('why1t')} · ${t('why2t')}</div>`;
+}
+function setFlavorAt(i,v){ chosenFlavors[i]=v||null; }
+function pickQty(q){ qty=q; const a=[]; for(let i=0;i<q;i++) a[i]=chosenFlavors[i]||null; chosenFlavors=a; renderSheet(); }
+function goOrder(){
+  if(current.type==='merch'){ if(current.sizes.length>1 && !chosenSize){ alert(t('selectSize')); return; } if(current.sizes.length===1) chosenSize=current.sizes[0]; mode='order'; renderSheet(); return; }
+  if(current.flavors && current.flavors.length && chosenFlavors.slice(0,qty).some(f=>!f)){ alert(t('selectFirst')); return; }
+  mode='order'; renderSheet();
+}
+function backToProduct(){ mode='product'; renderSheet(); }
+function orderInputs(){
+  return `
+  <div class="grid gap-3 mt-4">
+    <input id="oName" placeholder="${t('fName')}" class="w-full rounded-xl bg-white/5 border border-white/15 px-4 py-4 text-[15px] outline-none focus:border-sky-400">
+    <input id="oPhone" type="tel" inputmode="tel" placeholder="${t('fPhone')} (+996 ...)" class="w-full rounded-xl bg-white/5 border border-white/15 px-4 py-4 text-[15px] outline-none focus:border-sky-400">
+    <input id="oCity" placeholder="${t('fCity')}" class="w-full rounded-xl bg-white/5 border border-white/15 px-4 py-4 text-[15px] outline-none focus:border-sky-400">
+    <input id="oAddr" placeholder="${t('fAddr')}" class="w-full rounded-xl bg-white/5 border border-white/15 px-4 py-4 text-[15px] outline-none focus:border-sky-400">
+  </div>
+  <p class="text-center text-white/40 text-[12px] mt-3">${t('fdeliver')}</p>`;
+}
+function merchOrderView(m){
+  return `
+  <h3 class="text-[22px] font-extrabold">${t('formT')}</h3>
+  <div class="rounded-xl p-3 mt-3 glass text-[14px]">
+    <div class="flex justify-between gap-3"><span class="text-white/50">${t('merchWord')}</span><span class="font-bold text-right">${m.name}</span></div>
+    ${m.sizes.length>1?`<div class="flex justify-between gap-3 mt-1"><span class="text-white/50">${t('sizeWord')}</span><span class="font-bold" style="color:var(--kg-gold)">${chosenSize}</span></div>`:''}
+    <div class="flex justify-between gap-3 mt-1 pt-2 border-t border-white/10"><span class="text-white/50">${t('sumWord')}</span><span class="font-extrabold text-[16px]">${money(m.price)} ${t('som')}</span></div>
+  </div>
+  ${orderInputs()}`;
+}
+function orderView(m){
+  if(m.type==='merch') return merchOrderView(m);
+  const fr=freeCount(qty), pay=paidCount(qty), sum=pay*salePrice(m), oldSum=pay*m.price;
+  const hasFl=!!(m.flavors&&m.flavors.length);
+  return `
+  <h3 class="text-[22px] font-extrabold">${t('formT')}</h3>
+  <div class="rounded-xl p-3 mt-3 glass text-[14px]">
+    <div class="flex justify-between gap-3"><span class="text-white/50">${t('modelWord')}</span><span class="font-bold text-right">${m.name}</span></div>
+    ${hasFl?`<div class="mt-2"><span class="text-white/50">${t('flavorWord')}</span>
+      <div class="mt-1 space-y-1">${chosenFlavors.slice(0,qty).map((f,i)=>`<div class="flex justify-between gap-3"><span class="text-white/40">#${i+1}</span><span class="font-bold text-right" style="color:var(--kg-gold)">${f}</span></div>`).join('')}</div>
+    </div>`:''}
+    <div class="flex justify-between gap-3 mt-2 pt-2 border-t border-white/10"><span class="text-white/50">${t('qtyWord')}</span><span class="font-bold">${qty} ${t('pcs')}${fr>0?` <span style="color:#4ade80">(${fr} 🎁)</span>`:''}</span></div>
+    <div class="flex justify-between gap-3 mt-1"><span class="text-white/50">${t('sumWord')}${isDisc(m)?` <span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded align-middle" style="background:var(--kg-gold);color:#3a2a00">−10%</span>`:''}</span><span class="text-right">${isDisc(m)?`<span class="text-white/40 text-[13px] font-semibold line-through mr-1.5">${money(oldSum)}</span>`:''}<span class="font-extrabold text-[16px]" style="${isDisc(m)?'color:#4ade80':''}">${money(sum)} ${t('som')}</span></span></div>
+  </div>
+  ${orderInputs()}`;
+}
+function composeOrder(){
+  const g=id=>document.getElementById(id).value.trim();
+  const name=g('oName'),phone=g('oPhone'),city=g('oCity'),addr=g('oAddr');
+  if(!name||!phone) return {error:true};
+  const hello=LANG==='kg'?"Саламатсызбы! Заказ бергим келет:":"Здравствуйте! Хочу заказать:";
+  if(current.type==='merch'){
+    const message=`${hello}
+• ${t('merchWord')}: ${current.name}${current.sizes.length>1?`
+• ${t('sizeWord')}: ${chosenSize}`:''}
+• ${t('sumWord')}: ${money(current.price)} ${t('som')}
+• ${t('fName')}: ${name}
+• ${t('fPhone')}: ${phone}
+• ${t('fCity')}: ${city}
+• ${t('fAddr')}: ${addr}`;
+    return {message,payload:{type:'order',shop:'Alai Cloud',product:current.name,size:chosenSize||null,total:current.price,currency:'KGS',customer:{name,phone,city,address:addr},language:LANG}};
+  }
+  const fr=freeCount(qty), pay=paidCount(qty), sum=pay*salePrice(current);
+  const hasFl=!!(current.flavors&&current.flavors.length);
+  const nameLine = current.name + (current.puffs?` (${money(current.puffs)} ${t('puffs')})`:'') + (current.cat==='snus'?` — ${t('pack3')}`:'');
+  const flavLine = hasFl ? `\n• ${t('flavorWord')}:\n`+chosenFlavors.slice(0,qty).map((f,i)=>`   ${i+1}) ${f}`).join('\n') : '';
+  const message=`${hello}
+• ${t('modelWord')}: ${nameLine}
+• ${t('qtyWord')}: ${qty} ${t('pcs')}${fr>0?` (${fr} ${t('giftWord').toLowerCase()} 🎁)`:''}${flavLine}
+• ${t('sumWord')}: ${money(sum)} ${t('som')}${isDisc(current)?' (−10% 🔥)':''}
+• ${t('fName')}: ${name}
+• ${t('fPhone')}: ${phone}
+• ${t('fCity')}: ${city}
+• ${t('fAddr')}: ${addr}`;
+  return {message,payload:{type:'order',shop:'Alai Cloud',product:current.name,quantity:qty,freeQuantity:fr,flavors:chosenFlavors.slice(0,qty),total:sum,currency:'KGS',customer:{name,phone,city,address:addr},language:LANG}};
+}
+async function sendTelegram(){
+  const composed=composeOrder();
+  if(!composed||composed.error){ alert(t('fill')); return; }
+  const envelope={...composed.payload,message:composed.message,source:'telegram-mini-app',createdAt:new Date().toISOString(),orderId:`AC-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,7).toUpperCase()}`};
+  try{
+    if(IS_TELEGRAM_RUNTIME&&TG_CONFIG.useBot&&TG_CONFIG.orderEndpoint){
+      const response=await fetch(TG_CONFIG.orderEndpoint,{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Init-Data':TELEGRAM_APP.initData||''},body:JSON.stringify(envelope)});
+      if(!response.ok) throw new Error('order endpoint failed');
+      const done=LANG==='kg'?'Заказ жөнөтүлдү':'Заказ принят менеджером';
+      if(typeof TELEGRAM_APP.showAlert==='function') TELEGRAM_APP.showAlert(done); else alert(done);
+      closeSheet(); return;
+    }
+    if(IS_TELEGRAM_RUNTIME&&TG_CONFIG.useBot&&typeof TELEGRAM_APP.sendData==='function'){
+      TELEGRAM_APP.sendData(JSON.stringify(envelope));
+      if(typeof TELEGRAM_APP.showAlert==='function') TELEGRAM_APP.showAlert(LANG==='kg'?'Заказ жөнөтүлдү':'Заказ отправлен в Telegram');
+      setTimeout(()=>TELEGRAM_APP.close(),450);
+      return;
+    }
+    const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim();
+    if(username){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
+      const target=`https://t.me/${username}?text=${encodeURIComponent(composed.message)}`;
+      openTelegramUrl(target);
+      alert(LANG==='kg' ? "Буйрутма даяр. Telegram'да жөнөтүүнү басыңыз" : 'Текст заказа уже вставлен в Telegram. Проверьте его и нажмите «Отправить».');
+      return;
+    }
+    const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+    if(phone){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
+      try{ await navigator.clipboard.writeText(composed.message); }catch(_){ }
+      openTelegramUrl(`https://t.me/+${phone}`);
+      alert(LANG==='kg'?'Буйрутма тексти көчүрүлдү':'Текст заказа скопирован. Вставьте его в Telegram.');
+      return;
+    }
+    alert(LANG==='kg'?'Telegram азырынча туташтырыла элек.':'Telegram пока не подключён. Укажите контакт, botUsername или orderEndpoint в assets/telegram-config.js.');
+  }catch(error){
+    console.error(error);
+    const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+    if(phone){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
+      try{ await navigator.clipboard.writeText(composed.message); }catch(_){ }
+      try{ openTelegramUrl(`https://t.me/+${phone}`); }catch(_){ }
+      alert(LANG==='kg'?'Буйрутма тексти көчүрүлдү':'Текст заказа скопирован. Вставьте его в Telegram.');
+      return;
+    }
+    alert(LANG==='kg'?'Заказды жөнөтүүдө ката кетти. Кайра аракет кылыңыз.':'Не удалось отправить заказ. Попробуйте ещё раз.');
+  }
+}
+
+function setLang(l){
+  LANG=l;
+  document.getElementById('btnRU').className='px-2.5 py-1 rounded-full text-[12px] font-bold '+(l==='ru'?'bg-white text-slate-900':'text-white/55');
+  document.getElementById('btnKG').className='px-2.5 py-1 rounded-full text-[12px] font-bold '+(l==='kg'?'bg-white text-slate-900':'text-white/55');
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i'); if(T[k]) el.textContent=t(k);});
+  document.documentElement.lang=l==='kg'?'ky':'ru';
+  render();
+  if(!document.getElementById('sheet').classList.contains('hidden')) renderSheet();
+}
+function revealObserve(){ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1}); document.querySelectorAll('.rvl:not(.in)').forEach(el=>io.observe(el)); }
+
+function pad(n){ return String(n).padStart(2,'0'); }
+/* таймер стартует заново на 24 часа при каждом заходе на сайт */
+let DEADLINE=Date.now()+24*3600*1000;
+function tickTimer(){
+  let d=DEADLINE-Date.now();
+  if(d<=0){ DEADLINE=Date.now()+24*3600*1000; d=DEADLINE-Date.now(); }
+  const h=Math.floor(d/3.6e6), m=Math.floor(d%3.6e6/6e4), s=Math.floor(d%6e4/1000);
+  [['tbH',h],['tbM',m],['tbS',s],['cdH',h],['cdM',m],['cdS',s]].forEach(([id,v])=>{const el=document.getElementById(id); if(el) el.textContent=pad(v);});
+}
+setInterval(tickTimer,1000);
+
+if(IS_TELEGRAM_RUNTIME){
+  document.body.classList.add('tg-mini');
+  TELEGRAM_APP.ready();
+  TELEGRAM_APP.expand();
+  if(typeof TELEGRAM_APP.setHeaderColor==='function') TELEGRAM_APP.setHeaderColor('#08090C');
+  if(typeof TELEGRAM_APP.setBackgroundColor==='function') TELEGRAM_APP.setBackgroundColor('#08090C');
+}
+
+document.getElementById('logoMark').innerHTML=logoEl(38);
+document.getElementById('logoMarkFooter').innerHTML=logoEl(40);
+setLang('ru');
+tickTimer();
+lucide.createIcons();
+void loadProfile();
+
+/* intro splash */
+(function(){
+  const intro=document.getElementById('intro'); if(!intro) return;
+  const lg=document.getElementById('introLogo'); if(lg) lg.innerHTML=logoEl(230);
+  document.body.style.overflow='hidden';
+  let done=false;
+  function close(){ if(done) return; done=true; intro.classList.add('hide'); document.body.style.overflow=''; setTimeout(()=>{ intro.style.display='none'; },850); }
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const timer=setTimeout(close, reduce?400:3000);
+  intro.addEventListener('click',()=>{ clearTimeout(timer); close(); });
+})();
+</script>
+</body>
+</html>
