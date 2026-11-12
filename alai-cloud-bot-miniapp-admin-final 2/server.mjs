@@ -28,6 +28,8 @@ const MANAGER_CHAT_ID = String(process.env.MANAGER_CHAT_ID || '').trim();
 const MANAGER_CONTACT_URL = String(process.env.MANAGER_CONTACT_URL || 'https://t.me/alairustam').trim();
 const WELCOME_BANNER = path.join(ROOT, 'assets', 'telegram-welcome-banner.png');
 const WELCOME_STICKER_ID = String(process.env.WELCOME_STICKER_ID || '').trim();
+/* Меняйте WHEEL_PERIOD_ID только при запуске новой кампании колеса. */
+const WHEEL_PERIOD_ID = String(process.env.WHEEL_PERIOD_ID || 'campaign-2026-11-12-v2').trim();
 const ADMIN_CHAT_IDS = new Set([
   ...String(process.env.ADMIN_IDS || '').split(','),
   ...String(process.env.ADMIN_CHAT_ID || '').split(',')
@@ -95,7 +97,7 @@ function emptyState() {
     users: {},
     orders: [],
     broadcasts: [],
-    wheelPeriodId: `period-${Date.now().toString(36)}`,
+    wheelPeriodId: WHEEL_PERIOD_ID,
     wheelResets: [],
     adminActions: []
   };
@@ -109,7 +111,7 @@ async function readState() {
       users: parsed?.users && typeof parsed.users === 'object' ? parsed.users : {},
       orders: Array.isArray(parsed?.orders) ? parsed.orders : [],
       broadcasts: Array.isArray(parsed?.broadcasts) ? parsed.broadcasts : [],
-      wheelPeriodId: String(parsed?.wheelPeriodId || `period-${Date.now().toString(36)}`),
+      wheelPeriodId: WHEEL_PERIOD_ID || String(parsed?.wheelPeriodId || `period-${Date.now().toString(36)}`),
       wheelResets: Array.isArray(parsed?.wheelResets) ? parsed.wheelResets : [],
       adminActions: Array.isArray(parsed?.adminActions) ? parsed.adminActions : []
     };
