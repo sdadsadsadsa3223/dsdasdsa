@@ -113,33 +113,46 @@
   ::selection{ background:var(--gold); color:#111 }
   body::before{ content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
     background:linear-gradient(115deg,transparent 0 48%,rgba(233,190,106,.035) 48.2% 48.5%,transparent 48.7% 100%); }
-  .promo-strip{ position:relative; overflow:hidden; letter-spacing:.02em; padding:12px 16px!important; box-shadow:0 10px 40px rgba(192,138,46,.24); border-bottom:1px solid rgba(255,255,255,.28) }
+  .promo-strip{ position:relative; overflow:hidden; letter-spacing:.02em; padding:14px 16px!important; box-shadow:0 10px 40px rgba(192,138,46,.24); border-bottom:1px solid rgba(255,255,255,.28) }
   .promo-strip::after{ content:""; position:absolute; inset:0; transform:translateX(-120%); background:linear-gradient(90deg,transparent,#fff7,transparent); animation:stripSweep 5s ease-in-out infinite }
   @keyframes stripSweep{ 45%,100%{transform:translateX(120%)} }
   .promo-strip-inner{ position:relative; z-index:1; display:flex; align-items:center; justify-content:center; gap:14px; max-width:1280px; margin:0 auto }
   .promo-copy{ display:flex; align-items:center; gap:10px; min-width:0 }
   .promo-kicker{ display:inline-flex; align-items:center; gap:5px; padding:5px 9px; border-radius:999px; background:#161108cc; color:#F5D9A0; font-size:10px; font-weight:800; letter-spacing:.08em; white-space:nowrap }
-  .promo-main{ font:800 clamp(18px,2.5vw,28px)/1 'Unbounded',sans-serif; letter-spacing:-.06em; white-space:nowrap }
+  .promo-main{ font:800 clamp(20px,2.8vw,32px)/1 'Unbounded',sans-serif; letter-spacing:-.06em; white-space:nowrap }
   .promo-sub{ font-size:clamp(12px,1.45vw,15px); font-weight:800; white-space:nowrap }
   .promo-clock{ display:flex; align-items:center; gap:6px; padding:6px 10px; border-radius:12px; background:#16110832; border:1px solid rgba(26,20,8,.22); font-size:11px; font-weight:800; white-space:nowrap }
   .promo-clock strong{ font-size:15px; letter-spacing:.04em }
   .promo-cta{ display:inline-flex; align-items:center; gap:5px; padding:8px 12px; border-radius:11px; background:#161108; color:#F5D9A0; font-size:12px; font-weight:800; white-space:nowrap; box-shadow:0 7px 16px rgba(26,20,8,.18) }
   .site-header{ border-bottom:1px solid rgba(233,190,106,.16)!important; background:rgba(7,8,10,.78)!important; box-shadow:0 18px 50px rgba(0,0,0,.22) }
-  .hero-shell{ position:relative; isolation:isolate; overflow:hidden; min-height:570px; margin-top:28px; padding:clamp(26px,5vw,58px); border-radius:42px;
+  #app{ display:flex; flex-direction:column }
+  #app>section{ order:10 }
+  #app>.hero-shell{ order:1 }
+  #app>.catalog-panel{ order:2 }
+  #app>.catalog-products{ order:3 }
+  #app>.promo-card{ order:4 }
+  #app>.referral-card{ order:5 }
+  #app>.trust-section{ order:6 }
+  .hero-shell{ position:relative; isolation:isolate; overflow:hidden; min-height:360px; margin-top:18px; padding:clamp(24px,4vw,42px); border-radius:34px;
     background:radial-gradient(70% 100% at 82% 48%,rgba(233,190,106,.18),transparent 64%),linear-gradient(135deg,#171a20 0%,#0b0c10 55%,#18130b 100%);
     border:1px solid rgba(233,190,106,.25); box-shadow:0 50px 120px -55px #000, inset 0 1px rgba(255,255,255,.08) }
   .hero-shell::before{ content:"ALAI / CLOUD"; position:absolute; left:-18px; bottom:-28px; z-index:-1; font:800 clamp(74px,12vw,172px)/1 'Unbounded',sans-serif; letter-spacing:-.08em; color:transparent; -webkit-text-stroke:1px rgba(233,190,106,.09); white-space:nowrap }
   .hero-shell::after{ content:""; position:absolute; width:420px; height:420px; right:-170px; top:-190px; border:1px solid rgba(233,190,106,.23); border-radius:50%; box-shadow:0 0 0 44px rgba(233,190,106,.025),0 0 0 88px rgba(233,190,106,.018) }
   .hero-kicker{ display:inline-flex; align-items:center; gap:9px; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-hi) }
   .hero-kicker::before{ content:""; width:28px; height:1px; background:var(--gold) }
-  .hero-title{ margin-top:18px; max-width:720px; font-family:'Unbounded',sans-serif; font-size:clamp(40px,5vw,72px)!important; line-height:.98!important; letter-spacing:-.055em!important }
+  .hero-title{ margin-top:14px; max-width:620px; font-family:'Unbounded',sans-serif; font-size:clamp(34px,4.4vw,58px)!important; line-height:1!important; letter-spacing:-.055em!important }
   .hero-title em{ display:block; margin-top:12px; font:700 .26em/1.2 'Unbounded',sans-serif; letter-spacing:.2em; color:var(--gold); text-transform:uppercase; font-style:normal }
-  .hero-copy p{ line-height:1.75; font-size:16px!important }
-  .hero-actions a{ min-height:54px; border-radius:16px; transition:transform .25s ease,box-shadow .25s ease }
+  .hero-copy p{ line-height:1.55; font-size:15px!important }
+  .hero-offer{ color:#fff; font-weight:800 }
+  .hero-offer-main{ display:grid; grid-template-columns:auto 1fr; gap:0 12px; align-items:center; width:min(100%,460px); margin-top:0; padding:12px 14px; border:1px solid rgba(233,190,106,.52); border-radius:18px; background:linear-gradient(110deg,rgba(233,190,106,.18),rgba(255,255,255,.06)); box-shadow:0 16px 34px -24px rgba(233,190,106,.9),inset 0 1px rgba(255,255,255,.12) }
+  .hero-offer-main strong{ grid-row:span 2; align-self:center; padding:10px 11px; border-radius:12px; background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink); font:800 clamp(27px,3.3vw,40px)/.9 'Unbounded',sans-serif; letter-spacing:-.08em }
+  .hero-offer-label{ display:block; color:var(--gold-hi); font-size:10px; letter-spacing:.12em; text-transform:uppercase }
+  .hero-offer-text{ display:block; margin-top:3px; color:#fff; font-size:clamp(14px,1.5vw,17px); line-height:1.2 }
+  .hero-actions a{ min-height:50px; border-radius:15px; transition:transform .25s ease,box-shadow .25s ease }
   .hero-actions a:hover{ transform:translateY(-2px) }
-  .hero-visual{ position:relative; min-height:380px; display:grid; place-items:center }
+  .hero-visual{ position:relative; min-height:290px; display:grid; place-items:center }
   .hero-visual::before{ content:""; position:absolute; width:min(40vw,410px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(233,190,106,.24); box-shadow:0 0 0 20px rgba(233,190,106,.025),0 0 80px rgba(233,190,106,.2) }
-  .hero-proof{ position:absolute; z-index:3; min-width:126px; padding:11px 14px; border:1px solid rgba(233,190,106,.3); border-radius:15px; background:rgba(9,10,13,.82); backdrop-filter:blur(12px); box-shadow:0 18px 36px rgba(0,0,0,.35); font-size:18px; font-weight:800; color:var(--gold-hi) }
+  .hero-proof{ position:absolute; z-index:3; min-width:112px; padding:9px 12px; border:1px solid rgba(233,190,106,.3); border-radius:14px; background:rgba(9,10,13,.82); backdrop-filter:blur(12px); box-shadow:0 18px 36px rgba(0,0,0,.35); font-size:16px; font-weight:800; color:var(--gold-hi) }
   .hero-proof small{ display:block; margin-top:2px; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#fff8 }
   .hero-proof-one{ left:0; top:18% } .hero-proof-two{ right:0; bottom:16% }
   .promo-card{ position:relative; overflow:hidden; padding:clamp(24px,4vw,42px)!important; border-radius:32px!important; background:linear-gradient(118deg,#22180a,#111318 55%,#2a2111)!important; border-color:rgba(233,190,106,.4)!important; box-shadow:0 30px 80px -40px rgba(233,190,106,.5) }
@@ -159,6 +172,56 @@
   .referral-step b{ display:grid; place-items:center; width:34px; height:34px; border-radius:12px; background:rgba(233,190,106,.16); color:var(--gold-hi); font-size:16px }
   .referral-step strong{ display:block; color:#fff; font-size:14px }
   .referral-step span{ display:block; margin-top:2px; color:rgba(255,255,255,.55); font-size:12px; line-height:1.35 }
+  .footer-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px }
+  .footer-action{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:0 15px; border:1px solid rgba(255,255,255,.12); border-radius:13px; background:rgba(255,255,255,.055); color:rgba(255,255,255,.82); font-size:13px; font-weight:800; transition:transform .2s,border-color .2s,background .2s }
+  .footer-action:hover{ transform:translateY(-2px); border-color:rgba(233,190,106,.45); background:rgba(255,255,255,.09) }
+  .footer-action.primary{ border-color:rgba(42,171,238,.48); background:rgba(42,171,238,.13); color:#a9e7ff }
+  .profile-fab{ position:fixed; right:20px; bottom:92px; z-index:45; width:56px; height:56px; display:grid; place-items:center; border:1px solid rgba(233,190,106,.55); border-radius:18px; background:linear-gradient(145deg,#2b2e35,#111318); color:var(--gold-hi); box-shadow:0 18px 34px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.1); transition:transform .25s,border-color .25s }
+  .profile-fab:hover{ transform:translateY(-3px); border-color:var(--gold-hi) }
+  .profile-fab .profile-dot{ position:absolute; top:6px; right:6px; width:10px; height:10px; border:2px solid #17191f; border-radius:50%; background:#4ade80 }
+  .wheel-modal,.profile-modal{ position:fixed; inset:0; z-index:60; align-items:center; justify-content:center; padding:14px; }
+  .wheel-modal:not(.hidden),.profile-modal:not(.hidden){ display:flex }
+  .wheel-backdrop,.profile-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.78); backdrop-filter:blur(14px) }
+  .wheel-panel,.profile-panel{ position:relative; width:min(100%,520px); max-height:calc(100vh - 28px); overflow:auto; border:1px solid rgba(233,190,106,.34); border-radius:30px; background:radial-gradient(100% 85% at 50% 0%,rgba(233,190,106,.16),transparent 58%),linear-gradient(160deg,#20242c,#0d0f13 72%); box-shadow:0 35px 100px rgba(0,0,0,.65); padding:25px 22px 22px; animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both }
+  .wheel-close,.profile-close{ position:absolute; top:13px; right:13px; width:35px; height:35px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.14); border-radius:50%; background:rgba(255,255,255,.06); color:#fff; font-size:22px; line-height:1 }
+  .wheel-kicker{ color:var(--gold-hi); font-size:10px; font-weight:900; letter-spacing:.16em; text-transform:uppercase }
+  .wheel-panel h2,.profile-panel h2{ margin:8px 44px 6px 0; font:800 clamp(25px,6vw,34px)/1.05 'Unbounded',sans-serif; letter-spacing:-.06em; color:#fff }
+  .wheel-panel>p{ margin:0; color:rgba(255,255,255,.62); font-size:14px; line-height:1.5 }
+  .wheel-stage{ position:relative; width:min(82vw,360px); aspect-ratio:1; margin:24px auto 17px; display:grid; place-items:center }
+  .wheel-stage::before{ content:""; position:absolute; inset:3%; border-radius:50%; background:radial-gradient(circle,rgba(233,190,106,.22),transparent 68%); filter:blur(12px); transform:scale(1.12); }
+  .wheel-disc{ --count:7; --wheel-turn:0deg; position:relative; z-index:1; width:100%; height:100%; border:8px solid #17191e; border-radius:50%; background:conic-gradient(from -115deg,#e9be6a 0 14.285%,#65758a 14.285% 28.57%,#e9be6a 28.57% 42.855%,#526276 42.855% 57.14%,#d9a747 57.14% 71.425%,#718197 71.425% 85.71%,#f0ce84 85.71% 100%); box-shadow:0 20px 42px rgba(0,0,0,.5),inset 0 0 0 4px rgba(255,255,255,.34),inset 0 0 0 14px rgba(0,0,0,.15); transform:rotate(0deg); transition:transform 3.2s cubic-bezier(.12,.74,.12,1); overflow:hidden }
+  .wheel-disc::before{ content:""; position:absolute; inset:12%; border:1px solid rgba(255,255,255,.38); border-radius:50%; box-shadow:inset 0 0 0 1px rgba(26,20,8,.22); pointer-events:none }
+  .wheel-center{ position:absolute; z-index:3; inset:33%; display:grid; place-items:center; align-content:center; border:5px solid #17191e; border-radius:50%; background:linear-gradient(145deg,#fff0c7 0%,#e9be6a 52%,#c08a2e 100%); color:#1a1408; box-shadow:0 6px 18px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.72); text-align:center; }
+  .wheel-center strong{ display:block; font:900 clamp(13px,3vw,18px)/1 'Unbounded',sans-serif; letter-spacing:-.09em }
+  .wheel-center small{ display:block; margin-top:4px; font-size:7px; font-weight:900; letter-spacing:.18em }
+  .wheel-disc.spinning{ transform:rotate(var(--wheel-turn)) }
+  .wheel-segment{ position:absolute; z-index:1; left:50%; top:50%; width:82px; height:72px; margin-top:-36px; transform-origin:0 50%; transform:rotate(var(--angle)) translateX(74px); color:#fff; font-weight:900; line-height:1; text-align:center; pointer-events:none; }
+  .wheel-segment-body{ width:82px; height:72px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4px 3px; border:1px solid rgba(255,255,255,.2); border-radius:13px; background:rgba(8,10,14,.24); box-shadow:0 7px 15px rgba(0,0,0,.16); backdrop-filter:blur(3px); transform:rotate(calc(var(--angle) * -1)); }
+  .wheel-segment em{ display:block; margin-bottom:3px; font-style:normal; font-size:7px; letter-spacing:.08em; text-transform:uppercase; opacity:.78; white-space:nowrap }
+  .wheel-segment strong{ display:block; color:#fff; font:900 21px/.92 'Unbounded',sans-serif; letter-spacing:-.08em; white-space:nowrap }
+  .wheel-segment small{ display:block; margin-top:4px; color:#f5d9a0; font-size:8px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap }
+  .wheel-prize-art{ display:block; width:38px; height:38px; margin:0 auto 3px; padding:3px; object-fit:contain; border:1px solid rgba(255,255,255,.75); border-radius:9px; background:#eef1f5; box-shadow:0 5px 12px rgba(0,0,0,.3) }
+  .wheel-segment.has-art strong{ font-size:14px; letter-spacing:-.07em; }
+  .wheel-segment.has-art small{ margin-top:2px; font-size:7px; }
+  .wheel-segment.has-art em{ margin-bottom:2px; font-size:6px; }
+  .wheel-pointer{ position:absolute; z-index:4; top:-11px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:17px solid transparent; border-right:17px solid transparent; border-top:30px solid #fff; filter:drop-shadow(0 4px 4px rgba(0,0,0,.58)); }
+  .wheel-result{ min-height:42px; display:grid; place-items:center; margin:0 auto 12px; padding:10px 12px; border:1px solid rgba(233,190,106,.24); border-radius:14px; background:rgba(255,255,255,.05); color:rgba(255,255,255,.7); font-size:13px; font-weight:700; text-align:center }
+  .wheel-result strong{ color:var(--gold-hi); font-size:16px }
+  .wheel-action,.claim-prize{ width:100%; min-height:50px; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:15px; background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp)); color:var(--gold-ink); font-size:15px; font-weight:900; box-shadow:0 15px 28px -17px rgba(233,190,106,.9) }
+  .wheel-action:disabled{ opacity:.58; cursor:wait }
+  .profile-panel{ width:min(100%,440px) }
+  .profile-label{ display:block; margin:18px 0 7px; color:rgba(255,255,255,.58); font-size:12px; font-weight:800 }
+  .profile-name-row{ display:flex; gap:8px }
+  .profile-name-row input{ min-width:0; flex:1; height:44px; padding:0 13px; border:1px solid rgba(255,255,255,.15); border-radius:13px; outline:none; background:rgba(255,255,255,.06); color:#fff; font:700 14px 'Manrope',sans-serif }
+  .profile-name-row input:focus{ border-color:rgba(233,190,106,.65); box-shadow:0 0 0 3px rgba(233,190,106,.1) }
+  .profile-save{ padding:0 13px; border:1px solid rgba(233,190,106,.4); border-radius:13px; background:rgba(233,190,106,.12); color:var(--gold-hi); font-size:12px; font-weight:900 }
+  .profile-stats{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:16px 0 }
+  .profile-stat{ min-height:90px; padding:13px; border:1px solid rgba(255,255,255,.1); border-radius:17px; background:rgba(255,255,255,.05) }
+  .profile-stat span{ display:block; color:rgba(255,255,255,.5); font-size:11px; font-weight:800 }
+  .profile-stat strong{ display:block; margin-top:8px; color:#fff; font-size:17px; line-height:1.2 }
+  .profile-stat.prize strong{ color:var(--gold-hi); font-size:14px }
+  .profile-hint{ margin:2px 0 14px; color:rgba(255,255,255,.48); font-size:12px; line-height:1.45 }
+  .profile-wheel-link{ width:100%; min-height:44px; margin-top:9px; border:1px solid rgba(233,190,106,.3); border-radius:13px; background:rgba(233,190,106,.09); color:var(--gold-hi); font-size:13px; font-weight:900 }
   .trust-grid>div{ min-height:78px; padding:16px!important; border-color:rgba(233,190,106,.13); transition:transform .25s,border-color .25s }
   .trust-grid>div:hover{ transform:translateY(-3px); border-color:rgba(233,190,106,.4) }
   .catalog-panel{ margin-top:38px; padding:22px; border:1px solid rgba(233,190,106,.14); border-radius:28px; background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015)); box-shadow:0 30px 80px -55px #000 }
@@ -185,11 +248,14 @@
     .promo-clock{padding:5px 7px;font-size:9px;gap:3px}
     .promo-clock strong{font-size:12px}
     .promo-cta{display:none}
-    .hero-shell{ min-height:auto; margin-top:16px; padding:26px 20px 30px; border-radius:28px }
+    .hero-shell{ min-height:auto; margin-top:12px; padding:20px 16px 22px; border-radius:24px }
     .hero-shell::before{ font-size:70px; bottom:8px }
-    .hero-title{ font-size:36px!important }
-    .hero-visual{ min-height:315px }
-    .hero-visual::before{ width:270px }
+    .hero-title{ font-size:31px!important }
+    .hero-visual{ display:none }
+    .hero-offer-main{ width:100%; padding:9px 10px; gap:0 9px; border-radius:15px }
+    .hero-offer-main strong{ padding:8px 9px; font-size:25px }
+    .hero-offer-label{ font-size:9px }
+    .hero-offer-text{ font-size:13px }
     .hero-proof{ min-width:108px; padding:9px 11px; font-size:15px }
     .hero-proof-one{ left:-4px; top:13% } .hero-proof-two{ right:-4px; bottom:10% }
     .product-badges{ top:9px; left:9px; right:9px; gap:5px }
@@ -201,11 +267,52 @@
     .referral-card h2{ font-size:25px }
     .referral-card p{ font-size:14px }
     .referral-btn{ width:100%; justify-content:center; margin-top:18px }
+    .footer-actions{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px }
+    .footer-action{ padding:0 10px; font-size:12px }
     .catalog-panel{ margin-left:-6px; margin-right:-6px; padding:14px; border-radius:22px }
     .product-card{ border-radius:20px!important }
     .benefit-card{ min-height:150px; padding:16px!important }
   }
   @media (prefers-reduced-motion:reduce){ *{animation-duration:.001s!important} }
+  /* ==== Premium prize wheel ==== */
+  .wheel-stage{width:min(88vw,390px);margin:24px auto 17px;isolation:isolate}
+  .wheel-disc{--wheel-turn:0deg;position:relative;z-index:1;width:100%;height:100%;padding:9px;border:1px solid rgba(245,217,160,.68);border-radius:50%;background:linear-gradient(145deg,#f9e4ae,#645033 18%,#171a20 42%,#a77a35 72%,#f5d99d);box-shadow:0 30px 44px rgba(0,0,0,.62),0 0 0 5px rgba(20,21,25,.96),0 0 0 7px rgba(233,190,106,.34),inset 0 2px rgba(255,255,255,.72);overflow:visible;transform:none;transition:none}
+  .wheel-disc::before{content:"";position:absolute;inset:2px;border:1px solid rgba(10,12,15,.9);border-radius:50%;box-shadow:inset 0 0 0 4px rgba(255,255,255,.08),inset 0 0 28px rgba(0,0,0,.58);pointer-events:none;z-index:2}
+  .wheel-svg{display:block;width:100%;height:100%;overflow:visible}
+  #wheelRotor{transform-box:fill-box;transform-origin:center;transform:rotate(0deg);transition:transform 6.8s cubic-bezier(.08,.72,.12,1)}
+  .wheel-disc.spinning #wheelRotor{transform:rotate(var(--wheel-turn))}
+  .wheel-sector{vector-effect:non-scaling-stroke;transition:filter .25s,opacity .25s}
+  .wheel-sector.selected{filter:url(#wheelGlow);stroke:#fff3c5!important;stroke-width:5!important}
+  .wheel-label-card{fill:#080b10;fill-opacity:.62;stroke:#f5d9a0;stroke-opacity:.28;stroke-width:1}
+  .wheel-label-eyebrow,.wheel-label-title,.wheel-label-sub{font-family:Manrope,sans-serif;text-anchor:middle;pointer-events:none}
+  .wheel-label-eyebrow{fill:#f8dfa9; font-size:6.5px; font-weight:800; letter-spacing:1px; text-transform:uppercase}
+  .wheel-label-title{fill:#fff; font-size:10px; font-weight:900}
+  .wheel-label-sub{fill:#f5d9a0; font-size:7px; font-weight:900; letter-spacing:.5px}
+  .wheel-label-image{preserveAspectRatio:xMidYMid meet;pointer-events:none}
+  .wheel-led{fill:#f5d9a0;stroke:#3a2d1a;stroke-width:2}
+  .wheel-led:nth-child(3n){fill:#fff0c4}
+  .wheel-pointer{top:-12px;width:42px;height:50px;border:0;transform:translateX(-50%);filter:drop-shadow(0 7px 4px rgba(0,0,0,.58));background:linear-gradient(90deg,#8e5c1a 0 10%,#ffe8a8 25%,#fff 48%,#d79b35 72%,#633d12 90%);clip-path:polygon(50% 100%,4% 15%,50% 0,96% 15%);}
+  .wheel-pointer::before{content:"";position:absolute;left:50%;top:7px;width:10px;height:20px;transform:translateX(-50%);border-radius:6px;background:#fff6cf;box-shadow:0 0 10px #fff2b3}
+  .wheel-pointer span{position:absolute;left:50%;top:-9px;width:22px;height:22px;transform:translateX(-50%);border:3px solid #e9be6a;border-radius:50%;background:#191b21;box-shadow:inset 0 1px #fff8,0 2px 5px #0009}
+  .wheel-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:-3px auto 12px;color:rgba(255,255,255,.45);font-size:10px}
+  .wheel-tools button{padding:6px 9px;border:1px solid rgba(233,190,106,.28);border-radius:10px;background:rgba(233,190,106,.08);color:var(--gold-hi);font-size:10px;font-weight:800}
+  .result-modal{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:16px}
+  .result-modal.hidden{display:none}
+  .result-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(18px)}
+  .result-panel{position:relative;width:min(100%,420px);padding:30px 22px 22px;border:1px solid rgba(233,190,106,.52);border-radius:28px;background:radial-gradient(70% 55% at 50% 0%,rgba(233,190,106,.22),transparent 75%),linear-gradient(150deg,#252a32,#0c0e12 70%);box-shadow:0 35px 100px rgba(0,0,0,.72);text-align:center;animation:fadeUp .35s cubic-bezier(.16,1,.3,1) both}
+  .result-kicker{color:var(--gold-hi);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .result-panel h2{margin:12px 25px 8px;font:800 clamp(24px,7vw,34px)/1.05 'Unbounded',sans-serif;letter-spacing:-.06em;color:#fff}
+  .result-panel p{margin:0 auto 18px;max-width:280px;color:rgba(255,255,255,.62);font-size:13px;line-height:1.5}
+  .result-prize-art{display:grid;place-items:center;width:145px;height:145px;margin:18px auto 2px;border:1px solid rgba(245,217,160,.42);border-radius:50%;background:radial-gradient(circle,#fff7dc 0,#ebd09a 38%,#8e6629 100%);box-shadow:0 20px 42px rgba(0,0,0,.45),inset 0 2px rgba(255,255,255,.7)}
+  .result-prize-art img{display:block;width:100px;height:100px;object-fit:contain;mix-blend-mode:multiply}
+  .result-prize-art .result-gift-mark{font:900 18px/1 'Unbounded',sans-serif;color:#1a1408}
+  .blocked-screen{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 15%,rgba(233,190,106,.15),transparent 45%),#08090c}
+  .blocked-screen.hidden{display:none}
+  .blocked-card{width:min(100%,420px);padding:30px 22px;border:1px solid rgba(233,190,106,.34);border-radius:28px;background:linear-gradient(145deg,#20242c,#0d0f13);box-shadow:0 35px 100px #000b;text-align:center}
+  .blocked-card h2{margin:12px 0 8px;font:800 28px/1.05 'Unbounded',sans-serif;color:#fff}
+  .blocked-card p{margin:0 auto 20px;color:rgba(255,255,255,.62);font-size:14px;line-height:1.5}
+  .blocked-icon{font-size:42px;filter:drop-shadow(0 10px 20px #0008)}
+  @media(max-width:430px){.wheel-stage{width:min(88vw,340px)}.wheel-panel{padding:22px 15px 17px}.wheel-tools{font-size:9px}.wheel-tools button{font-size:9px}}
   /* Telegram Mini App: catalog first, compact controls, native Telegram chrome. */
   .tg-mini #intro,.tg-mini .promo-card,.tg-mini .trust-grid{display:none!important}
   .tg-mini .promo-strip{padding:10px 12px!important}
@@ -232,8 +339,15 @@
   .catalog-search{color:#fff;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.14)}
   .catalog-search::placeholder{color:rgba(255,255,255,.42)}
   .catalog-search:focus{outline:none;border-color:rgba(233,190,106,.65);box-shadow:0 0 0 3px rgba(233,190,106,.1)}
-  .tg-mini footer{display:none}
+  .tg-mini footer{display:block;margin-top:22px}
+  .tg-mini .footer-main{display:block}
+  .tg-mini .footer-brand,.tg-mini .footer-legal{display:none}
+  .tg-mini .footer-links{display:block}
+  .tg-mini .footer-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:0}
+  .tg-mini .footer-action{min-height:42px;padding:0 7px;font-size:11px}
+  .tg-mini .footer-links>span{display:flex;margin-top:10px;justify-content:center;font-size:11px}
   .tg-mini .floating-contact{bottom:calc(14px + env(safe-area-inset-bottom))}
+  .tg-mini .profile-fab{bottom:calc(82px + env(safe-area-inset-bottom))}
   /* Phone hardening: keep every block inside the viewport, including 320px devices. */
   @media(max-width:767px){
     html,body,#app{width:100%;max-width:100%;overflow-x:clip}
@@ -258,6 +372,17 @@
     .product-card .btn-gold{min-height:46px;touch-action:manipulation}
     .sheet input,.sheet select,.sheet textarea{font-size:16px!important}
     .float-wa{width:56px;height:56px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));font-size:24px}
+    .profile-fab{right:12px;bottom:88px;width:52px;height:52px;border-radius:16px}
+    .wheel-panel,.profile-panel{padding:23px 16px 17px;border-radius:25px}
+    .wheel-stage{width:min(86vw,340px);margin-top:20px}
+    .wheel-segment{width:68px;height:62px;margin-top:-31px;transform:rotate(var(--angle)) translateX(68px)}
+    .wheel-segment-body{width:68px;height:62px;border-radius:11px}
+    .wheel-segment strong{font-size:17px}
+    .wheel-segment em{font-size:6px}
+    .wheel-segment small{font-size:7px}
+    .wheel-prize-art{width:33px;height:33px;border-radius:8px}
+    .wheel-segment.has-art strong{font-size:12px}
+    .wheel-segment.has-art small{font-size:6px}
   }
   @media(max-width:360px){
     .promo-strip{padding-left:9px!important;padding-right:9px!important}
@@ -347,23 +472,112 @@
   <i data-lucide="send" style="width:26px;height:26px;color:#061a29"></i>
 </button>
 
+<button id="profileFab" type="button" onclick="openProfile()" class="profile-fab" aria-label="Открыть профиль">
+  <i data-lucide="user-round" style="width:24px;height:24px"></i>
+  <span id="profilePrizeDot" class="profile-dot hidden"></span>
+</button>
+
+<div id="wheelModal" class="wheel-modal hidden" aria-hidden="true">
+  <div class="wheel-backdrop" onclick="closeWheel()"></div>
+  <section class="wheel-panel" role="dialog" aria-modal="true" aria-labelledby="wheelTitle">
+    <button type="button" class="wheel-close" onclick="closeWheel()" aria-label="Закрыть">×</button>
+    <div class="wheel-kicker">🎁 Твой подарок от Alai Cloud</div>
+    <h2 id="wheelTitle">Забери свой бонус</h2>
+    <p>Один поворот — один подарок. Результат сохранится в профиле.</p>
+    <div class="wheel-stage">
+      <div class="wheel-pointer" aria-hidden="true"><span></span></div>
+      <div id="wheelDisc" class="wheel-disc">
+        <svg id="wheelSvg" class="wheel-svg" viewBox="0 0 360 360" role="img" aria-label="Колесо призов">
+          <defs>
+            <radialGradient id="wheelCore" cx="35%" cy="25%" r="80%"><stop offset="0" stop-color="#fff4cf"/><stop offset=".48" stop-color="#e9be6a"/><stop offset="1" stop-color="#9b661d"/></radialGradient>
+            <linearGradient id="wheelMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8e2ad"/><stop offset=".2" stop-color="#9c7b45"/><stop offset=".5" stop-color="#2c3038"/><stop offset=".8" stop-color="#b68a3e"/><stop offset="1" stop-color="#f6d88f"/></linearGradient>
+            <filter id="wheelShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="9" stdDeviation="7" flood-color="#000" flood-opacity=".62"/></filter>
+            <filter id="wheelGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g id="wheelRotor" filter="url(#wheelShadow)">
+            <g id="wheelBase"></g>
+            <g id="wheelSectors"></g>
+            <g id="wheelLabels"></g>
+            <g id="wheelLights"></g>
+            <g id="wheelCenter"></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div id="wheelResult" class="wheel-result">Нажми кнопку и узнай, что приготовили для тебя ✨</div>
+    <div class="wheel-tools">
+      <button id="wheelSoundToggle" type="button" onclick="toggleWheelSound()" aria-pressed="true">🔊 Звук включён</button>
+      <span>Результат определяется сервером</span>
+    </div>
+    <button id="spinWheelBtn" type="button" class="wheel-action" onclick="spinWheel()">Открыть подарок</button>
+    <button id="wheelProfileBtn" type="button" class="profile-wheel-link hidden" onclick="closeWheel();openProfile()">Открыть профиль</button>
+  </section>
+</div>
+
+<div id="prizeResultModal" class="result-modal hidden" aria-hidden="true">
+  <div class="result-backdrop" onclick="closePrizeResult()"></div>
+  <section class="result-panel" role="dialog" aria-modal="true" aria-labelledby="resultPrizeTitle">
+    <button type="button" class="profile-close" onclick="closePrizeResult()" aria-label="Закрыть">×</button>
+    <div class="result-kicker">🎉 Подарок закреплён за тобой</div>
+    <div id="resultPrizeArt" class="result-prize-art"></div>
+    <h2 id="resultPrizeTitle">Твой приз</h2>
+    <p id="resultPrizeCondition">Покажи этот результат менеджеру.</p>
+    <button type="button" class="wheel-action" onclick="closePrizeResult();openProfile()">Открыть профиль</button>
+    <button type="button" class="profile-wheel-link" onclick="closePrizeResult();claimPrize()">🎁 Забрать приз у менеджера</button>
+  </section>
+</div>
+
+<div id="blockedScreen" class="blocked-screen hidden" aria-hidden="true">
+  <div class="blocked-card">
+    <div class="blocked-icon">⛔</div>
+    <div class="wheel-kicker">Alai Cloud · доступ</div>
+    <h2>Доступ ограничен</h2>
+    <p>Если это произошло по ошибке, напиши менеджеру — мы всё проверим.</p>
+    <button type="button" class="wheel-action" onclick="openTelegramContact()">Написать менеджеру</button>
+  </div>
+</div>
+
+<div id="profileModal" class="profile-modal hidden" aria-hidden="true">
+  <div class="profile-backdrop" onclick="closeProfile()"></div>
+  <section class="profile-panel" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+    <button type="button" class="profile-close" onclick="closeProfile()" aria-label="Закрыть">×</button>
+    <div class="wheel-kicker">Alai Cloud · личный кабинет</div>
+    <h2 id="profileTitle">Твой профиль</h2>
+    <label class="profile-label" for="profileNameInput">Имя</label>
+    <div class="profile-name-row">
+      <input id="profileNameInput" maxlength="60" placeholder="Как к тебе обращаться?" autocomplete="name">
+      <button id="profileSaveBtn" type="button" class="profile-save" onclick="saveProfileName()">Сохранить</button>
+    </div>
+    <div class="profile-stats">
+      <div class="profile-stat"><span>Заказов</span><strong id="profileOrders">0</strong></div>
+      <div class="profile-stat prize"><span>Твой приз</span><strong id="profilePrize">Колесо ещё не крутили</strong></div>
+    </div>
+    <p id="profileHint" class="profile-hint">Колесо доступно один раз для новых пользователей.</p>
+    <button id="claimPrizeBtn" type="button" class="claim-prize hidden" onclick="claimPrize()">🎁 Забрать приз у менеджера</button>
+    <button id="profileWheelBtn" type="button" class="profile-wheel-link" onclick="closeProfile();openWheel()">🎡 Крутить колесо</button>
+  </section>
+</div>
+
 <footer class="mt-16 border-t border-white/10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-      <div class="flex items-center gap-3">
+    <div class="footer-main flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+      <div class="footer-brand flex items-center gap-3">
         <span id="logoMarkFooter" class="logo-mark3d"></span>
         <div>
           <div class="font-extrabold text-lg">ALAI <span style="color:var(--sky)">CLOUD</span></div>
           <div class="text-white/45 text-[13px]" data-i="fdeliver">🚚 Доставка по всему Кыргызстану</div>
         </div>
       </div>
-      <div class="flex flex-col gap-2 text-[14px]">
-        <button onclick="openTelegramContact()" class="flex items-center gap-2 text-white/80 hover:text-white"><i data-lucide="send" style="width:16px;height:16px"></i> Telegram</button>
+      <div class="footer-links flex flex-col gap-2 text-[14px]">
+        <div class="footer-actions">
+          <button onclick="openTelegramContact()" class="footer-action primary"><i data-lucide="life-buoy" style="width:16px;height:16px"></i> Поддержка</button>
+          <button onclick="openTelegramContact()" class="footer-action"><i data-lucide="send" style="width:16px;height:16px"></i> Telegram</button>
+          <button onclick="showAbout()" data-i="aboutNav" class="footer-action"><i data-lucide="info" style="width:16px;height:16px"></i> О нас</button>
+        </div>
         <span class="flex items-center gap-2 text-white/60"><i data-lucide="clock" style="width:16px;height:16px"></i> <span data-i="fhours">Каждый день · 10:00–22:00</span></span>
-        <button onclick="showAbout()" data-i="aboutNav" class="flex items-center gap-2 text-white/60 hover:text-white w-fit"><i data-lucide="info" style="width:16px;height:16px"></i> О нас</button>
       </div>
     </div>
-    <div class="mt-8 pt-6 border-t border-white/10 text-[12px] text-white/35 flex flex-col sm:flex-row gap-2 sm:justify-between">
+    <div class="footer-legal mt-8 pt-6 border-t border-white/10 text-[12px] text-white/35 flex flex-col sm:flex-row gap-2 sm:justify-between">
       <span>© 2026 Alai Cloud · <span data-i="since">Работаем с 2017 года</span></span>
       <span data-i="age">Продажа только лицам старше 18 лет. Содержит никотин.</span>
     </div>
@@ -378,7 +592,7 @@
 </div>
 
 <script>
-const TG_CONFIG=window.ALAI_TELEGRAM||{botUsername:"",orderEndpoint:"",useBot:false};
+const TG_CONFIG=window.ALAI_TELEGRAM||{botUsername:"",orderEndpoint:"",profileEndpoint:"/api/profile",useBot:false};
 const TELEGRAM_APP=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
 const IS_TELEGRAM_APP=!!TELEGRAM_APP;
 /* Наличие telegram-web-app.js ещё не означает, что страница открыта внутри Telegram. */
@@ -415,6 +629,177 @@ function openReferralTelegram(){
   const target=username?`https://t.me/${username}?text=${encodeURIComponent(message)}`:(phone?`https://t.me/+${phone}?text=${encodeURIComponent(message)}`:'');
   if(!target){ alert(LANG==='kg'?'Telegram азырынча туташтырыла элек.':'Telegram пока не подключён.'); return; }
   openTelegramUrl(target);
+}
+
+const PROFILE_STORAGE_KEY='alai-cloud-profile-v5';
+const DEFAULT_PROFILE_PRIZES=['WAKA 10000','1 банка ZYN','Puffmi','Скидка 300 сом','Скидка 800 сом','Бесплатная доставка','Скидка 500 сом'];
+const PRIZE_VISUALS={
+  'WAKA 10000':{image:'/assets/prizes/waka-10000.png',eyebrow:'подарок бренда',title:'WAKA',subtitle:'10000'},
+  '1 банка ZYN':{image:'/assets/prizes/zyn-cool-mint.png',eyebrow:'для тебя',title:'ZYN',subtitle:'1 БАНКА'},
+  'Puffmi':{image:'/assets/prizes/puffmi-prize.png',eyebrow:'новинка',title:'PUFFMI',subtitle:'ПОДАРОК'}
+};
+let profileState={displayName:'',firstName:'',lastName:'',username:'',ordersCount:0,wheelSpun:false,prizeId:'',prize:'',prizeClaimed:false,prizes:DEFAULT_PROFILE_PRIZES};
+
+function clientEscape(value){ return String(value??'').replace(/[&<>"']/g, char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char])); }
+function prizeLabel(prize){ return typeof prize==='string'?prize:String(prize?.label||''); }
+function normalisePrizes(prizes){
+  const list=(Array.isArray(prizes)?prizes:DEFAULT_PROFILE_PRIZES).map(prizeLabel).map(item=>item.trim()).filter(Boolean).slice(0,12);
+  return list.length?list:DEFAULT_PROFILE_PRIZES;
+}
+function mergeProfile(data){
+  if(!data) return;
+  profileState={...profileState,...data,prizes:normalisePrizes(data.prizes||profileState.prizes)};
+  persistLocalProfile();
+  renderProfile();
+}
+function persistLocalProfile(){
+  if(IS_TELEGRAM_RUNTIME) return;
+  try{ localStorage.setItem(PROFILE_STORAGE_KEY,JSON.stringify(profileState)); }catch(_){ }
+}
+function readLocalProfile(){
+  if(IS_TELEGRAM_RUNTIME) return;
+  try{ const parsed=JSON.parse(localStorage.getItem(PROFILE_STORAGE_KEY)||'null'); if(parsed) profileState={...profileState,...parsed,prizes:normalisePrizes(parsed.prizes)}; }catch(_){ }
+}
+function localProfileResponse(){ return {ok:true,profile:{...profileState},prizes:normalisePrizes(profileState.prizes)}; }
+async function profileRequest(action='',payload={}){
+  if(!IS_TELEGRAM_RUNTIME){
+    if(action==='spin'&&!profileState.wheelSpun){
+      const prizes=normalisePrizes(profileState.prizes);
+      const prize=prizes[Math.floor(Math.random()*prizes.length)];
+      profileState={...profileState,prizes,wheelSpun:true,prizeId:`prize-${prizes.indexOf(prize)+1}`,prize};
+    }
+    if(action==='name') profileState.displayName=String(payload.displayName||'').trim().slice(0,60)||profileState.firstName||'';
+    if(action==='order') profileState.ordersCount=Number(profileState.ordersCount||0)+1;
+    if(action==='claim'&&profileState.prize) profileState.prizeClaimed=true;
+    persistLocalProfile();
+    const local=localProfileResponse(); mergeProfile(local.profile); return local;
+  }
+  const endpoint=String(TG_CONFIG.profileEndpoint||'/api/profile');
+  const options={headers:{'X-Telegram-Init-Data':TELEGRAM_APP.initData||''}};
+  if(action){ options.method='POST'; options.headers['Content-Type']='application/json'; options.body=JSON.stringify({action,...payload}); }
+  const response=await fetch(endpoint,options);
+  const data=await response.json().catch(()=>({}));
+  if(response.status===403&&data.code==='USER_BLOCKED'){ showBlockedScreen(); const blockedError=new Error(data.error||'Доступ ограничен'); blockedError.code='USER_BLOCKED'; throw blockedError; }
+  if(!response.ok||!data.ok) throw new Error(data.error||'profile request failed');
+  mergeProfile({...data.profile,prizes:data.prizes});
+  return data;
+}
+function polarPoint(cx,cy,r,deg){ const rad=deg*Math.PI/180; return {x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)}; }
+function wheelSectorPath(start,end,outer=160,inner=54){
+  const a=polarPoint(180,180,outer,start), b=polarPoint(180,180,outer,end), c=polarPoint(180,180,inner,end), d=polarPoint(180,180,inner,start);
+  const large=end-start>180?1:0;
+  return `M ${a.x.toFixed(2)} ${a.y.toFixed(2)} A ${outer} ${outer} 0 ${large} 1 ${b.x.toFixed(2)} ${b.y.toFixed(2)} L ${c.x.toFixed(2)} ${c.y.toFixed(2)} A ${inner} ${inner} 0 ${large} 0 ${d.x.toFixed(2)} ${d.y.toFixed(2)} Z`;
+}
+function renderWheel(prizes=profileState.prizes){
+  const disc=document.getElementById('wheelDisc'); if(!disc) return;
+  const sectors=document.getElementById('wheelSectors'); const labels=document.getElementById('wheelLabels'); const base=document.getElementById('wheelBase'); const lights=document.getElementById('wheelLights'); const center=document.getElementById('wheelCenter');
+  if(!sectors||!labels||!base||!lights||!center) return;
+  const list=normalisePrizes(prizes); profileState.prizes=list; const angle=360/list.length; const start=-90-angle/2;
+  const palette=['#c9932f','#364453','#d8a83f','#283746','#b77d24','#46576a','#e5bd69','#314353'];
+  base.innerHTML=`<circle cx="180" cy="180" r="164" fill="#101319"/><circle cx="180" cy="180" r="162" fill="url(#wheelCore)" opacity=".13"/><circle cx="180" cy="180" r="165" fill="none" stroke="url(#wheelMetal)" stroke-width="3"/><circle cx="180" cy="180" r="151" fill="none" stroke="#f5d9a0" stroke-opacity=".16" stroke-width="1"/>`;
+  sectors.innerHTML=list.map((item,i)=>{
+    const a=start+i*angle; const b=a+angle; return `<path id="wheelSector${i}" class="wheel-sector" d="${wheelSectorPath(a,b)}" fill="${palette[i%palette.length]}" stroke="#0d1015" stroke-width="3" aria-label="${clientEscape(item)}"><title>${clientEscape(item)}</title></path>`;
+  }).join('');
+  labels.innerHTML=list.map((item,i)=>{
+    const product=PRIZE_VISUALS[String(item).trim()]; const mid=start+i*angle+angle/2; const point=polarPoint(180,180,111,mid); const x=point.x.toFixed(2); const y=point.y.toFixed(2);
+    const amount=String(item).match(/(\d[\d\s]*)\s*сом/i); let inner='';
+    if(product) inner=`<image class="wheel-label-image" href="${product.image}" x="-15" y="-21" width="30" height="30"/><text class="wheel-label-title" x="0" y="17">${clientEscape(product.title)}</text><text class="wheel-label-sub" x="0" y="27">${clientEscape(product.subtitle)}</text>`;
+    else if(amount) inner=`<text class="wheel-label-eyebrow" x="0" y="-9">СКИДКА</text><text class="wheel-label-title" x="0" y="7">−${clientEscape(amount[1].replace(/\s/g,''))}</text><text class="wheel-label-sub" x="0" y="19">СОМ</text>`;
+    else if(/бесплатная доставка/i.test(item)) inner=`<text class="wheel-label-eyebrow" x="0" y="-8">ПОДАРОК</text><text class="wheel-label-title" x="0" y="7">FREE</text><text class="wheel-label-sub" x="0" y="19">ДОСТАВКА</text>`;
+    else inner=`<text class="wheel-label-eyebrow" x="0" y="-7">ПРИЗ</text><text class="wheel-label-title" x="0" y="9">${clientEscape(String(item).slice(0,12))}</text>`;
+    return `<g transform="translate(${x} ${y})" aria-label="${clientEscape(item)}"><rect class="wheel-label-card" x="-34" y="-27" width="68" height="58" rx="10"/>${inner}</g>`;
+  }).join('');
+  lights.innerHTML=Array.from({length:28},(_,i)=>{ const p=polarPoint(180,180,169,i*(360/28)-90); return `<circle class="wheel-led" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="3.2"/>`; }).join('');
+  center.innerHTML=`<circle cx="180" cy="180" r="55" fill="#080b10" stroke="url(#wheelMetal)" stroke-width="4"/><circle cx="180" cy="180" r="46" fill="url(#wheelCore)" stroke="#fff0bf" stroke-opacity=".4"/><text x="180" y="178" text-anchor="middle" fill="#1a1408" font-family="Unbounded, sans-serif" font-weight="900" font-size="16" letter-spacing="-1.5">ALAI</text><text x="180" y="193" text-anchor="middle" fill="#1a1408" font-family="Manrope, sans-serif" font-weight="900" font-size="8" letter-spacing="3">CLOUD</text>`;
+}
+function renderProfile(){
+  const name=document.getElementById('profileNameInput'); if(name&&document.activeElement!==name) name.value=profileState.displayName||profileState.firstName||'';
+  const orders=document.getElementById('profileOrders'); if(orders) orders.textContent=String(profileState.ordersCount||0);
+  const prize=document.getElementById('profilePrize'); if(prize) prize.textContent=profileState.prize||'Колесо ещё не крутили';
+  const hint=document.getElementById('profileHint'); if(hint) hint.textContent=profileState.prizeClaimed?'Запрос отправлен менеджеру — скоро свяжемся с тобой.':(profileState.prize?'Приз сохранён. Нажми кнопку ниже, чтобы забрать его.':'Колесо доступно один раз для новых пользователей.');
+  const claim=document.getElementById('claimPrizeBtn'); if(claim){ claim.classList.toggle('hidden',!profileState.prize); claim.disabled=Boolean(profileState.prizeClaimed); claim.textContent=profileState.prizeClaimed?'✅ Запрос отправлен менеджеру':'🎁 Забрать приз у менеджера'; }
+  const wheelBtn=document.getElementById('profileWheelBtn'); if(wheelBtn){ wheelBtn.classList.toggle('hidden',Boolean(profileState.wheelSpun)); }
+  const dot=document.getElementById('profilePrizeDot'); if(dot) dot.classList.toggle('hidden',!profileState.prize);
+}
+function openWheel(){
+  if(profileState.wheelSpun){ openProfile(); return; }
+  renderWheel(); updateWheelSoundButton();
+  const modal=document.getElementById('wheelModal'); if(!modal) return;
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closeWheel(){
+  const modal=document.getElementById('wheelModal'); if(!modal) return;
+  modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow='';
+}
+function openProfile(){
+  closeWheel(); renderProfile();
+  const modal=document.getElementById('profileModal'); if(!modal) return;
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closeProfile(){
+  const modal=document.getElementById('profileModal'); if(!modal) return;
+  modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow='';
+}
+function showBlockedScreen(){
+  document.getElementById('wheelModal')?.classList.add('hidden'); document.getElementById('profileModal')?.classList.add('hidden');
+  const screen=document.getElementById('blockedScreen'); if(screen){ screen.classList.remove('hidden'); screen.setAttribute('aria-hidden','false'); }
+  document.body.style.overflow='hidden';
+}
+function prizeCondition(label){
+  return /скидка|доставка/i.test(String(label))?'Покажи этот результат менеджеру при оформлении заказа.':'Получение подарка согласуй с менеджером в Telegram.';
+}
+function showPrizeResult(label){
+  const modal=document.getElementById('prizeResultModal'); const title=document.getElementById('resultPrizeTitle'); const condition=document.getElementById('resultPrizeCondition'); const art=document.getElementById('resultPrizeArt');
+  if(!modal||!title||!condition||!art) return;
+  const visual=PRIZE_VISUALS[String(label).trim()]; title.textContent=label; condition.textContent=prizeCondition(label);
+  if(visual) art.innerHTML=`<img src="${visual.image}" alt="${clientEscape(label)}">`; else { const amount=String(label).match(/(\d[\d\s]*)\s*сом/i); art.innerHTML=`<span class="result-gift-mark">${amount?`−${clientEscape(amount[1].replace(/\s/g,''))} сом`:/бесплатная доставка/i.test(label)?'FREE':'🎁'}</span>`; }
+  modal.classList.remove('hidden'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closePrizeResult(){ const modal=document.getElementById('prizeResultModal'); if(!modal) return; modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow=''; }
+let wheelSoundEnabled=true;
+try{ wheelSoundEnabled=localStorage.getItem('alai-wheel-sound')!=='off'; }catch(_){ }
+function updateWheelSoundButton(){ const button=document.getElementById('wheelSoundToggle'); if(!button) return; button.textContent=wheelSoundEnabled?'🔊 Звук включён':'🔇 Звук выключен'; button.setAttribute('aria-pressed',String(wheelSoundEnabled)); }
+function toggleWheelSound(){ wheelSoundEnabled=!wheelSoundEnabled; try{ localStorage.setItem('alai-wheel-sound',wheelSoundEnabled?'on':'off'); }catch(_){ } updateWheelSoundButton(); }
+function playWheelSpinSound(duration){
+  if(!wheelSoundEnabled||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return ()=>{};
+  const AudioContext=window.AudioContext||window.webkitAudioContext; if(!AudioContext) return ()=>{};
+  let context; try{ context=new AudioContext(); }catch(_){ return ()=>{}; }
+  let stopped=false; const tick=()=>{ if(stopped) return; const oscillator=context.createOscillator(); const gain=context.createGain(); oscillator.type='sine'; oscillator.frequency.value=210+Math.random()*120; gain.gain.setValueAtTime(.0001,context.currentTime); gain.gain.exponentialRampToValueAtTime(.025,context.currentTime+.008); gain.gain.exponentialRampToValueAtTime(.0001,context.currentTime+.06); oscillator.connect(gain).connect(context.destination); oscillator.start(); oscillator.stop(context.currentTime+.07); };
+  const interval=window.setInterval(tick,170); tick();
+  return ()=>{ stopped=true; window.clearInterval(interval); context.close().catch(()=>{}); };
+}
+async function spinWheel(){
+  const button=document.getElementById('spinWheelBtn'); const result=document.getElementById('wheelResult'); const disc=document.getElementById('wheelDisc'); const rotor=document.getElementById('wheelRotor');
+  if(!button||!result||!disc||!rotor||profileState.wheelSpun) return;
+  button.disabled=true; result.textContent='Колесо крутится…';
+  try{ TELEGRAM_APP?.HapticFeedback?.impactOccurred('medium'); }catch(_){ }
+  try{
+    const data=await profileRequest('spin');
+    const prizes=normalisePrizes(data.prizes||profileState.prizes); const index=Math.max(0,prizes.indexOf(data.profile?.prize||profileState.prize));
+    const angle=360/prizes.length; const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; const duration=reduced?80:6800; const turn=360*7-(index*angle); rotor.style.setProperty('--wheel-turn',`${turn}deg`); disc.classList.remove('spinning'); void disc.offsetWidth; disc.classList.add('spinning');
+    const stopSound=playWheelSpinSound(duration); window.setTimeout(stopSound,duration);
+    window.setTimeout(()=>{ document.getElementById(`wheelSector${index}`)?.classList.add('selected'); result.innerHTML=`🎉 Тебе выпало: <strong>${clientEscape(profileState.prize)}</strong>`; button.textContent='Приз сохранён'; document.getElementById('wheelProfileBtn')?.classList.remove('hidden'); renderProfile(); try{ TELEGRAM_APP?.HapticFeedback?.notificationOccurred('success'); }catch(_){ } showPrizeResult(profileState.prize); },duration+180);
+  }catch(error){ button.disabled=false; result.textContent=error?.code==='USER_BLOCKED'?'Доступ ограничен.': 'Не получилось сохранить результат. Попробуй ещё раз.'; console.error(error); }
+}
+async function saveProfileName(){
+  const input=document.getElementById('profileNameInput'); if(!input) return;
+  const button=document.getElementById('profileSaveBtn'); if(button) button.disabled=true;
+  try{ await profileRequest('name',{displayName:input.value}); if(button){ button.textContent='Сохранено'; setTimeout(()=>{button.textContent='Сохранить';button.disabled=false;},1200); } }
+  catch(error){ if(button) button.disabled=false; console.error(error); }
+}
+async function claimPrize(){
+  if(!profileState.prize){ closeProfile(); openWheel(); return; }
+  try{ await profileRequest('claim'); }catch(error){ console.error(error); }
+  const message=LANG==='kg'?`Саламатсызбы! Мен Alai Cloud'дун дөңгөлөгүнөн «${profileState.prize}» утуп алдым. Призди алгым келет.`:`Здравствуйте! Я выиграл(а) приз «${profileState.prize}» в колесе Alai Cloud. Хочу забрать его.`;
+  const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim(); const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
+  const target=username?`https://t.me/${username}?text=${encodeURIComponent(message)}`:(phone?`https://t.me/+${phone}?text=${encodeURIComponent(message)}`:'');
+  if(target) openTelegramUrl(target); else alert('Контакт менеджера пока не настроен.');
+}
+async function loadProfile(){
+  readLocalProfile(); renderWheel(); renderProfile();
+  try{ await profileRequest(); }catch(error){ if(error?.code!=='USER_BLOCKED') console.warn('[profile]',error.message); }
+  renderWheel(); renderProfile();
+  if(!profileState.wheelSpun&&document.getElementById('blockedScreen')?.classList.contains('hidden')){ setTimeout(()=>{ if(!profileState.wheelSpun&&!document.getElementById('blockedScreen')?.classList.contains('hidden')) openWheel(); },IS_TELEGRAM_RUNTIME?700:3400); }
 }
 function logo3dInner(){ return LOGO_URL?`<img src="${LOGO_URL}" alt="Alai Cloud">`:logoBadge(320); }
 function attachLogo3D(){
@@ -943,8 +1328,8 @@ const T={
   promoToday:{ru:"СЕГОДНЯ",kg:"БҮГҮН"},
   promoTopText:{ru:"Берите две — третья в подарок",kg:"Экини алыңыз — үчүнчүсү белекке"},
   promoTopCta:{ru:"Выбрать вкус",kg:"Даам тандоо"},
-  heroTitle:{ru:"Оригинальные одноразки",kg:"Оригиналдуу бир жолку түтүкчөлөр"},
-  heroSub:{ru:"WAKA, Elf Bar, Lost Mary, VOZOL, Geek Bar. Доставка по всему Кыргызстану.",kg:"WAKA, Elf Bar, Lost Mary, VOZOL, Geek Bar. Кыргызстан боюнча жеткирүү."},
+  heroTitle:{ru:"Выбери свой вкус",kg:"Даамыңды танда"},
+  heroSub:{ru:"Оригинальные одноразки · доставка по Кыргызстану",kg:"Оригиналдуу бир жолку түзмөктөр · Кыргызстан боюнча жеткирүү."},
   ctaCatalog:{ru:"Смотреть каталог",kg:"Каталогду көрүү"},
   iqosNewT:{ru:"Мы завезли IQOS",kg:"Биз IQOS алып келдик"},
   iqosNewCta:{ru:"Смотреть IQOS",kg:"IQOS көрүү"},
@@ -1076,23 +1461,18 @@ function renderHome(){
   <section class="hero-shell">
     <div class="grid md:grid-cols-[1.08fr_.92fr] gap-6 items-center relative z-10">
       <div class="hero-copy rvl">
-        <div class="hero-kicker">Alai Cloud · Кыргызстан</div>
-        <h1 class="hero-title font-extrabold">${t('heroTitle')}<em>Original selection</em></h1>
+        <div class="hero-offer hero-offer-main"><strong>1+1=3</strong><div><span class="hero-offer-label">Акция сегодня</span><span class="hero-offer-text">Две покупаешь — третья в подарок</span></div></div>
+        <h1 class="hero-title font-extrabold">${t('heroTitle')}</h1>
         <p class="text-white/60 mt-3 text-[15px] sm:text-[17px] max-w-md">${t('heroSub')}</p>
         <div class="hero-actions flex flex-wrap gap-3 mt-7">
           <a href="#catalog" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink);box-shadow:0 12px 30px -14px rgba(233,190,106,.6)">${t('ctaCatalog')} <i data-lucide="arrow-down" style="width:16px;height:16px"></i></a>
           <button onclick="openTelegramContact()" class="flex items-center gap-2 font-bold px-5 py-3.5 rounded-xl text-[15px]" style="background:#2AABEE;color:#061a29"><i data-lucide="send" style="width:16px;height:16px"></i> ${t('ctaWa')}</button>
         </div>
-        <div class="inline-flex flex-wrap items-center gap-2.5 mt-4 glass rounded-2xl px-2.5 py-2">
-          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full tracking-wider" style="background:linear-gradient(180deg,var(--gold-hi),var(--gold-dp));color:var(--gold-ink)">NEW</span>
-          <span class="text-[13px] sm:text-[14px] font-bold">${t('iqosNewT')}</span>
-          <button onclick="setCat('iqos')" class="flex items-center gap-1.5 text-[12px] sm:text-[13px] font-extrabold px-3 py-1.5 rounded-lg" style="background:rgba(233,190,106,.10);border:1px solid rgba(233,190,106,.34);color:var(--sky)">${t('iqosNewCta')} <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
-        </div>
       </div>
       <div class="hero-visual rvl">
         <div class="hero-proof hero-proof-one">100%<small>original</small></div>
         <div class="hero-proof hero-proof-two">6000+<small>${LANG==='kg'?'кардар':'клиентов'}</small></div>
-        <div class="logo3d-stage relative z-10" style="width:clamp(230px,34vw,370px)">
+        <div class="logo3d-stage relative z-10" style="width:clamp(190px,26vw,290px)">
           <div class="logo-ring"></div>
           <div id="logo3d" class="logo3d">${logo3dInner()}</div>
         </div>
@@ -1139,7 +1519,7 @@ function renderHome(){
     </div>
   </section>
 
-  <section class="rvl">
+  <section class="trust-section rvl">
     <div class="trust-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
       ${[['calendar-check','tr1'],['truck','tr2'],['users','tr3'],['gift','tr4'],['battery-charging','tr5']].map(([ic,k])=>`
         <div class="glass rounded-2xl p-3 flex items-center gap-2.5">
@@ -1167,7 +1547,7 @@ function renderHome(){
     </div>
   </section>
 
-  <section class="pt-5">
+  <section class="catalog-products pt-5">
     <h2 class="text-[20px] sm:text-[26px] font-extrabold mb-4">${catName(cats.find(c=>c.id===activeCat))} <span class="text-white/40 text-[15px] font-semibold">· ${full.length}</span></h2>
     ${list.length?`<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">${list.map(modelCard).join('')}</div>`:`<div class="glass rounded-2xl px-4 py-10 text-center text-white/60"><i data-lucide="search-x" class="mx-auto mb-3 text-white/45" style="width:28px;height:28px"></i>${t('noResults')}</div>`}
     ${collapsed?`<div class="text-center mt-6"><button onclick="revealAll()" class="inline-flex items-center gap-2 font-bold px-6 py-3.5 rounded-xl glass text-[15px] hover:bg-white/10">${t('showAllBtn')} (${full.length}) <i data-lucide="chevron-down" style="width:16px;height:16px"></i></button></div>`:''}
@@ -1502,6 +1882,7 @@ async function sendTelegram(){
     }
     const username=String(TG_CONFIG.botUsername||'').replace(/^@/,'').trim();
     if(username){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
       const target=`https://t.me/${username}?text=${encodeURIComponent(composed.message)}`;
       openTelegramUrl(target);
       alert(LANG==='kg' ? "Буйрутма даяр. Telegram'да жөнөтүүнү басыңыз" : 'Текст заказа уже вставлен в Telegram. Проверьте его и нажмите «Отправить».');
@@ -1509,6 +1890,7 @@ async function sendTelegram(){
     }
     const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
     if(phone){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
       try{ await navigator.clipboard.writeText(composed.message); }catch(_){ }
       openTelegramUrl(`https://t.me/+${phone}`);
       alert(LANG==='kg'?'Буйрутма тексти көчүрүлдү':'Текст заказа скопирован. Вставьте его в Telegram.');
@@ -1519,6 +1901,7 @@ async function sendTelegram(){
     console.error(error);
     const phone=String(TG_CONFIG.contactPhone||'').replace(/\D/g,'');
     if(phone){
+      if(IS_TELEGRAM_RUNTIME) profileRequest('order',{orderId:envelope.orderId}).catch(()=>{});
       try{ await navigator.clipboard.writeText(composed.message); }catch(_){ }
       try{ openTelegramUrl(`https://t.me/+${phone}`); }catch(_){ }
       alert(LANG==='kg'?'Буйрутма тексти көчүрүлдү':'Текст заказа скопирован. Вставьте его в Telegram.');
@@ -1563,6 +1946,7 @@ document.getElementById('logoMarkFooter').innerHTML=logoEl(40);
 setLang('ru');
 tickTimer();
 lucide.createIcons();
+void loadProfile();
 
 /* intro splash */
 (function(){

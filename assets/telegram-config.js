@@ -12,5 +12,6 @@ window.ALAI_TELEGRAM={
   contactPhone:'+996880560570',
   botUsername:'alairustam',
   orderEndpoint:'',
+  profileEndpoint:'/api/profile',
   useBot:false
 };
