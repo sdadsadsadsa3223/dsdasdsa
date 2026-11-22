@@ -343,8 +343,12 @@
   .blocked-icon{font-size:42px;filter:drop-shadow(0 10px 20px #0008)}
   @media(max-width:430px){.wheel-stage{width:min(88vw,340px)}.wheel-panel{padding:22px 15px 17px}.wheel-tools{font-size:9px}.wheel-tools button{font-size:9px}}
   /* Telegram Mini App: catalog first, compact controls, native Telegram chrome. */
-  .tg-mini #intro,.tg-mini .promo-card,.tg-mini .trust-grid{display:none!important}
-  .tg-mini .promo-strip{padding:10px 12px!important}
+  .tg-mini #intro,.tg-mini .promo-card,.tg-mini .trust-grid,
+  .tg-mini .hero-shell,.tg-mini .promo-strip{display:none!important}
+  .wheel-catalog-exit,.catalog-wheel-entry{min-height:44px;padding:8px 14px;border:1px solid rgba(233,190,106,.5);border-radius:12px;color:var(--gold-hi);font-weight:700}
+  .wheel-catalog-exit{display:block;width:100%;margin:0 0 12px;background:rgba(233,190,106,.12)}
+  .catalog-wheel-entry{display:none}
+  .tg-mini .catalog-wheel-entry{display:inline-flex;align-items:center;margin-top:14px}
   .tg-mini .promo-strip-inner{gap:8px;justify-content:space-between}
   .tg-mini .promo-copy{gap:7px}
   .tg-mini .promo-kicker{display:none}
@@ -509,10 +513,8 @@
 <div id="wheelModal" class="wheel-modal hidden" aria-hidden="true">
   <div class="wheel-backdrop" onclick="closeWheel()"></div>
   <section class="wheel-panel" role="dialog" aria-modal="true" aria-labelledby="wheelTitle">
-    <button type="button" class="wheel-close" onclick="closeWheel()" aria-label="Закрыть">×</button>
-    <div class="wheel-kicker">🎁 Твой подарок от Alai Cloud</div>
-    <h2 id="wheelTitle">Забери свой бонус</h2>
-    <p>Один поворот — один подарок. Результат сохранится в профиле.</p>
+    <button type="button" class="wheel-catalog-exit" onclick="closeWheelToCatalog()">← К ассортименту</button>
+    <h2 id="wheelTitle">Колесо подарков</h2>
     <div class="wheel-stage">
       <div class="wheel-pointer" aria-hidden="true"><span></span></div>
       <div id="wheelDisc" class="wheel-disc">
@@ -809,6 +811,12 @@ function openWheel(){
 function closeWheel(){
   const modal=document.getElementById('wheelModal'); if(!modal) return;
   modal.classList.add('hidden'); modal.setAttribute('aria-hidden','true'); if(document.getElementById('sheet')?.classList.contains('hidden')) document.body.style.overflow='';
+}
+function closeWheelToCatalog(){
+  closeWheel();
+  const catalog=document.getElementById('catalog');
+  catalog?.focus({preventScroll:true});
+  catalog?.scrollIntoView({block:'start',behavior:'instant'});
 }
 function openProfile(){
   closeWheel(); renderProfile();
@@ -1623,7 +1631,7 @@ function renderHome(){
     </div>
   </section>
 
-  <section id="catalog" class="catalog-panel">
+  <section id="catalog" class="catalog-panel" tabindex="-1">
     <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5">
       ${cats.map(c=>{const active=activeCat===c.id;const cnt=models.filter(m=>m.cat===c.id).length;return `<button onclick="setCat('${c.id}')" class="category-button flex flex-col items-center justify-center gap-1.5 py-3 rounded-2xl border transition ${active?'text-white':'text-white/70'}" style="${active?'background:linear-gradient(180deg,#343A44,#181B21);border-color:rgba(233,190,106,.55);box-shadow:0 10px 26px -12px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.07)':'background:#ffffff08;border-color:#ffffff18'}">
         <i data-lucide="${c.icon}" style="width:20px;height:20px"></i>
@@ -1645,6 +1653,7 @@ function renderHome(){
     <h2 class="text-[20px] sm:text-[26px] font-extrabold mb-4">${catName(cats.find(c=>c.id===activeCat))} <span class="text-white/40 text-[15px] font-semibold">· ${full.length}</span></h2>
     ${list.length?`<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">${list.map(modelCard).join('')}</div>`:`<div class="glass rounded-2xl px-4 py-10 text-center text-white/60"><i data-lucide="search-x" class="mx-auto mb-3 text-white/45" style="width:28px;height:28px"></i>${t('noResults')}</div>`}
     ${collapsed?`<div class="text-center mt-6"><button onclick="revealAll()" class="inline-flex items-center gap-2 font-bold px-6 py-3.5 rounded-xl glass text-[15px] hover:bg-white/10">${t('showAllBtn')} (${full.length}) <i data-lucide="chevron-down" style="width:16px;height:16px"></i></button></div>`:''}
+    <button type="button" class="catalog-wheel-entry" onclick="openWheel()">${LANG==='kg'?'Белек дөңгөлөгү':'Колесо подарков'}</button>
   </section>
 
   <section class="pt-12">
@@ -1685,6 +1694,11 @@ function renderHome(){
   </section>`;
   lucide.createIcons();
   const searchInput=document.getElementById('catalogSearch'); if(searchInput) searchInput.value=searchQuery;
+  if(document.body.classList.contains('tg-mini')){
+    const products=document.querySelector('.catalog-products');
+    const referral=document.querySelector('.referral-card');
+    products.after(referral);
+  }
   revealObserve();
   attachLogo3D();
 }
